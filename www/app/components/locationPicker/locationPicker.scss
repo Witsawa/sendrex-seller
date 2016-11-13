@@ -1,0 +1,18 @@
+location-picker{
+
+}
+.ion-google-place-container {
+  pointer-events: auto;
+}
+.vertical-flex-container{
+  display: -webkit-flex;
+  display: flex;
+
+  flex-direction: column;
+
+  height: 100%;
+  .flex{
+    -webkit-flex: 1;
+    flex: 1;
+  }
+}

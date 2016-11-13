@@ -1,0 +1,14 @@
+<ion-view view-title="Promotions" show-store-tabs show-root-tabs>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="$ctrl.edit()"><i class="icon ion-android-add"></i></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="promotion in $ctrl.promotions" ng-click="$ctrl.edit(promotion)" on-hold="$ctrl.showActions(promotion)">
+        <div class="h4">{{promotion.name}}</div>
+        <div>{{promotion.discount_amount}}{{promotion.discount_percent?"%":$ctrl.shop.currency}} Off{{promotion.free_delivery?", Free delivery":""}}</div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-view>

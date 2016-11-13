@@ -1,0 +1,29 @@
+<ion-view view-title="New Shop">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button ng-click="$ctrl.goBack()"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+    <ion-slides ion-wizard slider="swiper" options="swiperOptions">
+      <ion-slide-page ion-wizard-step >
+        <ion-content>
+          <shop-form shop="$ctrl.shop"></shop-form>
+        </ion-content>
+      </ion-slide-page>
+      <ion-slide-page ion-wizard-step>
+        <payment-form shop="$ctrl.shop"></payment-form>
+      </ion-slide-page>
+      <ion-slide-page ion-wizard-step>
+        <delivery-form shop="$ctrl.shop"></delivery-form>
+      </ion-slide-page>
+      <ion-slide-page ion-wizard-step>
+        <h1>Finish, let's start selling</h1>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+  <ion-footer-bar class="bar-positive">
+    <button class="button button-clear" ion-wizard-previous >Back</button>
+    <h1 class="title"></h1>
+    <button class="button button-clear pull-right" ion-wizard-next >Next</button>
+    <button class="button button-clear pull-right" ion-wizard-start="$ctrl.createShop($ctrl.shop)">Create shop</button>
+  </ion-footer-bar>
+</ion-view>

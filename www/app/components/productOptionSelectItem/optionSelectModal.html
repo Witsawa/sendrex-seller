@@ -1,0 +1,15 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+      <button class="button button-clear" ng-click="$ctrl.save()">Done</button>
+    <h1 class="title">Options</h1>
+      <button class="button button-clear" ng-click="$ctrl.openEditModal()"><i class="ion-android-add icon"></i></button>
+  </ion-header-bar>
+  <ion-content>
+   <ion-list>
+       <ion-toggle ng-model="$ctrl.enableOptions">Variant</ion-toggle>
+     <ion-checkbox ng-repeat="option in $ctrl.options" ng-model="option.checked"  on-hold="$ctrl.showActions(option)">
+       {{option.name}}
+     </ion-checkbox>
+   </ion-list>
+  </ion-content>
+</ion-modal-view>

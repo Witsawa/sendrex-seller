@@ -1,0 +1,31 @@
+
+<ion-tabs class="tabs-stable tabs-top {{$root.showtabbar?'':'tabs-item-hide'}}">
+
+  <ion-tab title="Products" href="{{$ctrl.getStateUrl('tabs.store.products')}}">
+    <!-- Tab 1 content -->
+
+    <ion-nav-view name="store-products-content" >
+
+    </ion-nav-view>
+
+  </ion-tab>
+  <ion-tab title="Value packs" href="{{$ctrl.getStateUrl('tabs.store.valuepacks')}}">
+    <!-- Tab 3 content -->
+
+    <ion-nav-view name="store-valuepacks-content">
+
+    </ion-nav-view>
+
+  </ion-tab>
+  <ion-tab title="Promotions" href="{{$ctrl.getStateUrl('tabs.store.promotions')}}">
+    <!-- Tab 2 content -->
+
+    <ion-nav-view name="store-promotions-content">
+
+    </ion-nav-view>
+
+  </ion-tab>
+
+
+
+</ion-tabs>

@@ -1,0 +1,13 @@
+<ion-list>
+  <ion-item class="item-input">
+    <labe class="input-label">Name</labe>
+    <input type="text" ng-model="$ctrl.valuePack.name">
+  </ion-item>
+  <ion-item class="item-input">
+    <labe class="input-label">Price</labe>
+    <input type="text" ng-model="$ctrl.valuePack.price">
+  </ion-item>
+  <product-select-item ng-model="$ctrl.valuePack.products" shop-id="$ctrl.shopId">
+    Products
+  </product-select-item>
+</ion-list>

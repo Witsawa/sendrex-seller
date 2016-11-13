@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-refresher
+          pulling-text="Pull to refresh..."
+          on-refresh="$ctrl.refresh()">
+  </ion-refresher>
+<ion-list>
+
+  <form>
+    <ion-item class="item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="search" placeholder="Search product" ng-model="query">
+      </label>
+      <button type="submit" class="button button-clear button-stable" ng-click="$ctrl.search(query)"><i class="icon ion-search"></i></button>
+    </ion-item>
+  </form>
+  <item-select-modal item-class="item-divider" ng-model="$ctrl.category" on-select="$ctrl.filterChange(value)" options="$ctrl.categories" text-key="name" value-key="id" title="Select category" default-text="All category">
+    <label class="h4">Filter: </label>
+  </item-select-modal>
+  <ion-list>
+    <ion-item ng-repeat="product in $ctrl.products" ng-click="$ctrl.onItemClick({product:product})">
+      {{product.name}}
+    </ion-item>
+  </ion-list>
+
+
+</ion-list>
+  <ion-infinite-scroll
+          on-infinite="$ctrl.loadMore()"
+          distance="1%"
+          ng-if="$ctrl.showLoadmore"
+  >
+  </ion-infinite-scroll>
+</ion-content>

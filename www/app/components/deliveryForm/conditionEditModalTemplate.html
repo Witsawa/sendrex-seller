@@ -1,0 +1,56 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear" ng-click="$ctrl.conditionEditModal.hide()">Cancel</button>
+        <h1 class="title">{{method.name}}</h1>
+        <button class="button button-clear" ng-click="$ctrl.saveCondition(condition)">Save</button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-input item-stacked-label">
+                <label class="input-label">From</label>
+                <label class="item-input-wrapper light-bg">
+                    <input type="number" ng-model="condition.from" class="text-right"> Km
+                </label>
+            </ion-item>
+            <ion-item class="item-input item-stacked-label">
+                <label class="input-label">To</label>
+                <label class="item-input-wrapper light-bg">
+                    <input type="number" ng-model="condition.to" class="text-right"> Km
+                </label>
+            </ion-item>
+            <ion-item class="item-input item-stacked-label">
+                <label class="input-label">Fee</label>
+                <label class="item-input-wrapper light-bg">
+                    <input type="number" ng-model="condition.service_fee" class="text-right"> USD
+                </label>
+
+            </ion-item>
+            <ion-item class="item-input item-stacked-label">
+                <div>
+                    <label class="input-label">Estimate delivery time</label>
+                </div>
+                <div class="row">
+                    <div class="col item-input">
+                        <input type="number" ng-model="condition.delivery_time" class="text-right">
+                    </div>
+                    <div style="width:120px;" class="item-input item-select" >
+                        <select ng-model="condition.delivery_time_unit"
+                                style="max-width:100%;">
+                            <option value="Minutes">Minutes</option>
+                            <option value="Hours">Hours</option>
+                            <option value="Days">Days</option>
+                        </select>
+                    </div>
+                </div>
+
+            </ion-item>
+            <ion-item class="item-input item-stacked-label">
+                <label class="input-label">Minimum purchase</label>
+                <label class="item-input-wrapper light-bg">
+                    <input type="number" ng-model="condition.min_purchase" class="text-right"> USD
+                </label>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

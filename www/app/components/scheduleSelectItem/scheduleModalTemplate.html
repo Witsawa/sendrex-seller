@@ -1,0 +1,19 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear" ng-click="$ctrl.save()">Done</button>
+        <h1 class="title">Schedule</h1>
+        <button class="button button-clear" ng-click="$ctrl.edit()"><i class="icon ion-android-add"></i></button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-item ng-repeat="schedule in $ctrl.schedules track by $index" ng-click="$ctrl.edit(schedule)" on-hold="$ctrl.showActions(schedule)">
+            <div>
+                {{schedule.from|date:'h:mma'}} - {{schedule.to|date:'h:mma'}}
+            </div>
+            <div>
+                <span ng-repeat="day in schedule.days">
+                    <span ng-if="$index!=0">, </span><span>{{day}}</span>
+                </span>
+            </div>
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

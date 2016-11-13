@@ -1,0 +1,47 @@
+<ion-list>
+  <ion-item class="item-divider">
+    Information
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="item-stacked-label">Shop name</label>
+    <input type="text" ng-model="$ctrl.shop.name">
+  </ion-item>
+  <item-select-modal  ng-model="$ctrl.shop.businessCategoryId" options="$ctrl.categories" text-key="name" value-key="id" title="Select category" default-text="">
+    Business category
+  </item-select-modal>
+  <ion-item class="item-input item-stacked-label">
+    <label class="item-stacked-label">Description</label>
+    <textarea rows="5" ng-model="$ctrl.shop.description"></textarea>
+  </ion-item>
+  <location-picker ng-model="$ctrl.shop.location">
+    Shop location
+  </location-picker>
+  <ion-item class="item-divider">
+    Contact
+  </ion-item>
+
+  <ion-item class="item-input item-stacked-label">
+    <label class="item-stacked-label">Contact number</label>
+    <input type="text" ng-model="$ctrl.shop.contact_number">
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="item-stacked-label">Email</label>
+    <input type="text" ng-model="$ctrl.shop.email">
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="item-stacked-label">Website</label>
+    <input type="text" ng-model="$ctrl.shop.website">
+  </ion-item>
+  <location-picker ng-model="$ctrl.shop.location">
+    Contact address
+  </location-picker>
+  <ion-item class="item-divider">
+    Service time
+  </ion-item>
+  <schedule-select-item ng-model="$ctrl.shop.open_close">
+    Open-close time
+  </schedule-select-item>
+  <schedule-select-item ng-model="$ctrl.shop.delivery_time">
+    Delivery time
+  </schedule-select-item>
+</ion-list>

@@ -1,0 +1,17 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear" ng-click="$ctrl.saveMethodCondition(method)">Done</button>
+        <h1 class="title">{{method.name}}</h1>
+        <button class="button button-clear" ng-click="$ctrl.editCondition()"><i class="icon ion-android-add"></i></button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="condition in method.conditions track by $index" ng-click="$ctrl.editCondition(condition)" on-hold="$ctrl.showActions(condition)">
+                {{condition.from}} km - {{condition.to}} km
+                <span class="item-note dark">
+                    {{condition.service_fee==0?"Free":(condition.service_fee | currency:"USD")}}
+                </span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

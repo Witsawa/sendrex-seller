@@ -1,0 +1,14 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+      <button class="button button-clear" ng-click="$ctrl.selectItem($ctrl.getSelectedItem())">Done</button>
+    <h1 class="title">Category</h1>
+      <button class="button button-clear" ng-click="$ctrl.openEditModal()"><i class="ion-android-add icon"></i></button>
+  </ion-header-bar>
+  <ion-content>
+   <ion-list>
+     <ion-radio ng-repeat="category in $ctrl.categories" ng-model="$ctrl.ngModel" ng-value="category.id" on-hold="$ctrl.showActions(category)">
+       {{category.name}}
+     </ion-radio>
+   </ion-list>
+  </ion-content>
+</ion-modal-view>

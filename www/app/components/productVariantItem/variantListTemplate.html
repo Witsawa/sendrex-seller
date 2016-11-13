@@ -1,0 +1,46 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear" ng-click="$ctrl.save()">Done</button>
+        <h1 class="title">Variants</h1>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-toggle ng-model="$ctrl.enableVariants">Variant</ion-toggle>
+            <div class="padding">
+                <div class="row">
+                    <div class="col-25 ">
+                        SKU
+                    </div>
+                    <div class="col-25">
+                        Variant
+                    </div>
+                    <div class="col-25">
+                        Price
+                    </div>
+                    <div class="col-25">
+                        Stock
+                    </div>
+                </div>
+            </div>
+            <ion-item ng-repeat="variant in $ctrl.variants" on-hold="$ctrl.showActions(variant)">
+                <div class="row">
+                    <div class="col-25">
+                        <input type="text" placeholder="SKU" ng-model="variant.SKU">
+                    </div>
+                    <div class="col-25">
+                        <input type="text" placeholder="Variant" ng-model="variant.name">
+                    </div>
+                    <div class="col-25">
+                        <input type="number" placeholder="Price" ng-model="variant.price">
+                    </div>
+                    <div class="col-25">
+                        <input type="number" placeholder="Stock" ng-model="variant.stock">
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="padding">
+            <button class="button button-positive" ng-click="$ctrl.addVariant()"><i class="icon ion-android-add"></i> Add variant</button>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,9 @@
+<ion-view view-title="Products" show-store-tabs show-root-tabs>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="$ctrl.newProduct()"><i class="icon ion-android-add"></i></button>
+  </ion-nav-buttons>
+  <ion-content scroll="false">
+
+    <product-list shop-id="$ctrl.shopId" on-item-click="$ctrl.editProduct(product)"></product-list>
+  </ion-content>
+</ion-view>

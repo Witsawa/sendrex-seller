@@ -1,0 +1,42 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear" ng-click="$ctrl.editModal.hide()">Cancel</button>
+        <h1 class="title">Options</h1>
+        <button class="button button-clear" ng-click="$ctrl.saveOption(option)">Save</button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-input item-stacked-label">
+                <label class="input-label">Option name</label>
+                <input type="text" ng-model="option.name" placeholder="Option name">
+            </ion-item>
+            <ion-item class="item-divider">
+                Choices
+            </ion-item>
+            <div class="padding">
+                <div class="row">
+                    <div class="col-50">
+                       Choice value
+                    </div>
+                    <div class="col-50">
+                        Additional price
+                    </div>
+                </div>
+            </div>
+            <ion-item ng-repeat="optionValue in option.productOptionValues">
+                <div class="row">
+                    <div class="col-50">
+                        <input type="text" ng-model="optionValue.value" placeholder="Choice value">
+                    </div>
+                    <div class="col-50">
+                        <input type="number" ng-model="optionValue.price" placeholder="Additional price">
+                    </div>
+                </div>
+
+            </ion-item>
+            <div class="padding">
+                <button class="button button-positive" ng-click="$ctrl.addOptionValue()"><i class="icon ion-android-add"></i> Add choice</button>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

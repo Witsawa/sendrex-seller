@@ -1,0 +1,15 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear" ng-click="$ctrl.editModal.hide()">Cancel</button>
+        <h1 class="title">Category</h1>
+        <button class="button button-clear" ng-click="$ctrl.saveCategory(category)">Save</button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-input item-stacked-label">
+                <label class="input-label">Name</label>
+                <input type="text" ng-model="category.name">
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

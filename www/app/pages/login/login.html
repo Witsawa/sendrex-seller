@@ -1,0 +1,24 @@
+
+<ion-view view-title="Login">
+  <ion-nav-bar class="bar-positive"></ion-nav-bar>
+  <ion-content>
+    <form ng-submit="$ctrl.login()">
+      <ion-list>
+        <ion-item class="item-input">
+          <label class="input-label">Email</label>
+          <input type="email" ng-model="$ctrl.credential.email">
+        </ion-item>
+        <ion-item class="item-input">
+          <label class="input-label">Password</label>
+          <input type="password" ng-model="$ctrl.credential.password">
+        </ion-item>
+        <div class="padding">
+          <button type="submit" class="button button-positive button-block">Login</button>
+        </div>
+        <div class="padding text-center">
+          <button class="button button-positive" ui-sref="register">Create your account</button>
+        </div>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

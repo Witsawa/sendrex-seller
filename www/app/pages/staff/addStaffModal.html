@@ -1,0 +1,40 @@
+<ion-modal-view class="staff-modal">
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear" ng-click="$ctrl.modal.hide()">Cancel</button>
+        <h1 class="title">Add staff</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="Search email" ng-model="email">
+                </label>
+                <button class="button button-small" ng-click="$ctrl.searchCustomer(email)">
+                    Search
+                </button>
+            </div>
+        </div>
+        <div class="text-center" ng-if="searchResult">
+            <div class="profile-image" style="background-image:url({{searchResult.image}}),url(http://placehold.it/200x200)"></div>
+            <div ng-if="searchResult.firstname && searchResult.lastname">{{searchResult.firstname}} {{searchResult.lastname}}</div>
+            <div ng-if="!(searchResult.firstname && searchResult.lastname)">{{searchResult.email}}</div>
+            <div class="row">
+                <div class="col col-50 col-offset-25">
+                    <ion-list>
+                        <ion-item class="input-item item-select">
+                            <select style="max-width:100%;" ng-model="$ctrl.roleId" >
+                                <option value="" disabled selected hidden>Assign staff role</option>
+                                <option value={{role.id}} ng-repeat="role in $ctrl.roles">{{role.name}}</option>
+                            </select>
+                        </ion-item>
+                    </ion-list>
+
+                    <div class="padding">
+                        <button class="button button-positive" ng-disabled ng-click="$ctrl.addToShopStaff($ctrl.roleId,searchResult.id)">Done</button>
+                    </div>
+                </span>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

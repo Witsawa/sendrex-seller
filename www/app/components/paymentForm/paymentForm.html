@@ -1,0 +1,8 @@
+<ion-list>
+  <ion-item class="item-divider">
+    Payment method
+  </ion-item>
+  <ion-toggle ng-repeat="method in $ctrl.shop.payment_methods" ng-model="method.active">
+    {{method.name}}
+  </ion-toggle>
+</ion-list>

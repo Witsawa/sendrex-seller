@@ -1,0 +1,43 @@
+<div class="list list-inset">
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">Name</label>
+    <input type="text" ng-model="$ctrl.product.name">
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">SKU</label>
+    <input type="text" ng-model="$ctrl.product.productVariants[0].SKU">
+  </ion-item>
+  <ion-item class="item-input item-stacked-label item-input-inset light-bg">
+    <label class="input-label">Price</label>
+    <div class="item-input-wrapper light-bg">
+    <input type="number" ng-model="$ctrl.product.productVariants[0].price" class="light-bg">
+      <i class="item-input-inset">{{$ctrl.product.shop.currency}}</i>
+    </div>
+  </ion-item>
+  <ion-item class="item-input item-stacked-label item-input-inset light-bg">
+    <label class="input-label">Stock</label>
+    <div class="item-input-wrapper light-bg">
+      <input type="number" ng-model="$ctrl.product.productVariants[0].stock" class="light-bg">
+      <i class="item-input-inset">Units</i>
+    </div>
+  </ion-item>
+</div>
+<div class="list list-inset">
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">Description</label>
+    <textarea ng-model="$ctrl.product.description" rows="5"></textarea>
+  </ion-item>
+  <item-select-modal ng-model="$ctrl.product.productCategoryId" options="$ctrl.categories" text-key="name" value-key="id" title="Select category" default-text="">
+    Global cateogry
+  </item-select-modal>
+  <product-category-select-item ng-model="$ctrl.product.shopProductCategoryId" shop-id="$ctrl.product.shopId">
+    Shop Category
+  </product-category-select-item>
+  <product-variant-item ng-model="$ctrl.product.productVariants" shop-id="$ctrl.product.shopId" enable-variants="$ctrl.product.enableVariants">
+    Variant
+  </product-variant-item>
+  <product-option-select-item ng-model="$ctrl.product.productOptions" shop-id="$ctrl.product.shopId" enable-options="$ctrl.product.enableOptions">
+    Option
+  </product-option-select-item>
+
+</div>

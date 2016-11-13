@@ -1,0 +1,37 @@
+<ion-view view-title="SelectShop" class="select-shop">
+  <ion-content padding="true">
+    <div class="row row-center">
+      <div class="col col-center">
+        <div class="profile-image" style="background-image:url({{$ctrl.user.display_image}}),url(http://placehold.it/200x200);"></div>
+      </div>
+    </div>
+    <div class="row row-center">
+      <div class="col col-center">
+        Welcome {{$ctrl.user.username || $ctrl.user.email}}
+      </div>
+    </div>
+    <div class="row row-center" ng-show="$ctrl.shops.length>0">
+      <div class="col col-center">
+        Continue with
+      </div>
+    </div>
+    <div class="row row-center" ng-show="$ctrl.shops.length>0">
+      <div class="col col-center">
+        <ion-list>
+          <ion-item ng-repeat="shop in $ctrl.shops | limitTo:3" ng-click="$ctrl.selectShop(shop)">
+            {{shop.name}}
+          </ion-item>
+          <ion-item ng-show="$ctrl.shops.length>3">
+            More shops
+          </ion-item>
+        </ion-list>
+
+      </div>
+    </div>
+    <div class="row row-center">
+      <div class="col col-center">
+        <button class="button button-positive button-block" ui-sref="newShop">New shop</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

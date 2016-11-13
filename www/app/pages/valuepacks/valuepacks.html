@@ -1,0 +1,17 @@
+<ion-view view-title="Valuepacks" show-store-tabs show-root-tabs>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="$ctrl.edit()"><i class="icon ion-android-add"></i></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="valuePack in $ctrl.valuePacks" on-hold="$ctrl.showActions(valuePack)" ng-click="$ctrl.edit(valuePack)">
+        <div class="h4">{{valuePack.name}}</div>
+        <div>
+          <span ng-repeat="product in valuePack.products">
+            {{$index!=0?", ":""}}{{product.name}}
+          </span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
