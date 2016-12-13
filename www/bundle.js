@@ -310,7 +310,7 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-content>\n  <ion-refresher\n          pulling-text=\"Pull to refresh...\"\n          on-refresh=\"$ctrl.refresh()\">\n  </ion-refresher>\n<ion-list>\n\n  <form>\n    <ion-item class=\"item-input-inset\">\n      <label class=\"item-input-wrapper\">\n        <input type=\"search\" placeholder=\"Search product\" ng-model=\"query\">\n      </label>\n      <button type=\"submit\" class=\"button button-clear button-stable\" ng-click=\"$ctrl.search(query)\"><i class=\"icon ion-search\"></i></button>\n    </ion-item>\n  </form>\n  <item-select-modal item-class=\"item-divider\" ng-model=\"$ctrl.category\" on-select=\"$ctrl.filterChange(value)\" options=\"$ctrl.categories\" text-key=\"name\" value-key=\"id\" title=\"Select category\" default-text=\"All category\">\n    <label class=\"h4\">Filter: </label>\n  </item-select-modal>\n  <ion-list>\n    <ion-item ng-repeat=\"product in $ctrl.products\" ng-click=\"$ctrl.onItemClick({product:product})\">\n      {{product.name}}\n    </ion-item>\n  </ion-list>\n\n\n</ion-list>\n  <ion-infinite-scroll\n          on-infinite=\"$ctrl.loadMore()\"\n          distance=\"1%\"\n          ng-if=\"$ctrl.showLoadmore\"\n  >\n  </ion-infinite-scroll>\n</ion-content>"
+	module.exports = "<ion-content>\r\n  <ion-refresher\r\n          pulling-text=\"Pull to refresh...\"\r\n          on-refresh=\"$ctrl.refresh()\">\r\n  </ion-refresher>\r\n<ion-list>\r\n\r\n  <form>\r\n    <ion-item class=\"item-input-inset\">\r\n      <label class=\"item-input-wrapper\">\r\n        <input type=\"search\" placeholder=\"Search product\" ng-model=\"query\">\r\n      </label>\r\n      <button type=\"submit\" class=\"button button-clear button-stable\" ng-click=\"$ctrl.search(query)\"><i class=\"icon ion-search\"></i></button>\r\n    </ion-item>\r\n  </form>\r\n  <item-select-modal item-class=\"item-divider\" ng-model=\"$ctrl.category\" on-select=\"$ctrl.filterChange(value)\" options=\"$ctrl.categories\" text-key=\"name\" value-key=\"id\" title=\"Select category\" default-text=\"All category\">\r\n    <label class=\"h4\">Filter: </label>\r\n  </item-select-modal>\r\n  <ion-list>\r\n    <ion-item ng-repeat=\"product in $ctrl.products\" ng-click=\"$ctrl.onItemClick({product:product})\">\r\n      {{product.name}}\r\n    </ion-item>\r\n  </ion-list>\r\n\r\n\r\n</ion-list>\r\n  <ion-infinite-scroll\r\n          on-infinite=\"$ctrl.loadMore()\"\r\n          distance=\"1%\"\r\n          ng-if=\"$ctrl.showLoadmore\"\r\n  >\r\n  </ion-infinite-scroll>\r\n</ion-content>"
 
 /***/ },
 /* 6 */
@@ -519,7 +519,7 @@
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-item ng-click=\"$ctrl.openSelectModal()\" ng-class=\"$ctrl.itemClass\">\n  <label ng-transclude=\"\"></label>\n  <span class=\"item-note dark\">{{$ctrl.selectedItem[$ctrl.textKey]}} <i class=\"icon ion-arrow-down-b\"></i></span>\n</ion-item>\n"
+	module.exports = "<ion-item ng-click=\"$ctrl.openSelectModal()\" ng-class=\"$ctrl.itemClass\">\r\n  <label ng-transclude=\"\"></label>\r\n  <span class=\"item-note dark\">{{$ctrl.selectedItem[$ctrl.textKey]}} <i class=\"icon ion-arrow-down-b padding-left\"></i></span>\r\n</ion-item>\r\n"
 
 /***/ },
 /* 11 */
@@ -603,7 +603,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n  <ion-header-bar class=\"bar-positive\">\n    <h1 class=\"title\">{{$ctrl.title}}</h1>\n  </ion-header-bar>\n  <ion-content>\n   <ion-list>\n     <ion-radio ng-model=\"$ctrl.ngModel\" ng-value=\"option[$ctrl.valueKey]\" ng-repeat=\"option in $ctrl.options\" ng-click=\"$ctrl.selectItem(option)\">\n       {{option[$ctrl.textKey]}}\n     </ion-radio>\n   </ion-list>\n  </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n  <ion-header-bar class=\"bar-dark\">\r\n    <h1 class=\"title\">{{$ctrl.title}}</h1>\r\n  </ion-header-bar>\r\n  <ion-content>\r\n   <ion-list>\r\n     <ion-radio ng-model=\"$ctrl.ngModel\" ng-value=\"option[$ctrl.valueKey]\" ng-repeat=\"option in $ctrl.options\" ng-click=\"$ctrl.selectItem(option)\">\r\n       {{option[$ctrl.textKey]}}\r\n     </ion-radio>\r\n   </ion-list>\r\n  </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 13 */
@@ -668,7 +668,7 @@
 /* 16 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"list list-inset\">\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Name</label>\n    <input type=\"text\" ng-model=\"$ctrl.product.name\">\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">SKU</label>\n    <input type=\"text\" ng-model=\"$ctrl.product.productVariants[0].SKU\">\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label item-input-inset light-bg\">\n    <label class=\"input-label\">Price</label>\n    <div class=\"item-input-wrapper light-bg\">\n    <input type=\"number\" ng-model=\"$ctrl.product.productVariants[0].price\" class=\"light-bg\">\n      <i class=\"item-input-inset\">{{$ctrl.product.shop.currency}}</i>\n    </div>\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label item-input-inset light-bg\">\n    <label class=\"input-label\">Stock</label>\n    <div class=\"item-input-wrapper light-bg\">\n      <input type=\"number\" ng-model=\"$ctrl.product.productVariants[0].stock\" class=\"light-bg\">\n      <i class=\"item-input-inset\">Units</i>\n    </div>\n  </ion-item>\n</div>\n<div class=\"list list-inset\">\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Description</label>\n    <textarea ng-model=\"$ctrl.product.description\" rows=\"5\"></textarea>\n  </ion-item>\n  <item-select-modal ng-model=\"$ctrl.product.productCategoryId\" options=\"$ctrl.categories\" text-key=\"name\" value-key=\"id\" title=\"Select category\" default-text=\"\">\n    Global cateogry\n  </item-select-modal>\n  <product-category-select-item ng-model=\"$ctrl.product.shopProductCategoryId\" shop-id=\"$ctrl.product.shopId\">\n    Shop Category\n  </product-category-select-item>\n  <product-variant-item ng-model=\"$ctrl.product.productVariants\" shop-id=\"$ctrl.product.shopId\" enable-variants=\"$ctrl.product.enableVariants\">\n    Variant\n  </product-variant-item>\n  <product-option-select-item ng-model=\"$ctrl.product.productOptions\" shop-id=\"$ctrl.product.shopId\" enable-options=\"$ctrl.product.enableOptions\">\n    Option\n  </product-option-select-item>\n\n</div>"
+	module.exports = "<ion-list>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Name</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.product.name\" placeholder=\"Name\">\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">SKU</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.product.productVariants[0].SKU\" placeholder=\"SKU\">\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Price</label>\r\n    <div class=\"item-input-wrapper light-bg\" style=\"padding: 0\">\r\n    <input type=\"number\" ng-model=\"$ctrl.product.productVariants[0].price\" placeholder=\"Price\">\r\n      <i class=\"item-input-inset\">{{$ctrl.product.shop.currency}}</i>\r\n    </div>\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Stock</label>\r\n    <div class=\"item-input-wrapper light-bg\" style=\"padding: 0\">\r\n      <input type=\"number\" ng-model=\"$ctrl.product.productVariants[0].stock\" placeholder=\"Stock\">\r\n      <i class=\"item-input-inset\">Units</i>\r\n    </div>\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Description</label>\r\n    <textarea ng-model=\"$ctrl.product.description\" rows=\"3\" placeholder=\"Description\"></textarea>\r\n  </ion-item>\r\n  <item-select-modal class=\"select-floating\" ng-model=\"$ctrl.product.productCategoryId\" options=\"$ctrl.categories\" text-key=\"name\" value-key=\"id\" title=\"Select category\" default-text=\"\">\r\n    Global cateogry\r\n  </item-select-modal>\r\n  <product-category-select-item ng-model=\"$ctrl.product.shopProductCategoryId\" shop-id=\"$ctrl.product.shopId\" class=\"select-floating\">\r\n    Shop Category\r\n  </product-category-select-item>\r\n  <product-variant-item ng-model=\"$ctrl.product.productVariants\" shop-id=\"$ctrl.product.shopId\" enable-variants=\"$ctrl.product.enableVariants\" class=\"select-floating\">\r\n    Variant\r\n  </product-variant-item>\r\n  <product-option-select-item ng-model=\"$ctrl.product.productOptions\" shop-id=\"$ctrl.product.shopId\" enable-options=\"$ctrl.product.enableOptions\" class=\"select-floating\">\r\n    Option\r\n  </product-option-select-item>\r\n</ion-list>\r\n"
 
 /***/ },
 /* 17 */
@@ -764,7 +764,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-item ng-click=\"$ctrl.openSelectModal()\">\n  <label ng-transclude=\"\"></label>\n  <span class=\"item-note dark\">{{$ctrl.selectedCategory.name}} <i class=\"icon ion-arrow-down-b\"></i></span>\n</ion-item>\n"
+	module.exports = "<ion-item ng-click=\"$ctrl.openSelectModal()\">\r\n  <label ng-transclude=\"\"></label>\r\n  <span class=\"item-note dark\">{{$ctrl.selectedCategory.name}} <i class=\"icon ion-arrow-down-b padding-left\"></i></span>\r\n</ion-item>\r\n"
 
 /***/ },
 /* 22 */
@@ -910,13 +910,13 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n  <ion-header-bar class=\"bar-positive\">\n      <button class=\"button button-clear\" ng-click=\"$ctrl.selectItem($ctrl.getSelectedItem())\">Done</button>\n    <h1 class=\"title\">Category</h1>\n      <button class=\"button button-clear\" ng-click=\"$ctrl.openEditModal()\"><i class=\"ion-android-add icon\"></i></button>\n  </ion-header-bar>\n  <ion-content>\n   <ion-list>\n     <ion-radio ng-repeat=\"category in $ctrl.categories\" ng-model=\"$ctrl.ngModel\" ng-value=\"category.id\" on-hold=\"$ctrl.showActions(category)\">\n       {{category.name}}\n     </ion-radio>\n   </ion-list>\n  </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n  <ion-header-bar class=\"bar-dark\">\r\n      <button class=\"button button-clear\" ng-click=\"$ctrl.selectItem($ctrl.getSelectedItem())\">Done</button>\r\n    <h1 class=\"title\">Category</h1>\r\n      <button class=\"button button-clear\" ng-click=\"$ctrl.openEditModal()\"><i class=\"ion-android-add icon\"></i></button>\r\n  </ion-header-bar>\r\n  <ion-content>\r\n   <ion-list>\r\n     <ion-radio ng-repeat=\"category in $ctrl.categories\" ng-model=\"$ctrl.ngModel\" ng-value=\"category.id\" on-hold=\"$ctrl.showActions(category)\">\r\n       {{category.name}}\r\n     </ion-radio>\r\n   </ion-list>\r\n  </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 24 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.editModal.hide()\">Cancel</button>\n        <h1 class=\"title\">Category</h1>\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveCategory(category)\">Save</button>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-item class=\"item-input item-stacked-label\">\n                <label class=\"input-label\">Name</label>\n                <input type=\"text\" ng-model=\"category.name\">\n            </ion-item>\n        </ion-list>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.editModal.hide()\">Cancel</button>\r\n        <h1 class=\"title\">Category</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveCategory(category)\">Save</button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-item class=\"item-input item-floating-label\">\r\n                <label class=\"input-label\">Name</label>\r\n                <input type=\"text\" ng-model=\"category.name\" placeholder=\"Name\">\r\n            </ion-item>\r\n        </ion-list>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 25 */
@@ -984,7 +984,7 @@
 /* 28 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-item ng-click=\"$ctrl.openModal()\">\n  <label ng-transclude=\"\"></label>\n  <span class=\"item-note dark\">{{$ctrl.enableVariants?\"ON\":\"OFF\"}}<i class=\"icon ion-arrow-down-b\"></i></span>\n</ion-item>\n"
+	module.exports = "<ion-item ng-click=\"$ctrl.openModal()\">\r\n  <label ng-transclude=\"\"></label>\r\n  <span class=\"item-note dark\">{{$ctrl.enableVariants?\"ON\":\"OFF\"}}<i class=\"icon ion-arrow-down-b padding-left\"></i></span>\r\n</ion-item>\r\n"
 
 /***/ },
 /* 29 */
@@ -1085,7 +1085,7 @@
 /* 30 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Done</button>\n        <h1 class=\"title\">Variants</h1>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-toggle ng-model=\"$ctrl.enableVariants\">Variant</ion-toggle>\n            <div class=\"padding\">\n                <div class=\"row\">\n                    <div class=\"col-25 \">\n                        SKU\n                    </div>\n                    <div class=\"col-25\">\n                        Variant\n                    </div>\n                    <div class=\"col-25\">\n                        Price\n                    </div>\n                    <div class=\"col-25\">\n                        Stock\n                    </div>\n                </div>\n            </div>\n            <ion-item ng-repeat=\"variant in $ctrl.variants\" on-hold=\"$ctrl.showActions(variant)\">\n                <div class=\"row\">\n                    <div class=\"col-25\">\n                        <input type=\"text\" placeholder=\"SKU\" ng-model=\"variant.SKU\">\n                    </div>\n                    <div class=\"col-25\">\n                        <input type=\"text\" placeholder=\"Variant\" ng-model=\"variant.name\">\n                    </div>\n                    <div class=\"col-25\">\n                        <input type=\"number\" placeholder=\"Price\" ng-model=\"variant.price\">\n                    </div>\n                    <div class=\"col-25\">\n                        <input type=\"number\" placeholder=\"Stock\" ng-model=\"variant.stock\">\n                    </div>\n                </div>\n            </ion-item>\n        </ion-list>\n        <div class=\"padding\">\n            <button class=\"button button-positive\" ng-click=\"$ctrl.addVariant()\"><i class=\"icon ion-android-add\"></i> Add variant</button>\n        </div>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view class=\"variant-list-template\">\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <h1 class=\"title\">Variants</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Done</button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-toggle ng-model=\"$ctrl.enableVariants\">Variant</ion-toggle>\r\n\r\n            <ion-item class=\"item-divider margin-top-10 row-head\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-25\">\r\n                        SKU\r\n                    </div>\r\n                    <div class=\"col-25\">\r\n                        Variant\r\n                    </div>\r\n                    <div class=\"col-25\">\r\n                        Price\r\n                    </div>\r\n                    <div class=\"col-25\">\r\n                        Stock\r\n                    </div>\r\n                </div>\r\n            </ion-item>\r\n            <ion-item ng-repeat=\"variant in $ctrl.variants\" on-hold=\"$ctrl.showActions(variant)\" class=\"row-data\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-25\">\r\n                        <input type=\"text\" placeholder=\"SKU\" ng-model=\"variant.SKU\">\r\n                    </div>\r\n                    <div class=\"col-25\">\r\n                        <input type=\"text\" placeholder=\"Variant\" ng-model=\"variant.name\">\r\n                    </div>\r\n                    <div class=\"col-25\">\r\n                        <input type=\"number\" placeholder=\"Price\" ng-model=\"variant.price\">\r\n                    </div>\r\n                    <div class=\"col-25\">\r\n                        <input type=\"number\" placeholder=\"Stock\" ng-model=\"variant.stock\">\r\n                    </div>\r\n                </div>\r\n            </ion-item>\r\n        </ion-list>\r\n        <div class=\"padding\">\r\n            <button class=\"button button-small button-positive\" ng-click=\"$ctrl.addVariant()\">+ Add variant</button>\r\n        </div>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 31 */
@@ -1153,7 +1153,7 @@
 /* 34 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-item ng-click=\"$ctrl.openSelectModal()\">\n  <label ng-transclude=\"\"></label>\n  <span class=\"item-note dark\">{{$ctrl.enableOptions?\"ON\":\"OFF\"}}<i class=\"icon ion-arrow-down-b\"></i></span>\n</ion-item>\n"
+	module.exports = "<ion-item ng-click=\"$ctrl.openSelectModal()\">\r\n  <label ng-transclude=\"\"></label>\r\n  <span class=\"item-note dark\">{{$ctrl.enableOptions?\"ON\":\"OFF\"}}<i class=\"icon ion-arrow-down-b padding-left\"></i></span>\r\n</ion-item>\r\n"
 
 /***/ },
 /* 35 */
@@ -1320,13 +1320,13 @@
 /* 36 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n  <ion-header-bar class=\"bar-positive\">\n      <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Done</button>\n    <h1 class=\"title\">Options</h1>\n      <button class=\"button button-clear\" ng-click=\"$ctrl.openEditModal()\"><i class=\"ion-android-add icon\"></i></button>\n  </ion-header-bar>\n  <ion-content>\n   <ion-list>\n       <ion-toggle ng-model=\"$ctrl.enableOptions\">Variant</ion-toggle>\n     <ion-checkbox ng-repeat=\"option in $ctrl.options\" ng-model=\"option.checked\"  on-hold=\"$ctrl.showActions(option)\">\n       {{option.name}}\n     </ion-checkbox>\n   </ion-list>\n  </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n  <ion-header-bar class=\"bar-dark\">\r\n      <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Done</button>\r\n    <h1 class=\"title\">Options</h1>\r\n      <button class=\"button button-clear\" ng-click=\"$ctrl.openEditModal()\"><i class=\"ion-android-add icon\"></i></button>\r\n  </ion-header-bar>\r\n  <ion-content>\r\n   <ion-list>\r\n       <ion-toggle ng-model=\"$ctrl.enableOptions\">Variant</ion-toggle>\r\n     <ion-checkbox ng-repeat=\"option in $ctrl.options\" ng-model=\"option.checked\"  on-hold=\"$ctrl.showActions(option)\">\r\n       {{option.name}}\r\n     </ion-checkbox>\r\n   </ion-list>\r\n  </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 37 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.editModal.hide()\">Cancel</button>\n        <h1 class=\"title\">Options</h1>\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveOption(option)\">Save</button>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-item class=\"item-input item-stacked-label\">\n                <label class=\"input-label\">Option name</label>\n                <input type=\"text\" ng-model=\"option.name\" placeholder=\"Option name\">\n            </ion-item>\n            <ion-item class=\"item-divider\">\n                Choices\n            </ion-item>\n            <div class=\"padding\">\n                <div class=\"row\">\n                    <div class=\"col-50\">\n                       Choice value\n                    </div>\n                    <div class=\"col-50\">\n                        Additional price\n                    </div>\n                </div>\n            </div>\n            <ion-item ng-repeat=\"optionValue in option.productOptionValues\">\n                <div class=\"row\">\n                    <div class=\"col-50\">\n                        <input type=\"text\" ng-model=\"optionValue.value\" placeholder=\"Choice value\">\n                    </div>\n                    <div class=\"col-50\">\n                        <input type=\"number\" ng-model=\"optionValue.price\" placeholder=\"Additional price\">\n                    </div>\n                </div>\n\n            </ion-item>\n            <div class=\"padding\">\n                <button class=\"button button-positive\" ng-click=\"$ctrl.addOptionValue()\"><i class=\"icon ion-android-add\"></i> Add choice</button>\n            </div>\n        </ion-list>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view class=\"option-edit-template\">\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.editModal.hide()\">Cancel</button>\r\n        <h1 class=\"title\">Options</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveOption(option)\">Save</button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-item class=\"item-input item-floating-label\">\r\n                <label class=\"input-label\">Option name</label>\r\n                <input type=\"text\" ng-model=\"option.name\" placeholder=\"Option name\">\r\n            </ion-item>\r\n            <ion-item class=\"item-divider margin-top-10 row-head\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-50\">Choice value</div>\r\n                    <div class=\"col-50\">Additional price</div>\r\n                </div>\r\n            </ion-item>\r\n            <ion-item ng-repeat=\"optionValue in option.productOptionValues\" class=\"row-data\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-50\">\r\n                        <input type=\"text\" ng-model=\"optionValue.value\" placeholder=\"Choice value\">\r\n                    </div>\r\n                    <div class=\"col-50\">\r\n                        <input type=\"number\" ng-model=\"optionValue.price\" placeholder=\"Additional price\">\r\n                    </div>\r\n                </div>\r\n            </ion-item>\r\n            <div class=\"padding\">\r\n                <button class=\"button button-positive button-small\" ng-click=\"$ctrl.addOptionValue()\">+ Add choice</button>\r\n            </div>\r\n        </ion-list>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 38 */
@@ -1392,7 +1392,7 @@
 /* 41 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-list>\n  <ion-item class=\"item-input\">\n    <labe class=\"input-label\">Name</labe>\n    <input type=\"text\" ng-model=\"$ctrl.valuePack.name\">\n  </ion-item>\n  <ion-item class=\"item-input\">\n    <labe class=\"input-label\">Price</labe>\n    <input type=\"text\" ng-model=\"$ctrl.valuePack.price\">\n  </ion-item>\n  <product-select-item ng-model=\"$ctrl.valuePack.products\" shop-id=\"$ctrl.shopId\">\n    Products\n  </product-select-item>\n</ion-list>"
+	module.exports = "<ion-list>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <labe class=\"input-label\">Name</labe>\r\n    <input type=\"text\" ng-model=\"$ctrl.valuePack.name\" placeholder=\"Name\">\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <labe class=\"input-label\">Price</labe>\r\n    <input type=\"text\" ng-model=\"$ctrl.valuePack.price\" placeholder=\"Price\">\r\n  </ion-item>\r\n  <product-select-item ng-model=\"$ctrl.valuePack.products\" shop-id=\"$ctrl.shopId\" class=\"select-floating\">\r\n    Products\r\n  </product-select-item>\r\n</ion-list>\r\n"
 
 /***/ },
 /* 42 */
@@ -1479,7 +1479,7 @@
 /* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-item ng-click=\"$ctrl.openModal()\">\n  <label ng-transclude=\"\"></label>\n  <span class=\"item-note dark\"> <i class=\"icon ion-arrow-down-b\"></i></span>\n</ion-item>"
+	module.exports = "<ion-item ng-click=\"$ctrl.openModal()\">\r\n  <label ng-transclude=\"\"></label>\r\n  <span class=\"item-note dark\"> <i class=\"icon ion-arrow-down-b\"></i></span>\r\n</ion-item>"
 
 /***/ },
 /* 47 */
@@ -1564,7 +1564,7 @@
 /* 48 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.save($ctrl.products)\">Done</button>\n        <h1 class=\"title\">Select products</h1>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-checkbox ng-repeat=\"product in $ctrl.products\" ng-model=\"product.checked\">\n                {{product.name}}\n            </ion-checkbox>\n        </ion-list>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <h1 class=\"title\">Select products</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.save($ctrl.products)\">Done</button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-checkbox ng-repeat=\"product in $ctrl.products\" ng-model=\"product.checked\">\r\n                {{product.name}}\r\n            </ion-checkbox>\r\n        </ion-list>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 49 */
@@ -1629,7 +1629,7 @@
 /* 52 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-list>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Name</label>\n    <input type=\"text\" ng-model=\"$ctrl.promotion.name\">\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Description</label>\n    <textarea rows=\"4\" ng-model=\"$ctrl.promotion.description\"></textarea>\n  </ion-item>\n  <ion-item>\n    <div>\n      <label class=\"input-label\">Discount</label>\n    </div>\n    <div class=\"row\">\n      <div class=\"col item-input\">\n        <input type=\"number\" ng-model=\"$ctrl.promotion.discount_amount\" class=\"text-right\">\n      </div>\n      <div style=\"width:120px;\" class=\"item-input item-select\" >\n        <select ng-model=\"$ctrl.promotion.discount_percent\"\n                ng-options=\"o.v as o.n for o in [{ n: 'USD', v: false }, { n: 'Percent', v: true }]\"\n                style=\"max-width:100%;\">\n        </select>\n      </div>\n    </div>\n\n  </ion-item>\n  <product-select-item ng-model=\"$ctrl.promotion.products\" shop-id=\"$ctrl.promotion.shopId\">\n    Products\n  </product-select-item>\n  <value-pack-select-item ng-model=\"$ctrl.promotion.productValuePacks\" shop-id=\"$ctrl.promotion.shopId\">\n    Value packs\n  </value-pack-select-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Start date</label>\n    <date-picker ng-model=\"$ctrl.promotion.startDate\"></date-picker>\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">End date</label>\n    <date-picker ng-model=\"$ctrl.promotion.endDate\"></date-picker>\n  </ion-item>\n</ion-list>"
+	module.exports = "<ion-list>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Name</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.promotion.name\" placeholder=\"Name\">\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Description</label>\r\n    <textarea rows=\"2\" ng-model=\"$ctrl.promotion.description\" placeholder=\"Description\"></textarea>\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\"\r\n    <div>\r\n      <label class=\"input-label\">Discount</label>\r\n    </div>\r\n    <div class=\"row\" style=\"padding:0;\">\r\n      <div class=\"col item-input\" style=\"padding:0;\">\r\n        <input type=\"number\" ng-model=\"$ctrl.promotion.discount_amount\" placeholder=\"Discount\">\r\n      </div>\r\n      <div style=\"width:120px;\" class=\"item-input item-select\" >\r\n        <select ng-model=\"$ctrl.promotion.discount_percent\"\r\n                ng-options=\"o.v as o.n for o in [{ n: 'USD', v: false }, { n: 'Percent', v: true }]\"\r\n                style=\"max-width:100%;\">\r\n        </select>\r\n      </div>\r\n    </div>\r\n  </ion-item>\r\n  <product-select-item ng-model=\"$ctrl.promotion.products\" shop-id=\"$ctrl.promotion.shopId\" class=\"select-floating\">\r\n    Products\r\n  </product-select-item>\r\n  <value-pack-select-item ng-model=\"$ctrl.promotion.productValuePacks\" shop-id=\"$ctrl.promotion.shopId\" class=\"select-floating\">\r\n    Value packs\r\n  </value-pack-select-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Start date</label>\r\n    <date-picker ng-model=\"$ctrl.promotion.startDate\"></date-picker>\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">End date</label>\r\n    <date-picker ng-model=\"$ctrl.promotion.endDate\"></date-picker>\r\n  </ion-item>\r\n</ion-list>"
 
 /***/ },
 /* 53 */
@@ -1717,7 +1717,7 @@
 /* 57 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-item ng-click=\"$ctrl.openModal()\">\n  <label ng-transclude=\"\"></label>\n  <span class=\"item-note dark\"> <i class=\"icon ion-arrow-down-b\"></i></span>\n</ion-item>\n"
+	module.exports = "<ion-item ng-click=\"$ctrl.openModal()\">\r\n  <label ng-transclude=\"\"></label>\r\n  <span class=\"item-note dark\"> <i class=\"icon ion-arrow-down-b\"></i></span>\r\n</ion-item>\r\n"
 
 /***/ },
 /* 58 */
@@ -1800,7 +1800,7 @@
 /* 59 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.save($ctrl.valuePacks)\">Done</button>\n        <h1 class=\"title\">Select value packs</h1>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-checkbox ng-repeat=\"valuePack in $ctrl.valuePacks\" ng-model=\"valuePack.checked\">\n                {{valuePack.name}}\n            </ion-checkbox>\n        </ion-list>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n    <ion-header-bar class=\"bar-positive\">\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.save($ctrl.valuePacks)\">Done</button>\r\n        <h1 class=\"title\">Select value packs</h1>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-checkbox ng-repeat=\"valuePack in $ctrl.valuePacks\" ng-model=\"valuePack.checked\">\r\n                {{valuePack.name}}\r\n            </ion-checkbox>\r\n        </ion-list>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 60 */
@@ -1890,7 +1890,7 @@
 /* 63 */
 /***/ function(module, exports) {
 
-	module.exports = "<input type=\"date\" ng-model=\"$ctrl.ngModel\" datepicker-timezone>\n"
+	module.exports = "<input type=\"date\" ng-model=\"$ctrl.ngModel\" datepicker-timezone>\r\n"
 
 /***/ },
 /* 64 */
@@ -1914,7 +1914,7 @@
 	    return self.ngModel
 	  },(date)=>{
 	    if(typeof(date) == "string"){
-	       date = new Date(date)//this will automatically convert utc to local
+	        date = new Date(date)//this will automatically convert utc to local
 	      //create new utc date with local timezone
 	      date = new Date(date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate(),0,0,0)
 	      self.ngModel = date
@@ -1991,7 +1991,7 @@
 /* 68 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-list>\n  <ion-item class=\"item-divider\">\n    Information\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"item-stacked-label\">Shop name</label>\n    <input type=\"text\" ng-model=\"$ctrl.shop.name\">\n  </ion-item>\n  <item-select-modal  ng-model=\"$ctrl.shop.businessCategoryId\" options=\"$ctrl.categories\" text-key=\"name\" value-key=\"id\" title=\"Select category\" default-text=\"\">\n    Business category\n  </item-select-modal>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"item-stacked-label\">Description</label>\n    <textarea rows=\"5\" ng-model=\"$ctrl.shop.description\"></textarea>\n  </ion-item>\n  <location-picker ng-model=\"$ctrl.shop.location\">\n    Shop location\n  </location-picker>\n  <ion-item class=\"item-divider\">\n    Contact\n  </ion-item>\n\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"item-stacked-label\">Contact number</label>\n    <input type=\"text\" ng-model=\"$ctrl.shop.contact_number\">\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"item-stacked-label\">Email</label>\n    <input type=\"text\" ng-model=\"$ctrl.shop.email\">\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"item-stacked-label\">Website</label>\n    <input type=\"text\" ng-model=\"$ctrl.shop.website\">\n  </ion-item>\n  <location-picker ng-model=\"$ctrl.shop.location\">\n    Contact address\n  </location-picker>\n  <ion-item class=\"item-divider\">\n    Service time\n  </ion-item>\n  <schedule-select-item ng-model=\"$ctrl.shop.open_close\">\n    Open-close time\n  </schedule-select-item>\n  <schedule-select-item ng-model=\"$ctrl.shop.delivery_time\">\n    Delivery time\n  </schedule-select-item>\n</ion-list>"
+	module.exports = "<ion-list>\r\n  <ion-item class=\"item-divider\">\r\n    Information\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Shop name</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.shop.name\" placeholder=\"Shop name\">\r\n  </ion-item>\r\n  <item-select-modal class=\"select-floating\" ng-model=\"$ctrl.shop.businessCategoryId\" options=\"$ctrl.categories\" text-key=\"name\" value-key=\"id\" title=\"Select category\" default-text=\"\">\r\n    Business category\r\n  </item-select-modal>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Description</label>\r\n    <textarea rows=\"3\" ng-model=\"$ctrl.shop.description\" placeholder=\"Description\"></textarea>\r\n  </ion-item>\r\n  <location-picker ng-model=\"$ctrl.shop.location\" class=\"select-floating\">\r\n    Shop location\r\n  </location-picker>\r\n  <ion-item class=\"item-divider\">\r\n    Contact\r\n  </ion-item>\r\n\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Contact number</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.shop.contact_number\" placeholder=\"Contact number\">\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Email</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.shop.email\" placeholder=\"Email\">\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Website</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.shop.website\" placeholder=\"Website\">\r\n  </ion-item>\r\n  <location-picker ng-model=\"$ctrl.shop.location\" class=\"select-floating\">\r\n    Contact address\r\n  </location-picker>\r\n  <ion-item class=\"item-divider\">\r\n    Service time\r\n  </ion-item>\r\n  <schedule-select-item ng-model=\"$ctrl.shop.open_close\">\r\n    Open-close time\r\n  </schedule-select-item>\r\n  <schedule-select-item ng-model=\"$ctrl.shop.delivery_time\">\r\n    Delivery time\r\n  </schedule-select-item>\r\n</ion-list>"
 
 /***/ },
 /* 69 */
@@ -2083,7 +2083,7 @@
 /* 73 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-list>\n  <ion-item class=\"item-divider\">\n    Delivery method\n  </ion-item>\n  <ion-item ng-repeat=\"method in $ctrl.shop.delivery_methods\" ng-click=\"$ctrl.edit(method)\">\n    {{method.name}}\n    <span class=\"item-note dark truncate\" style=\"max-width:150px\">{{method.active?\"ON\":\"OFF\"}} <i class=\"icon ion-chevron-right\"></i></span>\n  </ion-item>\n</ion-list>"
+	module.exports = "<ion-list>\r\n  <ion-item class=\"item-divider\">\r\n    Delivery method\r\n  </ion-item>\r\n  <ion-item ng-repeat=\"method in $ctrl.shop.delivery_methods\" ng-click=\"$ctrl.edit(method)\">\r\n    {{method.name}}\r\n    <span class=\"item-note dark truncate\" style=\"max-width:150px\">{{method.active?\"ON\":\"OFF\"}} <i class=\"icon ion-chevron-right\"></i></span>\r\n  </ion-item>\r\n</ion-list>"
 
 /***/ },
 /* 74 */
@@ -2196,19 +2196,19 @@
 /* 75 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveMethod(method)\">Done</button>\n        <h1 class=\"title\">{{method.name}}</h1>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-toggle ng-model=\"method.active\">{{method.name}}</ion-toggle>\n            <ion-item ng-show=\"method.active && method.enableCondition\" ng-click=\"$ctrl.editMethodCondition(method)\">\n                Delivery condition\n                <span class=\"item-note dark truncate\" style=\"max-width:150px\"><i class=\"icon ion-chevron-right\"></i></span>\n            </ion-item>\n        </ion-list>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <h1 class=\"title\">{{method.name}}</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveMethod(method)\">Done</button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-toggle ng-model=\"method.active\">{{method.name}}</ion-toggle>\r\n            <ion-item ng-show=\"method.active && method.enableCondition\" ng-click=\"$ctrl.editMethodCondition(method)\">\r\n                Delivery condition\r\n                <span class=\"item-note dark truncate\" style=\"max-width:150px\"><i class=\"icon ion-chevron-right\"></i></span>\r\n            </ion-item>\r\n        </ion-list>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 76 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveMethodCondition(method)\">Done</button>\n        <h1 class=\"title\">{{method.name}}</h1>\n        <button class=\"button button-clear\" ng-click=\"$ctrl.editCondition()\"><i class=\"icon ion-android-add\"></i></button>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-item ng-repeat=\"condition in method.conditions track by $index\" ng-click=\"$ctrl.editCondition(condition)\" on-hold=\"$ctrl.showActions(condition)\">\n                {{condition.from}} km - {{condition.to}} km\n                <span class=\"item-note dark\">\n                    {{condition.service_fee==0?\"Free\":(condition.service_fee | currency:\"USD\")}}\n                </span>\n            </ion-item>\n        </ion-list>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveMethodCondition(method)\">Done</button>\r\n        <h1 class=\"title\">{{method.name}}</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.editCondition()\"><i class=\"icon ion-android-add\"></i></button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-item ng-repeat=\"condition in method.conditions track by $index\" ng-click=\"$ctrl.editCondition(condition)\" on-hold=\"$ctrl.showActions(condition)\">\r\n                {{condition.from}} km - {{condition.to}} km\r\n                <span class=\"item-note dark\">\r\n                    {{condition.service_fee==0?\"Free\":(condition.service_fee | currency:\"USD\")}}\r\n                </span>\r\n            </ion-item>\r\n        </ion-list>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 77 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.conditionEditModal.hide()\">Cancel</button>\n        <h1 class=\"title\">{{method.name}}</h1>\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveCondition(condition)\">Save</button>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-item class=\"item-input item-stacked-label\">\n                <label class=\"input-label\">From</label>\n                <label class=\"item-input-wrapper light-bg\">\n                    <input type=\"number\" ng-model=\"condition.from\" class=\"text-right\"> Km\n                </label>\n            </ion-item>\n            <ion-item class=\"item-input item-stacked-label\">\n                <label class=\"input-label\">To</label>\n                <label class=\"item-input-wrapper light-bg\">\n                    <input type=\"number\" ng-model=\"condition.to\" class=\"text-right\"> Km\n                </label>\n            </ion-item>\n            <ion-item class=\"item-input item-stacked-label\">\n                <label class=\"input-label\">Fee</label>\n                <label class=\"item-input-wrapper light-bg\">\n                    <input type=\"number\" ng-model=\"condition.service_fee\" class=\"text-right\"> USD\n                </label>\n\n            </ion-item>\n            <ion-item class=\"item-input item-stacked-label\">\n                <div>\n                    <label class=\"input-label\">Estimate delivery time</label>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col item-input\">\n                        <input type=\"number\" ng-model=\"condition.delivery_time\" class=\"text-right\">\n                    </div>\n                    <div style=\"width:120px;\" class=\"item-input item-select\" >\n                        <select ng-model=\"condition.delivery_time_unit\"\n                                style=\"max-width:100%;\">\n                            <option value=\"Minutes\">Minutes</option>\n                            <option value=\"Hours\">Hours</option>\n                            <option value=\"Days\">Days</option>\n                        </select>\n                    </div>\n                </div>\n\n            </ion-item>\n            <ion-item class=\"item-input item-stacked-label\">\n                <label class=\"input-label\">Minimum purchase</label>\n                <label class=\"item-input-wrapper light-bg\">\n                    <input type=\"number\" ng-model=\"condition.min_purchase\" class=\"text-right\"> USD\n                </label>\n\n            </ion-item>\n        </ion-list>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.conditionEditModal.hide()\">Cancel</button>\r\n        <h1 class=\"title\">{{method.name}}</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveCondition(condition)\">Save</button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-item class=\"item-input item-floating-label\">\r\n                <label class=\"input-label\">From (Km)</label>\r\n                <input type=\"number\" ng-model=\"condition.from\" placeholder=\"From (Km)\">\r\n            </ion-item>\r\n            <ion-item class=\"item-input item-floating-label\">\r\n                <label class=\"input-label\">To (Km)</label>\r\n                <input type=\"number\" ng-model=\"condition.to\" placeholder=\"To (Km)\">\r\n            </ion-item>\r\n            <ion-item class=\"item-input item-floating-label\">\r\n                <label class=\"input-label\">Fee (USD)</label>\r\n                <input type=\"number\" ng-model=\"condition.service_fee\" placeholder=\"Fee (USD)\"> \r\n            </ion-item>\r\n            <ion-item class=\"item-input item-floating-label\">\r\n                <div>\r\n                    <label class=\"input-label\">Estimate delivery time</label>\r\n                </div>\r\n                <div class=\"row\" style=\"padding:0;\">\r\n                    <div class=\"col item-input\" style=\"padding:0;\">\r\n                        <input type=\"number\" ng-model=\"condition.delivery_time\">\r\n                    </div>\r\n                    <div style=\"width:120px;\" class=\"item-input item-select\" >\r\n                        <select ng-model=\"condition.delivery_time_unit\" style=\"max-width:100%;\">\r\n                            <option value=\"Minutes\">Minutes</option>\r\n                            <option value=\"Hours\">Hours</option>\r\n                            <option value=\"Days\">Days</option>\r\n                        </select>\r\n                    </div>\r\n                </div>\r\n            </ion-item>\r\n            <ion-item class=\"item-input item-floating-label\">\r\n                <label class=\"input-label\">Minimum purchase (USD)</label>\r\n                <input type=\"number\" ng-model=\"condition.min_purchase\" placeholder=\"Minimum purchase (USD)\">\r\n            </ion-item>\r\n        </ion-list>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 78 */
@@ -2273,7 +2273,7 @@
 /* 81 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-list>\n  <ion-item class=\"item-divider\">\n    Payment method\n  </ion-item>\n  <ion-toggle ng-repeat=\"method in $ctrl.shop.payment_methods\" ng-model=\"method.active\">\n    {{method.name}}\n  </ion-toggle>\n</ion-list>"
+	module.exports = "<ion-list>\r\n  <ion-item class=\"item-divider\">\r\n    Payment method\r\n  </ion-item>\r\n  <ion-toggle ng-repeat=\"method in $ctrl.shop.payment_methods\" ng-model=\"method.active\">\r\n    {{method.name}}\r\n  </ion-toggle>\r\n</ion-list>"
 
 /***/ },
 /* 82 */
@@ -2361,7 +2361,7 @@
 /* 86 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-item ng-click=\"$ctrl.openPicker()\">\n  <label ng-transclude=\"\"></label>\n  <span class=\"item-note dark truncate\" style=\"max-width:150px\">{{$ctrl.ngModel.formatted_address}}<i class=\"icon ion-chevron-right\"></i></span>\n</ion-item>\n"
+	module.exports = "<ion-item ng-click=\"$ctrl.openPicker()\">\r\n  <label ng-transclude=\"\"></label>\r\n  <span class=\"item-note dark truncate\" style=\"max-width:150px\">{{$ctrl.ngModel.formatted_address}}<i class=\"icon ion-navigate padding-left\"></i></span>\r\n</ion-item>\r\n"
 
 /***/ },
 /* 87 */
@@ -2511,7 +2511,7 @@
 /* 88 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n  <ion-header-bar class=\"bar-positive\">\n    <button type=\"button\" class=\"button button-clear\" ng-click=\"$ctrl.done()\">Done</button>\n    <h1 class=\"title\">{{$ctrl.title}}</h1>\n  </ion-header-bar>\n  <ion-content scroll=\"false\">\n    <div data-tap-disabled=\"true\" style=\"height:100%;\">\n      <leaflet center=\"$ctrl.center\" defaults=\"$ctrl.defaults\" width=\"100%\" height=\"100%\"></leaflet>\n    </div>\n    <div style=\"position:absolute;width:100%;top:0px;\" class=\"light-bg\">\n      <ion-list>\n        <ion-item class=\"item-input item-stacked-label\">\n          <label class=\"input-label\">Address</label>\n          <textarea rows=\"3\" ng-focus=\"$ctrl.showSuggestion=true\" ng-blur=\"$ctrl.showSuggestion= false\" name=\"placesearch\" ng-model=\"$ctrl.ngModel.formatted_address\" ng-change=\"$ctrl.querySuggestions($ctrl.ngModel.formatted_address)\"></textarea>\n        </ion-item>\n        <div ng-show=\"$ctrl.showSuggestion\">\n          <ion-item ng-repeat=\"suggest in $ctrl.suggestions\" ng-click=\"$ctrl.selectSuggestion(suggest)\">\n            {{suggest.description}}\n          </ion-item>\n        </div>\n\n\n      </ion-list>\n    </div>\n\n\n\n  </ion-content>\n</ion-modal-view>\n\n"
+	module.exports = "<ion-modal-view>\r\n  <ion-header-bar class=\"bar-dark\">\r\n    <h1 class=\"title\">{{$ctrl.title}}</h1>\r\n    <button type=\"button\" class=\"button button-clear\" ng-click=\"$ctrl.done()\">Done</button>\r\n  </ion-header-bar>\r\n  <ion-content scroll=\"false\">\r\n    <div data-tap-disabled=\"true\" style=\"height:100%;\">\r\n      <leaflet center=\"$ctrl.center\" defaults=\"$ctrl.defaults\" width=\"100%\" height=\"100%\"></leaflet>\r\n    </div>\r\n    <div style=\"position:absolute;width:100%;top:0px;\" class=\"light-bg\">\r\n      <ion-list>\r\n        <ion-item class=\"item-input item-stacked-label\">\r\n          <label class=\"input-label\">Address</label>\r\n          <textarea rows=\"3\" ng-focus=\"$ctrl.showSuggestion=true\" ng-blur=\"$ctrl.showSuggestion= false\" name=\"placesearch\" ng-model=\"$ctrl.ngModel.formatted_address\" ng-change=\"$ctrl.querySuggestions($ctrl.ngModel.formatted_address)\"></textarea>\r\n        </ion-item>\r\n        <div ng-show=\"$ctrl.showSuggestion\">\r\n          <ion-item ng-repeat=\"suggest in $ctrl.suggestions\" ng-click=\"$ctrl.selectSuggestion(suggest)\">\r\n            {{suggest.description}}\r\n          </ion-item>\r\n        </div>\r\n\r\n\r\n      </ion-list>\r\n    </div>\r\n\r\n\r\n\r\n  </ion-content>\r\n</ion-modal-view>\r\n\r\n"
 
 /***/ },
 /* 89 */
@@ -2577,7 +2577,7 @@
 /* 92 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-item ng-click=\"$ctrl.openPicker()\">\n  <label ng-transclude=\"\" class=\"\"></label>\n  <span class=\"item-note dark truncate\" style=\"max-width:150px\">{{$ctrl.formattedDay}}<i class=\"icon ion-chevron-right\"></i></span>\n</ion-item>\n"
+	module.exports = "<ion-item ng-click=\"$ctrl.openPicker()\">\r\n  <label ng-transclude=\"\" class=\"\"></label>\r\n  <span class=\"item-note dark truncate\" style=\"max-width:150px\">{{$ctrl.formattedDay}}<i class=\"icon ion-chevron-right\"></i></span>\r\n</ion-item>\r\n"
 
 /***/ },
 /* 93 */
@@ -2709,13 +2709,13 @@
 /* 94 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Done</button>\n        <h1 class=\"title\">Schedule</h1>\n        <button class=\"button button-clear\" ng-click=\"$ctrl.edit()\"><i class=\"icon ion-android-add\"></i></button>\n    </ion-header-bar>\n    <ion-content>\n        <ion-item ng-repeat=\"schedule in $ctrl.schedules track by $index\" ng-click=\"$ctrl.edit(schedule)\" on-hold=\"$ctrl.showActions(schedule)\">\n            <div>\n                {{schedule.from|date:'h:mma'}} - {{schedule.to|date:'h:mma'}}\n            </div>\n            <div>\n                <span ng-repeat=\"day in schedule.days\">\n                    <span ng-if=\"$index!=0\">, </span><span>{{day}}</span>\n                </span>\n            </div>\n        </ion-item>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Done</button>\r\n        <h1 class=\"title\">Schedule</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.edit()\"><i class=\"icon ion-android-add\"></i></button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-item ng-repeat=\"schedule in $ctrl.schedules track by $index\" ng-click=\"$ctrl.edit(schedule)\" on-hold=\"$ctrl.showActions(schedule)\">\r\n            <div>\r\n                {{schedule.from|date:'h:mma'}} - {{schedule.to|date:'h:mma'}}\r\n            </div>\r\n            <div>\r\n                <span ng-repeat=\"day in schedule.days\">\r\n                    <span ng-if=\"$index!=0\">, </span><span>{{day}}</span>\r\n                </span>\r\n            </div>\r\n        </ion-item>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 95 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.editModal.hide()\">Cancel</button>\n        <h1 class=\"title\">Edit</h1>\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveSchedule(schedule)\">Save</button>\n    </ion-header-bar>\n    <ion-content>\n        <ion-list>\n            <ion-item class=\"item-input\">\n                <label class=\"input-label\">From</label>\n                <time-picker ng-model=\"schedule.from\"></time-picker>\n            </ion-item>\n            <ion-item class=\"item-input\">\n                <label class=\"input-label\">To</label>\n                <time-picker ng-model=\"schedule.to\"></time-picker>\n            </ion-item>\n            <ion-item class=\"item-divider\">\n                Repeat\n            </ion-item>\n            <ion-checkbox ng-repeat=\"day in days\" ng-model=\"day.checked\">\n                {{day.name}}\n            </ion-checkbox>\n        </ion-list>\n    </ion-content>\n</ion-modal-view>\n"
+	module.exports = "<ion-modal-view>\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.editModal.hide()\">Cancel</button>\r\n        <h1 class=\"title\">Edit</h1>\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.saveSchedule(schedule)\">Save</button>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <ion-list>\r\n            <ion-item class=\"item-input\">\r\n                <label class=\"input-label\">From</label>\r\n                <time-picker ng-model=\"schedule.from\"></time-picker>\r\n            </ion-item>\r\n            <ion-item class=\"item-input\">\r\n                <label class=\"input-label\">To</label>\r\n                <time-picker ng-model=\"schedule.to\"></time-picker>\r\n            </ion-item>\r\n            <ion-item class=\"item-divider\">\r\n                Repeat\r\n            </ion-item>\r\n            <ion-checkbox ng-repeat=\"day in days\" ng-model=\"day.checked\">\r\n                {{day.name}}\r\n            </ion-checkbox>\r\n        </ion-list>\r\n    </ion-content>\r\n</ion-modal-view>\r\n"
 
 /***/ },
 /* 96 */
@@ -2798,7 +2798,7 @@
 /* 99 */
 /***/ function(module, exports) {
 
-	module.exports = "<input type=\"time\" ng-model=\"$ctrl.ngModel\" my-timepicker>\n"
+	module.exports = "<input type=\"time\" ng-model=\"$ctrl.ngModel\" my-timepicker>\r\n"
 
 /***/ },
 /* 100 */
@@ -2883,7 +2883,7 @@
 /* 104 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row shop-cover row-bottom\" style=\"background-image:url({{$ctrl.shop.cover}}),url(http://placehold.it/600x400);\">\n  <div class=\"shop-image\" style=\"background-image:url({{$ctrl.shop.logo}}),url(http://placehold.it/200x200);\">\n\n  </div>\n  <div class=\"col\">\n    <div>{{$ctrl.shop.name}}</div>\n    <div>{{$ctrl.shop.location.formatted_address || \"Unknown\"}}</div>\n  </div>\n</div>\n<div class=\"row positive-bg light text-center\">\n  <div class=\"col\">\n    <div>12,120</div>\n    <div>Followers</div>\n  </div>\n  <div class=\"col\">\n    <div>$ 12,120</div>\n    <div>Revenues</div>\n  </div>\n  <div class=\"col\">\n    <div>4.5/5</div>\n    <div>Rating</div>\n  </div>\n</div>\n"
+	module.exports = "<div class=\"row shop-cover row-bottom\" style=\"background-image:url({{$ctrl.shop.cover}}),url(http://placehold.it/600x400);\">\r\n  <div class=\"shop-image\" style=\"background-image:url({{$ctrl.shop.logo}}),url(http://placehold.it/200x200);\">\r\n\r\n  </div>\r\n  <div class=\"col\">\r\n    <h5>{{$ctrl.shop.name}}</h5>\r\n    <div>{{$ctrl.shop.location.formatted_address || \"Unknown\"}}</div>\r\n  </div>\r\n</div>\r\n<div class=\"row positive-bg light text-center\">\r\n  <div class=\"col\">\r\n    <div>12,120</div>\r\n    <div>Followers</div>\r\n  </div>\r\n  <div class=\"col\">\r\n    <div>$ 12,120</div>\r\n    <div>Revenues</div>\r\n  </div>\r\n  <div class=\"col\">\r\n    <div>4.5/5</div>\r\n    <div>Rating</div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ },
 /* 105 */
@@ -2968,7 +2968,7 @@
 /* 109 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-list>\n  <ion-item>\n    <div class=\"row\">\n      <image-picker class=\"profile-image\" ng-model=\"$ctrl.profile.image\"></image-picker>\n      <div class=\"col\">\n        <div>{{$ctrl.profile.displayname || $ctrl.profile.email}}</div>\n      </div>\n    </div>\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Display name</label>\n    <input type=\"text\" ng-model=\"$ctrl.profile.displayname\">\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Firstname</label>\n    <input type=\"text\" ng-model=\"$ctrl.profile.firstname\">\n  </ion-item>\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Lastname</label>\n    <input type=\"text\" ng-model=\"$ctrl.profile.lastname\">\n  </ion-item>\n\n  <ion-item class=\"item-input item-stacked-label\">\n    <label class=\"input-label\">Date of birth</label>\n    <date-picker ng-model=\"$ctrl.profile.date_of_birth\"></date-picker>\n  </ion-item>\n</ion-list>\n"
+	module.exports = "<ion-list>\r\n  <ion-item class=\"item-floating-label text-center\">\r\n    <image-picker class=\"profile-image\" ng-model=\"$ctrl.profile.image\"></image-picker>\r\n    <div>{{$ctrl.profile.displayname || $ctrl.profile.email}}</div>\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Display name</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.profile.displayname\" placeholder=\"Display name\">\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">First name</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.profile.firstname\" placeholder=\"First name\">\r\n  </ion-item>\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Last name</label>\r\n    <input type=\"text\" ng-model=\"$ctrl.profile.lastname\" placeholder=\"Last name\">\r\n  </ion-item>\r\n\r\n  <ion-item class=\"item-input item-floating-label\">\r\n    <label class=\"input-label\">Date of birth</label>\r\n    <date-picker ng-model=\"$ctrl.profile.date_of_birth\"></date-picker>\r\n  </ion-item>\r\n</ion-list>\r\n"
 
 /***/ },
 /* 110 */
@@ -3054,7 +3054,7 @@
 /* 114 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-list>\n  <ion-item>\n    <label class=\"input-label\">Facebook</label>\n  </ion-item>\n</ion-list>"
+	module.exports = "<ion-list>\r\n  <ion-item>\r\n    <label class=\"input-label\">Facebook</label>\r\n  </ion-item>\r\n</ion-list>"
 
 /***/ },
 /* 115 */
@@ -3137,7 +3137,7 @@
 /* 119 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n  <h1>{{ $ctrl.name }}</h1>\n</div>\n"
+	module.exports = "<div>\r\n  <h1>{{ $ctrl.name }}</h1>\r\n</div>\r\n"
 
 /***/ },
 /* 120 */
@@ -3392,7 +3392,7 @@
 /* 125 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-nav-bar class=\"bar-positive\">\n  <ion-nav-back-button ng-click=\"$ctrl.goBack()\"></ion-nav-back-button>\n</ion-nav-bar>\n<ion-tabs class=\"tabs-positive {{$root.showroottab?'':'tabs-item-hide'}}\">\n\n  <ion-tab title=\"Store\" href=\"{{$ctrl.getStateUrl('tabs.store.products')}}\">\n    <!-- Tab 1 content -->\n\n    <ion-nav-view name=\"tab-store-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Order\" href=\"{{$ctrl.getStateUrl('tabs.order')}}\">\n    <!-- Tab 2 content -->\n\n    <ion-nav-view name=\"tab-order-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Contact\" href=\"{{$ctrl.getStateUrl('tabs.contact')}}\">\n    <!-- Tab 3 content -->\n\n    <ion-nav-view name=\"tab-contact-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n  <ion-tab title=\"More\" href=\"{{$ctrl.getStateUrl('tabs.more')}}\">\n    <!-- Tab 3 content -->\n\n    <ion-nav-view name=\"tab-more-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n</ion-tabs>"
+	module.exports = "<ion-nav-bar class=\"bar-dark\">\r\n  <ion-nav-back-button ng-click=\"$ctrl.goBack()\"></ion-nav-back-button>\r\n</ion-nav-bar>\r\n<ion-tabs class=\"tabs-striped tabs-color-positive {{$root.showroottab?'':'tabs-item-hide'}}\">\r\n\r\n  <ion-tab title=\"Store\" href=\"{{$ctrl.getStateUrl('tabs.store.products')}}\">\r\n    <!-- Tab 1 content -->\r\n\r\n    <ion-nav-view name=\"tab-store-content\">\r\n\r\n    </ion-nav-view>\r\n\r\n  </ion-tab>\r\n\r\n  <ion-tab title=\"Order\" href=\"{{$ctrl.getStateUrl('tabs.order')}}\">\r\n    <!-- Tab 2 content -->\r\n\r\n    <ion-nav-view name=\"tab-order-content\">\r\n\r\n    </ion-nav-view>\r\n\r\n  </ion-tab>\r\n\r\n  <ion-tab title=\"Contact\" href=\"{{$ctrl.getStateUrl('tabs.contact')}}\">\r\n    <!-- Tab 3 content -->\r\n\r\n    <ion-nav-view name=\"tab-contact-content\">\r\n\r\n    </ion-nav-view>\r\n\r\n  </ion-tab>\r\n  <ion-tab title=\"More\" href=\"{{$ctrl.getStateUrl('tabs.more')}}\">\r\n    <!-- Tab 4 content -->\r\n\r\n    <ion-nav-view name=\"tab-more-content\">\r\n\r\n    </ion-nav-view>\r\n\r\n  </ion-tab>\r\n\r\n</ion-tabs>"
 
 /***/ },
 /* 126 */
@@ -3530,7 +3530,7 @@
 /* 130 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<ion-tabs class=\"tabs-stable tabs-top {{$root.showtabbar?'':'tabs-item-hide'}}\">\n\n  <ion-tab title=\"Products\" href=\"{{$ctrl.getStateUrl('tabs.store.products')}}\">\n    <!-- Tab 1 content -->\n\n    <ion-nav-view name=\"store-products-content\" >\n\n    </ion-nav-view>\n\n  </ion-tab>\n  <ion-tab title=\"Value packs\" href=\"{{$ctrl.getStateUrl('tabs.store.valuepacks')}}\">\n    <!-- Tab 3 content -->\n\n    <ion-nav-view name=\"store-valuepacks-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n  <ion-tab title=\"Promotions\" href=\"{{$ctrl.getStateUrl('tabs.store.promotions')}}\">\n    <!-- Tab 2 content -->\n\n    <ion-nav-view name=\"store-promotions-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n\n\n</ion-tabs>"
+	module.exports = "\r\n<ion-tabs class=\"tab-store tabs-striped tabs-top tabs-background-dark tabs-color-light {{$root.showtabbar?'':'tabs-item-hide'}}\">\r\n\r\n  <ion-tab title=\"Products\" href=\"{{$ctrl.getStateUrl('tabs.store.products')}}\">\r\n    <!-- Tab 1 content -->\r\n\r\n    <ion-nav-view name=\"store-products-content\" >\r\n\r\n    </ion-nav-view>\r\n\r\n  </ion-tab>\r\n  <ion-tab title=\"Value packs\" href=\"{{$ctrl.getStateUrl('tabs.store.valuepacks')}}\">\r\n    <!-- Tab 3 content -->\r\n\r\n    <ion-nav-view name=\"store-valuepacks-content\">\r\n\r\n    </ion-nav-view>\r\n\r\n  </ion-tab>\r\n  <ion-tab title=\"Promotions\" href=\"{{$ctrl.getStateUrl('tabs.store.promotions')}}\">\r\n    <!-- Tab 2 content -->\r\n\r\n    <ion-nav-view name=\"store-promotions-content\">\r\n\r\n    </ion-nav-view>\r\n\r\n  </ion-tab>\r\n\r\n\r\n\r\n</ion-tabs>"
 
 /***/ },
 /* 131 */
@@ -3640,7 +3640,7 @@
 /* 135 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Order\" show-root-tabs>\n  <div class=\"tabs tabs-top\" >\n    <a class=\"tab-item {{$ctrl.statusFilter=='pending'&&'active'}}\" ng-click=\"$ctrl.statusFilter='pending'\">\n      New order\n    </a>\n    <a class=\"tab-item {{$ctrl.statusFilter=='processing'&&'active'}}\" ng-click=\"$ctrl.statusFilter='processing'\">\n      On process\n    </a>\n    <a class=\"tab-item {{$ctrl.statusFilter=='delivering'&&'active'}}\" ng-click=\"$ctrl.statusFilter='delivering'\">\n      Delivering\n    </a>\n    <a class=\"tab-item {{$ctrl.statusFilter=='delivered'&&'active'}}\" ng-click=\"$ctrl.statusFilter='delivered'\">\n      Completed\n    </a>\n    <a class=\"tab-item {{$ctrl.statusFilter=='cancel'&&'active'}}\" ng-click=\"$ctrl.statusFilter='cancel'\">\n      Cancelled\n    </a>\n    <a class=\"tab-item {{$ctrl.statusFilter=='issued'&&'active'}}\" ng-click=\"$ctrl.statusFilter='issued'\">\n      Issued\n    </a>\n  </div>\n\n  <ion-content class=\"has-tabs-top\">\n    <ion-list>\n      <ion-item ng-repeat=\"order in filteredOrders = ($ctrl.orders | filter:{status:$ctrl.statusFilter})\" ui-sref=\"^.orderDetail({id:order.id})\">\n        <span class=\"h4\">\n          Order ID: {{order.id}}\n        </span>\n\n        <span style=\"float:right;\">\n          <span>{{order.status}}</span>\n        </span>\n        <div class=\"h4\">\n          Items\n        </div>\n        <div>\n                <span ng-repeat=\"item in order.orderItems\">\n                  {{$index!=0?\", \":\"\"}}\n                  <span ng-if=\"item.product\">\n                    {{item.product.name}}\n                  </span>\n                  <span ng-if=\"item.productValuePack\">\n                    {{item.productValuePack.name}} (Value pack)\n                  </span>\n                </span>\n        </div>\n        <div class=\"h4\">\n          Total price: {{(order.total_price - order.total_discount) | currency:order.shop.currency}}\n        </div>\n\n      </ion-item>\n      <ion-item ng-if=\"filteredOrders.length==0\">\n        You don't have any {{$ctrl.statusFilter?$ctrl.statusFilter+\" \":\"\"}}order\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Order\" show-root-tabs class=\"tab-order-page\">\r\n\r\n  <div class=\"tab-order tabs-striped tabs-top tabs-background-dark tabs-color-light\" >\r\n    <div class=\"tabs\">\r\n      <a class=\"tab-item {{$ctrl.statusFilter=='pending'&&'active'}}\" ng-click=\"$ctrl.statusFilter='pending'\">\r\n        New order\r\n      </a>\r\n      <a class=\"tab-item {{$ctrl.statusFilter=='processing'&&'active'}}\" ng-click=\"$ctrl.statusFilter='processing'\">\r\n        On process\r\n      </a>\r\n      <a class=\"tab-item {{$ctrl.statusFilter=='delivering'&&'active'}}\" ng-click=\"$ctrl.statusFilter='delivering'\">\r\n        Delivering\r\n      </a>\r\n      <a class=\"tab-item {{$ctrl.statusFilter=='delivered'&&'active'}}\" ng-click=\"$ctrl.statusFilter='delivered'\">\r\n        Completed\r\n      </a>\r\n      <a class=\"tab-item {{$ctrl.statusFilter=='cancel'&&'active'}}\" ng-click=\"$ctrl.statusFilter='cancel'\">\r\n        Cancelled\r\n      </a>\r\n      <a class=\"tab-item {{$ctrl.statusFilter=='issued'&&'active'}}\" ng-click=\"$ctrl.statusFilter='issued'\">\r\n        Issued\r\n      </a>\r\n    </div>\r\n  </div>\r\n\r\n  <ion-content class=\"has-tabs-top\">\r\n    <ion-list>\r\n      <ion-item ng-repeat=\"order in filteredOrders = ($ctrl.orders | filter:{status:$ctrl.statusFilter})\" ui-sref=\"^.orderDetail({id:order.id})\">\r\n        <p>\r\n          <b>Order ID : </b>{{order.id}}\r\n          <span style=\"float:right;\">\r\n            <span>{{order.status}}</span>\r\n          </span>\r\n        </p>\r\n        <p><b>Items</b></p>\r\n        <p ng-repeat=\"item in order.orderItems\">\r\n            <span ng-if=\"item.product\">\r\n              - {{item.product.name}}\r\n            </span>\r\n            <span ng-if=\"item.productValuePack\">\r\n              - {{item.productValuePack.name}} (Value pack)\r\n            </span>\r\n        </p>\r\n        <p>\r\n          <b>Total price : </b>\r\n          <span style=\"float:right;\">\r\n            <b>{{(order.total_price - order.total_discount) | currency:order.shop.currency}}</b>\r\n          </span>\r\n        </p>\r\n      </ion-item>\r\n      <ion-item ng-if=\"filteredOrders.length==0\">\r\n        You don't have any {{$ctrl.statusFilter?$ctrl.statusFilter+\" \":\"\"}}order\r\n      </ion-item>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 136 */
@@ -3760,7 +3760,7 @@
 /* 140 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Contact\">\n  <ion-content>\n    contact\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Contact\">\r\n  <ion-content>\r\n    contact\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 141 */
@@ -3855,7 +3855,7 @@
 /* 145 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"More\" show-root-tabs>\n  <ion-content>\n    <shop-detail-header shop=\"$ctrl.shop\"></shop-detail-header>\n    <ion-list>\n      <ion-item ui-sref=\"^.myProfile\">\n        My profile\n      </ion-item>\n      <ion-item ui-sref=\"^.myShop\">\n        My shop\n      </ion-item>\n      <!--<ion-item ui-sref=\"^.socialMedia\">\n        Social media\n      </ion-item>-->\n      <ion-item ui-sref=\"^.payment\">\n        Payment\n      </ion-item>\n      <ion-item ui-sref=\"^.delivery\">\n        Delivery\n      </ion-item>\n      <ion-item ui-sref=\"^.staff\">\n        Staff\n      </ion-item>\n      <ion-item ui-sref=\"selectShop\">\n        Change shop\n      </ion-item>\n      <ion-item ui-sref=\"logout\">\n        Logout\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"More\" show-root-tabs>\r\n  <ion-content>\r\n    <shop-detail-header shop=\"$ctrl.shop\"></shop-detail-header>\r\n    <ion-list>\r\n      <ion-item ui-sref=\"^.myProfile\">\r\n        <i class=\"icon ion-android-person padding-right\"></i> My profile\r\n      </ion-item>\r\n      <ion-item ui-sref=\"^.myShop\">\r\n        <i class=\"icon ion-home padding-right\"></i> My shop\r\n      </ion-item>\r\n      <!--<ion-item ui-sref=\"^.socialMedia\">\r\n        Social media\r\n      </ion-item>-->\r\n      <ion-item ui-sref=\"^.payment\">\r\n        <i class=\"icon ion-card padding-right\"></i> Payment\r\n      </ion-item>\r\n      <ion-item ui-sref=\"^.delivery\">\r\n        <i class=\"icon ion-android-car padding-right\"></i> Delivery\r\n      </ion-item>\r\n      <ion-item ui-sref=\"^.staff\">\r\n        <i class=\"icon ion-android-people padding-right\"></i> Staff\r\n      </ion-item>\r\n      <ion-item ui-sref=\"selectShop\">\r\n        <i class=\"icon ion-arrow-swap padding-right\"></i> Change shop\r\n      </ion-item>\r\n      <ion-item ui-sref=\"logout\">\r\n        <i class=\"icon ion-log-out padding-right\"></i> Logout\r\n      </ion-item>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 146 */
@@ -3953,7 +3953,7 @@
 /* 150 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<ion-view view-title=\"Login\">\n  <ion-nav-bar class=\"bar-positive\"></ion-nav-bar>\n  <ion-content>\n    <form ng-submit=\"$ctrl.login()\">\n      <ion-list>\n        <ion-item class=\"item-input\">\n          <label class=\"input-label\">Email</label>\n          <input type=\"email\" ng-model=\"$ctrl.credential.email\">\n        </ion-item>\n        <ion-item class=\"item-input\">\n          <label class=\"input-label\">Password</label>\n          <input type=\"password\" ng-model=\"$ctrl.credential.password\">\n        </ion-item>\n        <div class=\"padding\">\n          <button type=\"submit\" class=\"button button-positive button-block\">Login</button>\n        </div>\n        <div class=\"padding text-center\">\n          <button class=\"button button-positive\" ui-sref=\"register\">Create your account</button>\n        </div>\n      </ion-list>\n    </form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "\r\n<ion-view view-title=\"Login\">\r\n  <ion-nav-bar class=\"bar-dark\"></ion-nav-bar>\r\n  <ion-content>\r\n    <form ng-submit=\"$ctrl.login()\" class=\"login-form\">\r\n      <ion-list>\r\n        <ion-item class=\"item-input item-floating-label\">\r\n          <label class=\"input-label\">Email</label>\r\n          <input type=\"email\" ng-model=\"$ctrl.credential.email\" placeholder=\"Email\">\r\n        </ion-item>\r\n        <ion-item class=\"item-input item-floating-label\">\r\n          <label class=\"input-label\">Password</label>\r\n          <input type=\"password\" ng-model=\"$ctrl.credential.password\" placeholder=\"Password\">\r\n        </ion-item>\r\n      </ion-list>\r\n      <div class=\"wrap-btn-login\">\r\n        <button type=\"submit\" class=\"button button-positive button-block\">Login</button>\r\n      </div>\r\n      <div class=\"wrap-btn-signup text-center\">\r\n        <button class=\"button button-light\" ui-sref=\"register\">Create your account</button>\r\n      </div>\r\n    </form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 151 */
@@ -4070,7 +4070,7 @@
 /* 155 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Logout\">\n  <ion-content>\n    logout\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Logout\">\r\n  <ion-content>\r\n    logout\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 156 */
@@ -4188,7 +4188,7 @@
 /* 160 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"SelectShop\" class=\"select-shop\">\n  <ion-content padding=\"true\">\n    <div class=\"row row-center\">\n      <div class=\"col col-center\">\n        <div class=\"profile-image\" style=\"background-image:url({{$ctrl.user.display_image}}),url(http://placehold.it/200x200);\"></div>\n      </div>\n    </div>\n    <div class=\"row row-center\">\n      <div class=\"col col-center\">\n        Welcome {{$ctrl.user.username || $ctrl.user.email}}\n      </div>\n    </div>\n    <div class=\"row row-center\" ng-show=\"$ctrl.shops.length>0\">\n      <div class=\"col col-center\">\n        Continue with\n      </div>\n    </div>\n    <div class=\"row row-center\" ng-show=\"$ctrl.shops.length>0\">\n      <div class=\"col col-center\">\n        <ion-list>\n          <ion-item ng-repeat=\"shop in $ctrl.shops | limitTo:3\" ng-click=\"$ctrl.selectShop(shop)\">\n            {{shop.name}}\n          </ion-item>\n          <ion-item ng-show=\"$ctrl.shops.length>3\">\n            More shops\n          </ion-item>\n        </ion-list>\n\n      </div>\n    </div>\n    <div class=\"row row-center\">\n      <div class=\"col col-center\">\n        <button class=\"button button-positive button-block\" ui-sref=\"newShop\">New shop</button>\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"SelectShop\" class=\"select-shop\">\r\n  <ion-content padding=\"true\">\r\n    <div class=\"row row-center\">\r\n      <div class=\"col col-center\">\r\n        <div class=\"profile-image\" style=\"background-image:url({{$ctrl.user.display_image}}),url(http://placehold.it/200x200);\"></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row row-center\">\r\n      <div class=\"col col-center\">\r\n        Welcome {{$ctrl.user.username || $ctrl.user.email}}\r\n      </div>\r\n    </div>\r\n    <div class=\"row row-center\" ng-show=\"$ctrl.shops.length>0\">\r\n      <div class=\"col col-center\">\r\n        Continue with\r\n      </div>\r\n    </div>\r\n    <div class=\"row row-center\" ng-show=\"$ctrl.shops.length>0\">\r\n      <div class=\"col col-center\">\r\n        <ion-list class=\"shop-list\">\r\n          <ion-item ng-repeat=\"shop in $ctrl.shops | limitTo:3\" ng-click=\"$ctrl.selectShop(shop)\">\r\n            {{shop.name}}\r\n          </ion-item>\r\n          <ion-item ng-if=\"$ctrl.shops.length>3\">\r\n            More shops\r\n          </ion-item>\r\n        </ion-list>\r\n\r\n      </div>\r\n    </div>\r\n    <div class=\"row row-center\">\r\n      <div class=\"col col-center\">\r\n        <button class=\"button button-positive button-block\" ui-sref=\"newShop\">New shop</button>\r\n      </div>\r\n    </div>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 161 */
@@ -4306,7 +4306,7 @@
 /* 165 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Products\" show-store-tabs show-root-tabs>\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.newProduct()\"><i class=\"icon ion-android-add\"></i></button>\n  </ion-nav-buttons>\n  <ion-content scroll=\"false\">\n\n    <product-list shop-id=\"$ctrl.shopId\" on-item-click=\"$ctrl.editProduct(product)\"></product-list>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Products\" show-store-tabs show-root-tabs>\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.newProduct()\"><i class=\"icon ion-android-add\"></i></button>\r\n  </ion-nav-buttons>\r\n  <ion-content scroll=\"false\">\r\n\r\n    <product-list shop-id=\"$ctrl.shopId\" on-item-click=\"$ctrl.editProduct(product)\"></product-list>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 166 */
@@ -4424,7 +4424,7 @@
 /* 170 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Valuepacks\" show-store-tabs show-root-tabs>\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.edit()\"><i class=\"icon ion-android-add\"></i></button>\n  </ion-nav-buttons>\n  <ion-content>\n    <ion-list>\n      <ion-item ng-repeat=\"valuePack in $ctrl.valuePacks\" on-hold=\"$ctrl.showActions(valuePack)\" ng-click=\"$ctrl.edit(valuePack)\">\n        <div class=\"h4\">{{valuePack.name}}</div>\n        <div>\n          <span ng-repeat=\"product in valuePack.products\">\n            {{$index!=0?\", \":\"\"}}{{product.name}}\n          </span>\n        </div>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Value packs\" show-store-tabs show-root-tabs>\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.edit()\"><i class=\"icon ion-android-add\"></i></button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <ion-list>\r\n      <ion-item ng-repeat=\"valuePack in $ctrl.valuePacks\" on-hold=\"$ctrl.showActions(valuePack)\" ng-click=\"$ctrl.edit(valuePack)\">\r\n        <div class=\"h4\" style=\"margin-top: 0\">{{valuePack.name}}</div>\r\n        <div>\r\n          <span ng-repeat=\"product in valuePack.products\">\r\n            {{$index!=0?\", \":\"\"}}{{product.name}}\r\n          </span>\r\n        </div>\r\n      </ion-item>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 171 */
@@ -4583,7 +4583,7 @@
 /* 175 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Promotions\" show-store-tabs show-root-tabs>\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.edit()\"><i class=\"icon ion-android-add\"></i></button>\n  </ion-nav-buttons>\n  <ion-content>\n    <ion-list>\n      <ion-item ng-repeat=\"promotion in $ctrl.promotions\" ng-click=\"$ctrl.edit(promotion)\" on-hold=\"$ctrl.showActions(promotion)\">\n        <div class=\"h4\">{{promotion.name}}</div>\n        <div>{{promotion.discount_amount}}{{promotion.discount_percent?\"%\":$ctrl.shop.currency}} Off{{promotion.free_delivery?\", Free delivery\":\"\"}}</div>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Promotions\" show-store-tabs show-root-tabs>\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.edit()\"><i class=\"icon ion-android-add\"></i></button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <ion-list>\r\n      <ion-item ng-repeat=\"promotion in $ctrl.promotions\" ng-click=\"$ctrl.edit(promotion)\" on-hold=\"$ctrl.showActions(promotion)\">\r\n        <div class=\"h4\" style=\"margin-top: 0\">{{promotion.name}}</div>\r\n        <div>{{promotion.discount_amount}}{{promotion.discount_percent?\"%\":$ctrl.shop.currency}} Off{{promotion.free_delivery?\", Free delivery\":\"\"}}</div>\r\n      </ion-item>\r\n    </ion-list>\r\n  </ion-content>\r\n\r\n</ion-view>\r\n"
 
 /***/ },
 /* 176 */
@@ -4744,7 +4744,7 @@
 /* 180 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"New Shop\">\n  <ion-nav-bar class=\"bar-positive\">\n    <ion-nav-back-button ng-click=\"$ctrl.goBack()\"></ion-nav-back-button>\n  </ion-nav-bar>\n  <ion-content scroll=\"false\">\n    <ion-slides ion-wizard slider=\"swiper\" options=\"swiperOptions\">\n      <ion-slide-page ion-wizard-step >\n        <ion-content>\n          <shop-form shop=\"$ctrl.shop\"></shop-form>\n        </ion-content>\n      </ion-slide-page>\n      <ion-slide-page ion-wizard-step>\n        <payment-form shop=\"$ctrl.shop\"></payment-form>\n      </ion-slide-page>\n      <ion-slide-page ion-wizard-step>\n        <delivery-form shop=\"$ctrl.shop\"></delivery-form>\n      </ion-slide-page>\n      <ion-slide-page ion-wizard-step>\n        <h1>Finish, let's start selling</h1>\n      </ion-slide-page>\n    </ion-slides>\n  </ion-content>\n  <ion-footer-bar class=\"bar-positive\">\n    <button class=\"button button-clear\" ion-wizard-previous >Back</button>\n    <h1 class=\"title\"></h1>\n    <button class=\"button button-clear pull-right\" ion-wizard-next >Next</button>\n    <button class=\"button button-clear pull-right\" ion-wizard-start=\"$ctrl.createShop($ctrl.shop)\">Create shop</button>\n  </ion-footer-bar>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"New Shop\">\r\n  <ion-nav-bar class=\"bar-dark\">\r\n    <ion-nav-back-button ng-click=\"$ctrl.goBack()\"></ion-nav-back-button>\r\n  </ion-nav-bar>\r\n  <ion-content scroll=\"false\">\r\n    <ion-slides ion-wizard slider=\"swiper\" options=\"swiperOptions\">\r\n      <ion-slide-page ion-wizard-step >\r\n        <ion-content>\r\n          <shop-form shop=\"$ctrl.shop\"></shop-form>\r\n        </ion-content>\r\n      </ion-slide-page>\r\n      <ion-slide-page ion-wizard-step>\r\n        <payment-form shop=\"$ctrl.shop\"></payment-form>\r\n      </ion-slide-page>\r\n      <ion-slide-page ion-wizard-step>\r\n        <delivery-form shop=\"$ctrl.shop\"></delivery-form>\r\n      </ion-slide-page>\r\n      <ion-slide-page ion-wizard-step>\r\n        <h1 class=\"text-center padding\" style=\"margin-top: 40px;font-size: 50px\"><i class=\"icon ion-happy-outline positive\"></i></h1>\r\n        <h4 class=\"text-center\">Finish, let's start selling</h4>\r\n      </ion-slide-page>\r\n    </ion-slides>\r\n  </ion-content>\r\n  <ion-footer-bar class=\"bar-positive\">\r\n    <button class=\"button button-clear\" ion-wizard-previous >Back</button>\r\n    <h1 class=\"title\"></h1>\r\n    <button class=\"button button-clear pull-right\" ion-wizard-next >Next</button>\r\n    <button class=\"button button-clear pull-right\" ion-wizard-start=\"$ctrl.createShop($ctrl.shop)\">Create shop</button>\r\n  </ion-footer-bar>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 181 */
@@ -4933,7 +4933,7 @@
 /* 185 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"New Product\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <form>\n      <product-form product=\"$ctrl.product\"></product-form>\n    </form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"New Product\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <form>\r\n      <product-form product=\"$ctrl.product\"></product-form>\r\n    </form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 186 */
@@ -5074,7 +5074,7 @@
 /* 190 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"EditProduct\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <form>\n      <product-form product=\"$ctrl.product\"></product-form>\n    </form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Edit Product\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <form>\r\n      <product-form product=\"$ctrl.product\"></product-form>\r\n    </form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 191 */
@@ -5205,7 +5205,7 @@
 /* 195 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"NewValuePack\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <value-pack-form value-pack=\"$ctrl.valuePack\" shop-id=\"$ctrl.shopId\"></value-pack-form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"New ValuePack\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <value-pack-form value-pack=\"$ctrl.valuePack\" shop-id=\"$ctrl.shopId\"></value-pack-form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 196 */
@@ -5347,7 +5347,7 @@
 /* 200 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"EditValuePack\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <value-pack-form value-pack=\"$ctrl.valuePack\" shop-id=\"$ctrl.shopId\"></value-pack-form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Edit Value Pack\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <value-pack-form value-pack=\"$ctrl.valuePack\" shop-id=\"$ctrl.shopId\"></value-pack-form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 201 */
@@ -5475,7 +5475,7 @@
 /* 205 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"NewPromotion\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <promotion-form promotion=\"$ctrl.promotion\"></promotion-form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"New Promotion\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <promotion-form promotion=\"$ctrl.promotion\"></promotion-form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 206 */
@@ -5621,7 +5621,7 @@
 /* 210 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"EditPromotion\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <promotion-form promotion=\"$ctrl.promotion\"></promotion-form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"EditPromotion\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <promotion-form promotion=\"$ctrl.promotion\"></promotion-form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 211 */
@@ -5754,7 +5754,7 @@
 /* 215 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<ion-view view-title=\"Register\">\n  <ion-nav-bar class=\"bar-positive\">\n    <ion-nav-back-button ng-click=\"$ctrl.goBack()\"></ion-nav-back-button>\n  </ion-nav-bar>\n  <ion-content>\n    <form ng-submit=\"$ctrl.register()\">\n      <ion-list>\n        <ion-item class=\"item-input\">\n          <label class=\"input-label\">Email</label>\n          <input type=\"email\" ng-model=\"$ctrl.credential.email\">\n        </ion-item>\n        <ion-item class=\"item-input\">\n          <label class=\"input-label\">Password</label>\n          <input type=\"password\" ng-model=\"$ctrl.credential.password\">\n        </ion-item>\n        <ion-item class=\"item-input\">\n          <label class=\"input-label\">Confirm password</label>\n          <input type=\"password\" ng-model=\"$ctrl.credential.confirmPassword\">\n        </ion-item>\n        <div class=\"padding\">\n          <button type=\"submit\" class=\"button button-positive button-block\" ng-disabled=\"($ctrl.credential.password!=$ctrl.credential.confirmPassword) || $ctrl.credential.password.length < 6\">Register</button>\n        </div>\n      </ion-list>\n    </form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "\r\n<ion-view view-title=\"Register\">\r\n  <ion-nav-bar class=\"bar-dark\">\r\n    <ion-nav-back-button ng-click=\"$ctrl.goBack()\"></ion-nav-back-button>\r\n  </ion-nav-bar>\r\n  <ion-content>\r\n    <form ng-submit=\"$ctrl.register()\" class=\"register-form\">\r\n      <ion-list>\r\n        <ion-item class=\"item-input item-floating-label\">\r\n          <label class=\"input-label\">Email</label>\r\n          <input type=\"email\" ng-model=\"$ctrl.credential.email\" placeholder=\"Email\">\r\n        </ion-item>\r\n        <ion-item class=\"item-input item-floating-label\">\r\n          <label class=\"input-label\">Password</label>\r\n          <input type=\"password\" ng-model=\"$ctrl.credential.password\" placeholder=\"Password\">\r\n        </ion-item>\r\n        <ion-item class=\"item-input item-floating-label\">\r\n          <label class=\"input-label\">Confirm password</label>\r\n          <input type=\"password\" ng-model=\"$ctrl.credential.confirmPassword\" placeholder=\"Confirm password\">\r\n        </ion-item>\r\n        <div class=\"wrap-btn-main\">\r\n          <button type=\"submit\" class=\"button button-positive button-block\" ng-disabled=\"($ctrl.credential.password!=$ctrl.credential.confirmPassword) || $ctrl.credential.password.length < 6\">Register</button>\r\n        </div>\r\n      </ion-list>\r\n    </form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 216 */
@@ -5887,7 +5887,7 @@
 /* 220 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"MyProfile\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <my-profile-form profile=\"$ctrl.user\"></my-profile-form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"My Profile\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <my-profile-form profile=\"$ctrl.user\"></my-profile-form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 221 */
@@ -6007,7 +6007,7 @@
 /* 225 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"MyShop\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <shop-form shop=\"$ctrl.shop\"></shop-form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"My Shop\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <shop-form shop=\"$ctrl.shop\"></shop-form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 226 */
@@ -6126,7 +6126,7 @@
 /* 230 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"SocialMedia\">\n  <ion-content>\n    socialMedia\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"SocialMedia\">\r\n  <ion-content>\r\n    socialMedia\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 231 */
@@ -6222,7 +6222,7 @@
 /* 235 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Payment\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <payment-form shop=\"$ctrl.shop\"></payment-form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Payment\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <payment-form shop=\"$ctrl.shop\"></payment-form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 236 */
@@ -6341,7 +6341,7 @@
 /* 240 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Delivery\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\n  </ion-nav-buttons>\n  <ion-content>\n    <delivery-form shop=\"$ctrl.shop\"></delivery-form>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Delivery\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.save()\">Save</button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <delivery-form shop=\"$ctrl.shop\"></delivery-form>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 241 */
@@ -6460,7 +6460,7 @@
 /* 245 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Staff\">\n  <ion-nav-buttons side=\"right\">\n    <button class=\"button button-clear\" ng-click=\"$ctrl.addStaff()\"><i class=\"icon ion-android-add\"></i></button>\n  </ion-nav-buttons>\n  <ion-content>\n    <ion-list>\n      <!--<ion-item class=\"item-input-inset\">\n        <label class=\"item-input-wrapper\">\n          <i class=\"icon ion-search\"></i> <input type=\"text\" ng-model=\"$ctrl.query\">\n        </label>\n      </ion-item>-->\n      <ion-item ng-repeat=\"staff in $ctrl.staffs\">\n        <span ng-if=\"staff.firstname && staff.lastname\">\n          {{staff.firstname}} {{staff.lastname}}\n        </span>\n        <span ng-if=\"!(staff.firstname && staff.lastname)\">\n          {{staff.email}}\n        </span>\n        <span>({{staff.shopStaffs[0].shopRole.name}})</span>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Staff\">\r\n  <ion-nav-buttons side=\"right\">\r\n    <button class=\"button button-clear\" ng-click=\"$ctrl.addStaff()\"><i class=\"icon ion-android-add\"></i></button>\r\n  </ion-nav-buttons>\r\n  <ion-content>\r\n    <ion-list can-swipe=\"true\">\r\n      <!--<ion-item class=\"item-input-inset\">\r\n        <label class=\"item-input-wrapper\">\r\n          <i class=\"icon ion-search\"></i> <input type=\"text\" ng-model=\"$ctrl.query\">\r\n        </label>\r\n      </ion-item>-->\r\n      <ion-item ng-repeat=\"staff in $ctrl.staffs\" class=\"item-avatar\" href=\"#\">\r\n        <img src=\"https://placeholdit.imgix.net/~text?txtsize=12&txt=80%C3%9780&w=80&h=80\">\r\n        <h2 ng-if=\"staff.firstname && staff.lastname\">\r\n          {{staff.firstname}} {{staff.lastname}}\r\n        </h2>\r\n        <h2 ng-if=\"!(staff.firstname && staff.lastname)\">\r\n          {{staff.email}}\r\n        </h2>\r\n        <p>({{staff.shopStaffs[0].shopRole.name}})</p>\r\n        <ion-option-button class=\"button-assertive\" ng-click=\"\">\r\n          Delete\r\n        </ion-option-button>\r\n      </ion-item>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 246 */
@@ -6567,7 +6567,7 @@
 /* 247 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view class=\"staff-modal\">\n    <ion-header-bar class=\"bar-positive\">\n        <button class=\"button button-clear\" ng-click=\"$ctrl.modal.hide()\">Cancel</button>\n        <h1 class=\"title\">Add staff</h1>\n    </ion-header-bar>\n    <ion-content>\n        <div class=\"list\">\n            <div class=\"item item-input-inset\">\n                <label class=\"item-input-wrapper\">\n                    <input type=\"text\" placeholder=\"Search email\" ng-model=\"email\">\n                </label>\n                <button class=\"button button-small\" ng-click=\"$ctrl.searchCustomer(email)\">\n                    Search\n                </button>\n            </div>\n        </div>\n        <div class=\"text-center\" ng-if=\"searchResult\">\n            <div class=\"profile-image\" style=\"background-image:url({{searchResult.image}}),url(http://placehold.it/200x200)\"></div>\n            <div ng-if=\"searchResult.firstname && searchResult.lastname\">{{searchResult.firstname}} {{searchResult.lastname}}</div>\n            <div ng-if=\"!(searchResult.firstname && searchResult.lastname)\">{{searchResult.email}}</div>\n            <div class=\"row\">\n                <div class=\"col col-50 col-offset-25\">\n                    <ion-list>\n                        <ion-item class=\"input-item item-select\">\n                            <select style=\"max-width:100%;\" ng-model=\"$ctrl.roleId\" >\n                                <option value=\"\" disabled selected hidden>Assign staff role</option>\n                                <option value={{role.id}} ng-repeat=\"role in $ctrl.roles\">{{role.name}}</option>\n                            </select>\n                        </ion-item>\n                    </ion-list>\n\n                    <div class=\"padding\">\n                        <button class=\"button button-positive\" ng-disabled ng-click=\"$ctrl.addToShopStaff($ctrl.roleId,searchResult.id)\">Done</button>\n                    </div>\n                </span>\n\n            </div>\n        </div>\n    </ion-content>\n</ion-modal-view>"
+	module.exports = "<ion-modal-view class=\"staff-modal\">\r\n    <ion-header-bar class=\"bar-dark\">\r\n        <button class=\"button button-clear\" ng-click=\"$ctrl.modal.hide()\">Cancel</button>\r\n        <h1 class=\"title\">Add staff</h1>\r\n    </ion-header-bar>\r\n    <ion-content>\r\n        <div class=\"list\">\r\n            <div class=\"item item-input-inset\">\r\n                <label class=\"item-input-wrapper\">\r\n                    <input type=\"text\" placeholder=\"Search email\" ng-model=\"email\">\r\n                </label>\r\n                <button class=\"button button-small\" ng-click=\"$ctrl.searchCustomer(email)\">\r\n                    <i class=\"icon ion-search\"></i>\r\n                </button>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\" ng-if=\"searchResult\">\r\n            <div class=\"profile-image\" style=\"background-image:url({{searchResult.image}}),url(http://placehold.it/100x100)\"></div>\r\n            <h5 ng-if=\"searchResult.firstname && searchResult.lastname\">{{searchResult.firstname}} {{searchResult.lastname}}</h5>\r\n            <p ng-if=\"!(searchResult.firstname && searchResult.lastname)\">{{searchResult.email}}</p>\r\n            <div class=\"row\">\r\n                <div class=\"col col-50 col-offset-25\">\r\n                    <ion-list>\r\n                        <ion-item class=\"input-item item-select\">\r\n                            <select style=\"max-width:100%;\" ng-model=\"$ctrl.roleId\" >\r\n                                <option value=\"\" disabled selected hidden>Assign staff role</option>\r\n                                <option value={{role.id}} ng-repeat=\"role in $ctrl.roles\">{{role.name}}</option>\r\n                            </select>\r\n                        </ion-item>\r\n                    </ion-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"padding\">\r\n                <button class=\"button button-block button-positive\" ng-disabled ng-click=\"$ctrl.addToShopStaff($ctrl.roleId,searchResult.id)\">Done</button>\r\n            </div>\r\n        </div>\r\n    </ion-content>\r\n</ion-modal-view>"
 
 /***/ },
 /* 248 */
@@ -6642,7 +6642,7 @@
 /* 251 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"OrderDetail\">\n  <ion-content>\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='pending'\">\n      <div class=\"col\">\n        <button class=\"button button-calm button-block\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'processing')\">Accept</button>\n      </div>\n      <div class=\"col\">\n        <button class=\"button button-assertive button-block\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'cancel')\">Decline</button>\n      </div>\n    </div>\n    <div class=\"row\" ng-if=\"$ctrl.order.status!='pending'\">\n      <div class=\"col-50 col-offset-50\">\n        <ion-list>\n          <ion-item class=\"item-input item-select\">\n            <label class=\"input-label\">Status</label>\n            <select ng-model=\"$ctrl.order.status\" ng-change=\"$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)\">\n              <option value=\"{{option}}\" ng-repeat=\"option in ['processing','delivering','delivered','issued','cancel']\">{{option}}</option>\n            </select>\n          </ion-item>\n        </ion-list>\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-list>\n          <ion-item class=\"item-divider\">\n            <div class=\"row\">\n              <div class=\"col\" style=\"width:50%;\">\n                <div>Delivery</div>\n              </div>\n              <div class=\"col\" style=\"width:50%;\">\n                <div>Payment</div>\n              </div>\n            </div>\n          </ion-item>\n          <ion-item class=\"item-text-wrap\">\n            <div class=\"row\">\n              <div class=\"col\" style=\"width:50%;\">\n                <div>{{$ctrl.order.delivery_address.formatted_address}}</div>\n              </div>\n              <div class=\"col\" style=\"width:50%;\">\n              </div>\n            </div>\n          </ion-item>\n        </ion-list>\n\n      </ion-item>\n      <ion-item ng-repeat=\"item in $ctrl.order.orderItems\">\n\n        <!--orderitem (product)-->\n        <div ng-if=\"item.product\">\n          <div>\n            {{item.product.name}} ({{item.productVariant.name}})\n            <span style=\"float:right;\"> {{item.productVariant.price | currency:$ctrl.currency}}</span>\n          </div>\n          <div class=\"padding-top\">\n            <h3 ng-if=\"item.productOptionValues.length\">Options</h3>\n            <div class=\"padding-left\" ng-repeat=\"option in item.productOptionValues\">\n              {{option.productOption.name}} ({{option.value}})\n              <span style=\"float:right;\">+ {{option.price | currency:$ctrl.currency}}</span>\n            </div>\n          </div>\n          <div class=\"padding-top\">\n            <h3>Promotions</h3>\n            <div class=\"padding-left\" ng-repeat=\"promotion in item.product.promotions\">\n              {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </div>\n          </div>\n        </div>\n        <!--orderitem (value pack)-->\n        <div ng-if=\"item.productValuePack\">\n          <div>\n            {{item.productValuePack.name}} (Value pack)\n            <span style=\"float:right;\"> {{item.productValuePack.price | currency:$ctrl.currency}}</span>\n          </div>\n          <div class=\"padding-top\">\n            <h3>Items</h3>\n            <div class=\"padding-left\" ng-repeat=\"subitem in item.orderItems\">\n              <div class=\"padding-top\">\n                {{subitem.product.name}} ({{subitem.productVariant.name}})\n                <span style=\"float:right;\">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.currency}}</span>\n              </div>\n              <div class=\"padding-left padding-top\">\n                <h3 ng-if=\"subitem.productOptionValues.length\">Options</h3>\n                <div class=\"padding-left\" ng-repeat=\"option in subitem.productOptionValues\">\n                  {{option.productOption.name}} ({{option.value}})\n                  <span style=\"float:right;\">+ {{option.price | currency:$ctrl.currency}}</span>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"padding-top\">\n            <h3>Promotions</h3>\n            <div class=\"padding-left\" ng-repeat=\"promotion in item.productValuePack.promotions\">\n              {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </div>\n          </div>\n        </div>\n\n\n\n        <div>\n          <div class=\"padding-top\">\n            Unit price\n                  <span style=\"float:right\">\n                    {{item.unitPrice | currency:$ctrl.currency}}\n                  </span>\n          </div>\n\n          <div >\n            Unit discount\n                  <span style=\"float:right\">\n                    - {{item.unitDiscount | currency:$ctrl.currency}}\n                  </span>\n          </div>\n          <div>\n            Quantity\n                  <span style=\"float:right\">\n                    {{item.quantity}}\n                  </span>\n          </div>\n          <div>\n            Total\n                  <span style=\"float:right;font-weight: bolder\">\n                    {{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.currency}}\n                  </span>\n          </div>\n        </div>\n\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Total price</span>\n            <span style=\"float:right\">\n              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.currency}}\n            </span>\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Order status</span>\n            <span style=\"float:right\">\n              {{$ctrl.order.status }}\n            </span>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Order Detail\">\r\n  <ion-content>\r\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='pending'\">\r\n      <div class=\"col\">\r\n        <button class=\"button button-positive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'processing')\">Accept</button>\r\n      </div>\r\n      <div class=\"col\">\r\n        <button class=\"button button-assertive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'cancel')\">Decline</button>\r\n      </div>\r\n    </div>\r\n    <div ng-if=\"$ctrl.order.status!='pending'\">\r\n      <label class=\"item-input item-select\">\r\n        <div class=\"input-label\">Status</div>\r\n        <select ng-model=\"$ctrl.order.status\" ng-change=\"$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)\">\r\n          <option value=\"{{option}}\" ng-repeat=\"option in ['processing','delivering','delivered','issued','cancel']\">{{option}}</option>\r\n        </select>\r\n      </label>\r\n    </div>\r\n    <ion-list>\r\n      <ion-item>\r\n        <ion-list>\r\n          <ion-item class=\"item-divider row-head\">\r\n            <div class=\"row\">\r\n              <div class=\"col-50\">Delivery</div>\r\n              <div class=\"col-50\">Payment</div>\r\n            </div>\r\n          </ion-item>\r\n          <ion-item class=\"row-data\">\r\n            <div class=\"row\">\r\n              <div class=\"col-50\">{{$ctrl.order.delivery_address.formatted_address}}</div>\r\n              <div class=\"col-50\"></div>\r\n            </div>\r\n          </ion-item>\r\n        </ion-list>\r\n      </ion-item>\r\n      <ion-item ng-repeat=\"item in $ctrl.order.orderItems\">\r\n\r\n        <!--orderitem (product)-->\r\n        <div ng-if=\"item.product\">\r\n          <p>\r\n            {{item.product.name}} ({{item.productVariant.name}})\r\n            <span class=\"pull-right\"> {{item.productVariant.price | currency:$ctrl.currency}}</span>\r\n          </p>\r\n          <div>\r\n            <p ng-if=\"item.productOptionValues.length\"><b>Options</b></p>\r\n            <p ng-repeat=\"option in item.productOptionValues\">\r\n              - {{option.productOption.name}} ({{option.value}})\r\n              <span class=\"pull-right\">+ {{option.price | currency:$ctrl.currency}}</span>\r\n            </p>\r\n          </div>\r\n          <div>\r\n            <p><b>Promotions</b></p>\r\n            <p ng-repeat=\"promotion in item.product.promotions\">\r\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\r\n            </p>\r\n          </div>\r\n        </div>\r\n        <!--orderitem (value pack)-->\r\n        <div ng-if=\"item.productValuePack\">\r\n          <p>\r\n            {{item.productValuePack.name}} (Value pack)\r\n            <span class=\"pull-right\"> {{item.productValuePack.price | currency:$ctrl.currency}}</span>\r\n          </p>\r\n          <div>\r\n            <p><b>Items</b></p>\r\n            <div ng-repeat=\"subitem in item.orderItems\">\r\n              <p>\r\n                - {{subitem.product.name}} ({{subitem.productVariant.name}})\r\n                <span class=\"pull-right\">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.currency}}</span>\r\n              </p>\r\n              <div class=\"padding-left\">\r\n                <p ng-if=\"subitem.productOptionValues.length\"><b>Options</b></p>\r\n                <p ng-repeat=\"option in subitem.productOptionValues\">\r\n                  -- {{option.productOption.name}} ({{option.value}})\r\n                  <span class=\"pull-right\">+ {{option.price | currency:$ctrl.currency}}</span>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div>\r\n            <p><b>Promotions</b></p>\r\n            <p ng-repeat=\"promotion in item.productValuePack.promotions\">\r\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\r\n            </p>\r\n          </div>\r\n        </div>\r\n\r\n          <p class=\"padding-top\">\r\n            Unit price\r\n            <span style=\"float:right\">\r\n              {{item.unitPrice | currency:$ctrl.currency}}\r\n            </span>\r\n          </p>\r\n\r\n          <p>\r\n            Unit discount\r\n            <span class=\"pull-right\">\r\n              - {{item.unitDiscount | currency:$ctrl.currency}}\r\n            </span>\r\n          </p>\r\n          <p>\r\n            Quantity\r\n            <span class=\"pull-right\">\r\n              {{item.quantity}}\r\n            </span>\r\n          </p>\r\n          <p>\r\n            Total\r\n            <span class=\"pull-right\">\r\n              <b>{{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.currency}}</b>\r\n            </span>\r\n          </p>\r\n\r\n      </ion-item>\r\n      <ion-item>\r\n        <span class=\"h5\">Total price</span>\r\n            <span class=\"pull-right\">\r\n              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.currency}}\r\n            </span>\r\n      </ion-item>\r\n      <ion-item>\r\n        <span class=\"h5\">Order status</span>\r\n            <span class=\"pull-right\">\r\n              {{$ctrl.order.status }}\r\n            </span>\r\n      </ion-item>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-view>\r\n"
 
 /***/ },
 /* 252 */
@@ -6753,7 +6753,7 @@
 /* 255 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-nav-view name=\"root\">\n\n</ion-nav-view>\n"
+	module.exports = "<ion-nav-view name=\"root\">\r\n\r\n</ion-nav-view>\r\n"
 
 /***/ },
 /* 256 */

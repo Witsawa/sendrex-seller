@@ -1,5 +1,5 @@
 <ion-modal-view class="staff-modal">
-    <ion-header-bar class="bar-positive">
+    <ion-header-bar class="bar-dark">
         <button class="button button-clear" ng-click="$ctrl.modal.hide()">Cancel</button>
         <h1 class="title">Add staff</h1>
     </ion-header-bar>
@@ -10,14 +10,14 @@
                     <input type="text" placeholder="Search email" ng-model="email">
                 </label>
                 <button class="button button-small" ng-click="$ctrl.searchCustomer(email)">
-                    Search
+                    <i class="icon ion-search"></i>
                 </button>
             </div>
         </div>
         <div class="text-center" ng-if="searchResult">
-            <div class="profile-image" style="background-image:url({{searchResult.image}}),url(http://placehold.it/200x200)"></div>
-            <div ng-if="searchResult.firstname && searchResult.lastname">{{searchResult.firstname}} {{searchResult.lastname}}</div>
-            <div ng-if="!(searchResult.firstname && searchResult.lastname)">{{searchResult.email}}</div>
+            <div class="profile-image" style="background-image:url({{searchResult.image}}),url(http://placehold.it/100x100)"></div>
+            <h5 ng-if="searchResult.firstname && searchResult.lastname">{{searchResult.firstname}} {{searchResult.lastname}}</h5>
+            <p ng-if="!(searchResult.firstname && searchResult.lastname)">{{searchResult.email}}</p>
             <div class="row">
                 <div class="col col-50 col-offset-25">
                     <ion-list>
@@ -28,12 +28,10 @@
                             </select>
                         </ion-item>
                     </ion-list>
-
-                    <div class="padding">
-                        <button class="button button-positive" ng-disabled ng-click="$ctrl.addToShopStaff($ctrl.roleId,searchResult.id)">Done</button>
-                    </div>
-                </span>
-
+                </div>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-positive" ng-disabled ng-click="$ctrl.addToShopStaff($ctrl.roleId,searchResult.id)">Done</button>
             </div>
         </div>
     </ion-content>

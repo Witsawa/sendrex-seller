@@ -1,142 +1,126 @@
-<ion-view view-title="OrderDetail">
+<ion-view view-title="Order Detail">
   <ion-content>
     <div class="row" ng-if="$ctrl.order.status=='pending'">
       <div class="col">
-        <button class="button button-calm button-block" ng-click="$ctrl.updateOrderStatus($ctrl.order,'processing')">Accept</button>
+        <button class="button button-positive button-block" style="margin: 0" ng-click="$ctrl.updateOrderStatus($ctrl.order,'processing')">Accept</button>
       </div>
       <div class="col">
-        <button class="button button-assertive button-block" ng-click="$ctrl.updateOrderStatus($ctrl.order,'cancel')">Decline</button>
+        <button class="button button-assertive button-block" style="margin: 0" ng-click="$ctrl.updateOrderStatus($ctrl.order,'cancel')">Decline</button>
       </div>
     </div>
-    <div class="row" ng-if="$ctrl.order.status!='pending'">
-      <div class="col-50 col-offset-50">
-        <ion-list>
-          <ion-item class="item-input item-select">
-            <label class="input-label">Status</label>
-            <select ng-model="$ctrl.order.status" ng-change="$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)">
-              <option value="{{option}}" ng-repeat="option in ['processing','delivering','delivered','issued','cancel']">{{option}}</option>
-            </select>
-          </ion-item>
-        </ion-list>
-      </div>
+    <div ng-if="$ctrl.order.status!='pending'">
+      <label class="item-input item-select">
+        <div class="input-label">Status</div>
+        <select ng-model="$ctrl.order.status" ng-change="$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)">
+          <option value="{{option}}" ng-repeat="option in ['processing','delivering','delivered','issued','cancel']">{{option}}</option>
+        </select>
+      </label>
     </div>
     <ion-list>
       <ion-item>
         <ion-list>
-          <ion-item class="item-divider">
+          <ion-item class="item-divider row-head">
             <div class="row">
-              <div class="col" style="width:50%;">
-                <div>Delivery</div>
-              </div>
-              <div class="col" style="width:50%;">
-                <div>Payment</div>
-              </div>
+              <div class="col-50">Delivery</div>
+              <div class="col-50">Payment</div>
             </div>
           </ion-item>
-          <ion-item class="item-text-wrap">
+          <ion-item class="row-data">
             <div class="row">
-              <div class="col" style="width:50%;">
-                <div>{{$ctrl.order.delivery_address.formatted_address}}</div>
-              </div>
-              <div class="col" style="width:50%;">
-              </div>
+              <div class="col-50">{{$ctrl.order.delivery_address.formatted_address}}</div>
+              <div class="col-50"></div>
             </div>
           </ion-item>
         </ion-list>
-
       </ion-item>
       <ion-item ng-repeat="item in $ctrl.order.orderItems">
 
         <!--orderitem (product)-->
         <div ng-if="item.product">
-          <div>
+          <p>
             {{item.product.name}} ({{item.productVariant.name}})
-            <span style="float:right;"> {{item.productVariant.price | currency:$ctrl.currency}}</span>
+            <span class="pull-right"> {{item.productVariant.price | currency:$ctrl.currency}}</span>
+          </p>
+          <div>
+            <p ng-if="item.productOptionValues.length"><b>Options</b></p>
+            <p ng-repeat="option in item.productOptionValues">
+              - {{option.productOption.name}} ({{option.value}})
+              <span class="pull-right">+ {{option.price | currency:$ctrl.currency}}</span>
+            </p>
           </div>
-          <div class="padding-top">
-            <h3 ng-if="item.productOptionValues.length">Options</h3>
-            <div class="padding-left" ng-repeat="option in item.productOptionValues">
-              {{option.productOption.name}} ({{option.value}})
-              <span style="float:right;">+ {{option.price | currency:$ctrl.currency}}</span>
-            </div>
-          </div>
-          <div class="padding-top">
-            <h3>Promotions</h3>
-            <div class="padding-left" ng-repeat="promotion in item.product.promotions">
-              {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?"%":""}} Off)
-            </div>
+          <div>
+            <p><b>Promotions</b></p>
+            <p ng-repeat="promotion in item.product.promotions">
+              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?"%":""}} Off)
+            </p>
           </div>
         </div>
         <!--orderitem (value pack)-->
         <div ng-if="item.productValuePack">
-          <div>
+          <p>
             {{item.productValuePack.name}} (Value pack)
-            <span style="float:right;"> {{item.productValuePack.price | currency:$ctrl.currency}}</span>
-          </div>
-          <div class="padding-top">
-            <h3>Items</h3>
-            <div class="padding-left" ng-repeat="subitem in item.orderItems">
-              <div class="padding-top">
-                {{subitem.product.name}} ({{subitem.productVariant.name}})
-                <span style="float:right;">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.currency}}</span>
-              </div>
-              <div class="padding-left padding-top">
-                <h3 ng-if="subitem.productOptionValues.length">Options</h3>
-                <div class="padding-left" ng-repeat="option in subitem.productOptionValues">
-                  {{option.productOption.name}} ({{option.value}})
-                  <span style="float:right;">+ {{option.price | currency:$ctrl.currency}}</span>
+            <span class="pull-right"> {{item.productValuePack.price | currency:$ctrl.currency}}</span>
+          </p>
+          <div>
+            <p><b>Items</b></p>
+            <div ng-repeat="subitem in item.orderItems">
+              <p>
+                - {{subitem.product.name}} ({{subitem.productVariant.name}})
+                <span class="pull-right">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.currency}}</span>
+              </p>
+              <div class="padding-left">
+                <p ng-if="subitem.productOptionValues.length"><b>Options</b></p>
+                <p ng-repeat="option in subitem.productOptionValues">
+                  -- {{option.productOption.name}} ({{option.value}})
+                  <span class="pull-right">+ {{option.price | currency:$ctrl.currency}}</span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="padding-top">
-            <h3>Promotions</h3>
-            <div class="padding-left" ng-repeat="promotion in item.productValuePack.promotions">
-              {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?"%":""}} Off)
-            </div>
+          <div>
+            <p><b>Promotions</b></p>
+            <p ng-repeat="promotion in item.productValuePack.promotions">
+              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?"%":""}} Off)
+            </p>
           </div>
         </div>
 
-
-
-        <div>
-          <div class="padding-top">
+          <p class="padding-top">
             Unit price
-                  <span style="float:right">
-                    {{item.unitPrice | currency:$ctrl.currency}}
-                  </span>
-          </div>
+            <span style="float:right">
+              {{item.unitPrice | currency:$ctrl.currency}}
+            </span>
+          </p>
 
-          <div >
+          <p>
             Unit discount
-                  <span style="float:right">
-                    - {{item.unitDiscount | currency:$ctrl.currency}}
-                  </span>
-          </div>
-          <div>
+            <span class="pull-right">
+              - {{item.unitDiscount | currency:$ctrl.currency}}
+            </span>
+          </p>
+          <p>
             Quantity
-                  <span style="float:right">
-                    {{item.quantity}}
-                  </span>
-          </div>
-          <div>
+            <span class="pull-right">
+              {{item.quantity}}
+            </span>
+          </p>
+          <p>
             Total
-                  <span style="float:right;font-weight: bolder">
-                    {{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.currency}}
-                  </span>
-          </div>
-        </div>
+            <span class="pull-right">
+              <b>{{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.currency}}</b>
+            </span>
+          </p>
 
       </ion-item>
       <ion-item>
         <span class="h5">Total price</span>
-            <span style="float:right">
+            <span class="pull-right">
               {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.currency}}
             </span>
       </ion-item>
       <ion-item>
         <span class="h5">Order status</span>
-            <span style="float:right">
+            <span class="pull-right">
               {{$ctrl.order.status }}
             </span>
       </ion-item>

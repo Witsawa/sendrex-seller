@@ -5,7 +5,7 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="promotion in $ctrl.promotions" ng-click="$ctrl.edit(promotion)" on-hold="$ctrl.showActions(promotion)">
-        <div class="h4">{{promotion.name}}</div>
+        <div class="h4" style="margin-top: 0">{{promotion.name}}</div>
         <div>{{promotion.discount_amount}}{{promotion.discount_percent?"%":$ctrl.shop.currency}} Off{{promotion.free_delivery?", Free delivery":""}}</div>
       </ion-item>
     </ion-list>

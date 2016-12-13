@@ -1,53 +1,52 @@
-<ion-view view-title="Order" show-root-tabs>
-  <div class="tabs tabs-top" >
-    <a class="tab-item {{$ctrl.statusFilter=='pending'&&'active'}}" ng-click="$ctrl.statusFilter='pending'">
-      New order
-    </a>
-    <a class="tab-item {{$ctrl.statusFilter=='processing'&&'active'}}" ng-click="$ctrl.statusFilter='processing'">
-      On process
-    </a>
-    <a class="tab-item {{$ctrl.statusFilter=='delivering'&&'active'}}" ng-click="$ctrl.statusFilter='delivering'">
-      Delivering
-    </a>
-    <a class="tab-item {{$ctrl.statusFilter=='delivered'&&'active'}}" ng-click="$ctrl.statusFilter='delivered'">
-      Completed
-    </a>
-    <a class="tab-item {{$ctrl.statusFilter=='cancel'&&'active'}}" ng-click="$ctrl.statusFilter='cancel'">
-      Cancelled
-    </a>
-    <a class="tab-item {{$ctrl.statusFilter=='issued'&&'active'}}" ng-click="$ctrl.statusFilter='issued'">
-      Issued
-    </a>
+<ion-view view-title="Order" show-root-tabs class="tab-order-page">
+
+  <div class="tab-order tabs-striped tabs-top tabs-background-dark tabs-color-light" >
+    <div class="tabs">
+      <a class="tab-item {{$ctrl.statusFilter=='pending'&&'active'}}" ng-click="$ctrl.statusFilter='pending'">
+        New order
+      </a>
+      <a class="tab-item {{$ctrl.statusFilter=='processing'&&'active'}}" ng-click="$ctrl.statusFilter='processing'">
+        On process
+      </a>
+      <a class="tab-item {{$ctrl.statusFilter=='delivering'&&'active'}}" ng-click="$ctrl.statusFilter='delivering'">
+        Delivering
+      </a>
+      <a class="tab-item {{$ctrl.statusFilter=='delivered'&&'active'}}" ng-click="$ctrl.statusFilter='delivered'">
+        Completed
+      </a>
+      <a class="tab-item {{$ctrl.statusFilter=='cancel'&&'active'}}" ng-click="$ctrl.statusFilter='cancel'">
+        Cancelled
+      </a>
+      <a class="tab-item {{$ctrl.statusFilter=='issued'&&'active'}}" ng-click="$ctrl.statusFilter='issued'">
+        Issued
+      </a>
+    </div>
   </div>
 
   <ion-content class="has-tabs-top">
     <ion-list>
       <ion-item ng-repeat="order in filteredOrders = ($ctrl.orders | filter:{status:$ctrl.statusFilter})" ui-sref="^.orderDetail({id:order.id})">
-        <span class="h4">
-          Order ID: {{order.id}}
-        </span>
-
-        <span style="float:right;">
-          <span>{{order.status}}</span>
-        </span>
-        <div class="h4">
-          Items
-        </div>
-        <div>
-                <span ng-repeat="item in order.orderItems">
-                  {{$index!=0?", ":""}}
-                  <span ng-if="item.product">
-                    {{item.product.name}}
-                  </span>
-                  <span ng-if="item.productValuePack">
-                    {{item.productValuePack.name}} (Value pack)
-                  </span>
-                </span>
-        </div>
-        <div class="h4">
-          Total price: {{(order.total_price - order.total_discount) | currency:order.shop.currency}}
-        </div>
-
+        <p>
+          <b>Order ID : </b>{{order.id}}
+          <span style="float:right;">
+            <span>{{order.status}}</span>
+          </span>
+        </p>
+        <p><b>Items</b></p>
+        <p ng-repeat="item in order.orderItems">
+            <span ng-if="item.product">
+              - {{item.product.name}}
+            </span>
+            <span ng-if="item.productValuePack">
+              - {{item.productValuePack.name}} (Value pack)
+            </span>
+        </p>
+        <p>
+          <b>Total price : </b>
+          <span style="float:right;">
+            <b>{{(order.total_price - order.total_discount) | currency:order.shop.currency}}</b>
+          </span>
+        </p>
       </ion-item>
       <ion-item ng-if="filteredOrders.length==0">
         You don't have any {{$ctrl.statusFilter?$ctrl.statusFilter+" ":""}}order

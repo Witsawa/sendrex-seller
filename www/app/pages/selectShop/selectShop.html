@@ -17,11 +17,11 @@
     </div>
     <div class="row row-center" ng-show="$ctrl.shops.length>0">
       <div class="col col-center">
-        <ion-list>
+        <ion-list class="shop-list">
           <ion-item ng-repeat="shop in $ctrl.shops | limitTo:3" ng-click="$ctrl.selectShop(shop)">
             {{shop.name}}
           </ion-item>
-          <ion-item ng-show="$ctrl.shops.length>3">
+          <ion-item ng-if="$ctrl.shops.length>3">
             More shops
           </ion-item>
         </ion-list>

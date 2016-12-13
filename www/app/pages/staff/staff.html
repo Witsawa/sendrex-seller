@@ -3,20 +3,24 @@
     <button class="button button-clear" ng-click="$ctrl.addStaff()"><i class="icon ion-android-add"></i></button>
   </ion-nav-buttons>
   <ion-content>
-    <ion-list>
+    <ion-list can-swipe="true">
       <!--<ion-item class="item-input-inset">
         <label class="item-input-wrapper">
           <i class="icon ion-search"></i> <input type="text" ng-model="$ctrl.query">
         </label>
       </ion-item>-->
-      <ion-item ng-repeat="staff in $ctrl.staffs">
-        <span ng-if="staff.firstname && staff.lastname">
+      <ion-item ng-repeat="staff in $ctrl.staffs" class="item-avatar" href="#">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=12&txt=80%C3%9780&w=80&h=80">
+        <h2 ng-if="staff.firstname && staff.lastname">
           {{staff.firstname}} {{staff.lastname}}
-        </span>
-        <span ng-if="!(staff.firstname && staff.lastname)">
+        </h2>
+        <h2 ng-if="!(staff.firstname && staff.lastname)">
           {{staff.email}}
-        </span>
-        <span>({{staff.shopStaffs[0].shopRole.name}})</span>
+        </h2>
+        <p>({{staff.shopStaffs[0].shopRole.name}})</p>
+        <ion-option-button class="button-assertive" ng-click="">
+          Delete
+        </ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>

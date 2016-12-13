@@ -1,5 +1,5 @@
 <ion-view view-title="New Shop">
-  <ion-nav-bar class="bar-positive">
+  <ion-nav-bar class="bar-dark">
     <ion-nav-back-button ng-click="$ctrl.goBack()"></ion-nav-back-button>
   </ion-nav-bar>
   <ion-content scroll="false">
@@ -16,7 +16,8 @@
         <delivery-form shop="$ctrl.shop"></delivery-form>
       </ion-slide-page>
       <ion-slide-page ion-wizard-step>
-        <h1>Finish, let's start selling</h1>
+        <h1 class="text-center padding" style="margin-top: 40px;font-size: 50px"><i class="icon ion-happy-outline positive"></i></h1>
+        <h4 class="text-center">Finish, let's start selling</h4>
       </ion-slide-page>
     </ion-slides>
   </ion-content>
