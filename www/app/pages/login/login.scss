@@ -1,3 +1,15 @@
-login{
 
+@import '../../styleVariable';
+
+.login-form {
+  margin-top: 20px;
+}
+
+.wrap-btn-login {
+  padding: 20px 10px;
+  border-bottom: 1px solid $border-color;
+}
+
+.wrap-btn-signup {
+  padding: 30px 10px;
 }

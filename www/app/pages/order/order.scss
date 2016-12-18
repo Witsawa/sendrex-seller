@@ -1,3 +1,19 @@
-order{
+.tab-order.tabs-top.tabs-color-light{	
+	.tab-item{
+	    color: rgba(255, 255, 255, 0.4);
+    	opacity: 1;
+    	font-size: 10px;
+		&.active{
+			color: #fff;
+    		border: 0 solid #fff;
+		}
+	}
+
+	.tab-order-page{
+		.item-complex .item-content{
+		    padding: 16px 16px 16px 16px;
+		}
+	}
+
 
 }

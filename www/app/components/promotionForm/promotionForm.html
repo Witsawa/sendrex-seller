@@ -1,19 +1,19 @@
 <ion-list>
-  <ion-item class="item-input item-stacked-label">
+  <ion-item class="item-input item-floating-label">
     <label class="input-label">Name</label>
-    <input type="text" ng-model="$ctrl.promotion.name">
+    <input type="text" ng-model="$ctrl.promotion.name" placeholder="Name">
   </ion-item>
-  <ion-item class="item-input item-stacked-label">
+  <ion-item class="item-input item-floating-label">
     <label class="input-label">Description</label>
-    <textarea rows="4" ng-model="$ctrl.promotion.description"></textarea>
+    <textarea rows="2" ng-model="$ctrl.promotion.description" placeholder="Description"></textarea>
   </ion-item>
-  <ion-item>
+  <ion-item class="item-input item-floating-label"
     <div>
       <label class="input-label">Discount</label>
     </div>
-    <div class="row">
-      <div class="col item-input">
-        <input type="number" ng-model="$ctrl.promotion.discount_amount" class="text-right">
+    <div class="row" style="padding:0;">
+      <div class="col item-input" style="padding:0;">
+        <input type="number" ng-model="$ctrl.promotion.discount_amount" placeholder="Discount">
       </div>
       <div style="width:120px;" class="item-input item-select" >
         <select ng-model="$ctrl.promotion.discount_percent"
@@ -22,19 +22,18 @@
         </select>
       </div>
     </div>
-
   </ion-item>
-  <product-select-item ng-model="$ctrl.promotion.products" shop-id="$ctrl.promotion.shopId">
+  <product-select-item ng-model="$ctrl.promotion.products" shop-id="$ctrl.promotion.shopId" class="select-floating">
     Products
   </product-select-item>
-  <value-pack-select-item ng-model="$ctrl.promotion.productValuePacks" shop-id="$ctrl.promotion.shopId">
+  <value-pack-select-item ng-model="$ctrl.promotion.productValuePacks" shop-id="$ctrl.promotion.shopId" class="select-floating">
     Value packs
   </value-pack-select-item>
-  <ion-item class="item-input item-stacked-label">
+  <ion-item class="item-input item-floating-label">
     <label class="input-label">Start date</label>
     <date-picker ng-model="$ctrl.promotion.startDate"></date-picker>
   </ion-item>
-  <ion-item class="item-input item-stacked-label">
+  <ion-item class="item-input item-floating-label">
     <label class="input-label">End date</label>
     <date-picker ng-model="$ctrl.promotion.endDate"></date-picker>
   </ion-item>

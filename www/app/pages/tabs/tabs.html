@@ -1,7 +1,7 @@
-<ion-nav-bar class="bar-positive">
+<ion-nav-bar class="bar-dark">
   <ion-nav-back-button ng-click="$ctrl.goBack()"></ion-nav-back-button>
 </ion-nav-bar>
-<ion-tabs class="tabs-positive {{$root.showroottab?'':'tabs-item-hide'}}">
+<ion-tabs class="tabs-striped tabs-color-positive {{$root.showroottab?'':'tabs-item-hide'}}">
 
   <ion-tab title="Store" href="{{$ctrl.getStateUrl('tabs.store.products')}}">
     <!-- Tab 1 content -->
@@ -30,7 +30,7 @@
 
   </ion-tab>
   <ion-tab title="More" href="{{$ctrl.getStateUrl('tabs.more')}}">
-    <!-- Tab 3 content -->
+    <!-- Tab 4 content -->
 
     <ion-nav-view name="tab-more-content">
 

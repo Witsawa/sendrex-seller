@@ -1,3 +1,12 @@
-store{
+.tab-store.tabs-top.tabs-color-light{	
+	.tab-item{
+	    color: rgba(255, 255, 255, 0.4);
+    	opacity: 1;
+		&.tab-item-active{
+			color: #fff;
+    		border: 0 solid #fff;
+		}
+	}
 
 }
+
