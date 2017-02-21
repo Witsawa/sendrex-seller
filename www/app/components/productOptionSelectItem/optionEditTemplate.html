@@ -16,13 +16,19 @@
                     <div class="col-50">Additional price</div>
                 </div>
             </ion-item>
-            <ion-item ng-repeat="optionValue in option.productOptionValues" class="row-data">
+            <ion-item ng-repeat="optionValue in option.productOptionValues" class="row-data item-input">
                 <div class="row">
                     <div class="col-50">
-                        <input type="text" ng-model="optionValue.value" placeholder="Choice value">
+                        <div class="item-input-inset">
+                            <input type="text"  ng-model="optionValue.value" placeholder="Choice value">
+                        </div>
                     </div>
                     <div class="col-50">
-                        <input type="number" ng-model="optionValue.price" placeholder="Additional price">
+                        <div class="item-input-inset">
+                            <input type="number"  ng-model="optionValue.price" placeholder="Additional price">
+                            <a ng-click="option.productOptionValues.splice($index,1)"><i class="icon ion-trash-a assertive"></i></a>
+                        </div>
+                        
                     </div>
                 </div>
             </ion-item>

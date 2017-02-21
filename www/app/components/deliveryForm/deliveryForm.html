@@ -1,9 +1,10 @@
-<ion-list>
-  <ion-item class="item-divider">
-    Delivery method
-  </ion-item>
-  <ion-item ng-repeat="method in $ctrl.shop.delivery_methods" ng-click="$ctrl.edit(method)">
-    {{method.name}}
-    <span class="item-note dark truncate" style="max-width:150px">{{method.active?"ON":"OFF"}} <i class="icon ion-chevron-right"></i></span>
-  </ion-item>
-</ion-list>
+<ion-content scroll=false>
+  <div class="row flex-column">
+    <schedule-form class="border-bottom" ng-model="$ctrl.shop.delivery_time" style="height:50%;position:relative;overflow-y:auto;">
+      
+    </schedule-form>
+    <delivery-method-form ng-model="$ctrl.shop.delivery_conditions" style="height:50%;position:relative;overflow-y:auto;">
+
+    </delivery-method-form>
+  </div>
+</ion-content>

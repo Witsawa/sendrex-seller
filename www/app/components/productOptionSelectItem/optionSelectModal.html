@@ -6,7 +6,7 @@
   </ion-header-bar>
   <ion-content>
    <ion-list>
-       <ion-toggle ng-model="$ctrl.enableOptions">Variant</ion-toggle>
+       <ion-toggle ng-model="$ctrl.enableOptions">Option</ion-toggle>
      <ion-checkbox ng-repeat="option in $ctrl.options" ng-model="option.checked"  on-hold="$ctrl.showActions(option)">
        {{option.name}}
      </ion-checkbox>

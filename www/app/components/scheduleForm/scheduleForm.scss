@@ -1,0 +1,11 @@
+@import './../../styleVariable.scss';
+.schedule{
+    .schedule-caption{
+        padding:10px 0px;
+    }
+    .schedule-container{
+        flex:auto;
+        overflow-y:auto;
+        border:1px solid $border-color;
+    }
+}

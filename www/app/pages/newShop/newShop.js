@@ -15,6 +15,11 @@ let newShopModule = angular.module('newShop', [
             controller:newShopPage.controller,
             controllerAs: '$ctrl'
           }
+        },
+        resolve:{
+          getCurrentUser:['Customer',(Customer)=>{
+              return Customer.getCurrent().$promise
+          }]
         }
 
 

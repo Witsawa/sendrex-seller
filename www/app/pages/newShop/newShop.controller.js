@@ -1,9 +1,10 @@
 class NewShopController {
-  constructor($ionicHistory,Shop,$state,localStorageService) {
+  constructor($ionicHistory,Shop,$state,localStorageService,getCurrentUser) {
     this.name = 'newShop';
     this._$ionicHistory = $ionicHistory
     this._Shop  = Shop
     this._$state = $state
+    this.user = getCurrentUser
     this._localStorageService = localStorageService
     this.shop = new Shop({
       "name": "",
@@ -29,6 +30,16 @@ class NewShopController {
           to:new Date(1970,0,1,17,0)
         }
       ],
+      "delivery_conditions": [
+        {
+          "from": 0,
+          "to": 2,
+          "service_fee": 0,
+          "delivery_time": 30,
+          "min_purchase": 0,
+          delivery_time_unit:"Minutes"
+        }
+      ],
       "contact_number": "",
       "website": "",
       "currency": "USD",
@@ -40,40 +51,8 @@ class NewShopController {
         "formatted_address": "",
         "id": 0
       },
-      "email": "",
-      "businessCategoryId":0,
-      "delivery_methods": [
-        {
-          "name": "Take away",
-          "active": true,
-          "conditions": [
-          ],
-          "enableCondition":false
-        },{
-          "name": "Delivery",
-          "active": false,
-          "conditions": [
-            {
-              "from": 0,
-              "to": 0,
-              "service_fee": 0,
-              "delivery_time": 30,
-              "min_purchase": 0,
-              delivery_time_unit:"Minutes"
-            }
-          ],
-          "enableCondition":true
-        }
-      ],
-      "payment_methods": [
-        {
-          "name": "Pay on arrival",
-          "active": false
-        }, {
-          "name": "Pay on delivery",
-          "active": false
-        }
-      ]
+      "email": this.user.email,
+      "businessCategoryId":0
     })
 
   }
@@ -96,6 +75,6 @@ class NewShopController {
   }
 }
 
-NewShopController.$inject = ["$ionicHistory",'Shop','$state','localStorageService']
+NewShopController.$inject = ["$ionicHistory",'Shop','$state','localStorageService','getCurrentUser']
 
 export default NewShopController;

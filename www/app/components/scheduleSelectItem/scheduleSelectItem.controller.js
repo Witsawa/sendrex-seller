@@ -32,6 +32,7 @@ class ScheduleSelectItemController {
 
     let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     days = days.map((day)=>{
+      schedule.days = schedule.days || []
       return {name:day,checked:schedule.days.indexOf(day)!=-1}
     })
     this.editModal.scope.days = days

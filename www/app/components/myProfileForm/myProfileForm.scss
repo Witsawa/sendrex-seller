@@ -1,7 +1,9 @@
 my-profile-form{
   .profile-image{
-    width:80px;
+    width:150px;
     border-radius: 50%;
     margin:5px;
+    height:150px;
+    overflow:hidden;
   }
 }

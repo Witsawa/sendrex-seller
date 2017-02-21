@@ -1,0 +1,25 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-clear" ng-click="$ctrl.editModal.hide()">Cancel</button>
+        <h1 class="title">Edit</h1>
+        <button class="button button-clear" ng-click="$ctrl.saveSchedule(schedule)">Save</button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-input">
+                <label class="input-label">From</label>
+                <time-picker ng-model="schedule.from"></time-picker>
+            </ion-item>
+            <ion-item class="item-input">
+                <label class="input-label">To</label>
+                <time-picker ng-model="schedule.to"></time-picker>
+            </ion-item>
+            <ion-item class="item-divider">
+                Repeat
+            </ion-item>
+            <ion-checkbox ng-repeat="day in days" ng-model="day.checked">
+                {{day.name}}
+            </ion-checkbox>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

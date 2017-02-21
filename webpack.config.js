@@ -64,7 +64,14 @@ module.exports = {
       {
         test: /\.html$/,
         loader: "raw-loader"
-      }
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 25000,
+        },
+      },
     ]
   },
   plugins: [

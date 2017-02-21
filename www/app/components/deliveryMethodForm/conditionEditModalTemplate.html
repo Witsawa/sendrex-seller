@@ -1,0 +1,44 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-clear" ng-click="$ctrl.conditionEditModal.hide()">Cancel</button>
+        <h1 class="title">{{method.name}}</h1>
+        <button class="button button-clear" ng-click="$ctrl.saveCondition(condition)">Save</button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-input item-floating-label">
+                <label class="input-label">From (Km)</label>
+                <input type="number" ng-model="condition.from" placeholder="From (Km)" ng-disabled="true">
+            </ion-item>
+            <ion-item class="item-input item-floating-label">
+                <label class="input-label">To (Km)</label>
+                <input type="number" ng-model="condition.to" placeholder="To (Km)" min="{condition.to}">
+            </ion-item>
+            <ion-item class="item-input item-floating-label">
+                <label class="input-label">Fee (USD)</label>
+                <input type="number" ng-model="condition.service_fee" placeholder="Fee (USD)"> 
+            </ion-item>
+            <ion-item class="item-input item-floating-label">
+                <div>
+                    <label class="input-label">Estimate delivery time</label>
+                </div>
+                <div class="row" style="padding:0;">
+                    <div class="col item-input" style="padding:0;">
+                        <input type="number" ng-model="condition.delivery_time">
+                    </div>
+                    <div style="width:120px;" class="item-input item-select" >
+                        <select ng-model="condition.delivery_time_unit" style="max-width:100%;">
+                            <option value="Minutes">Minutes</option>
+                            <option value="Hours">Hours</option>
+                            <option value="Days">Days</option>
+                        </select>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-input item-floating-label">
+                <label class="input-label">Minimum purchase (USD)</label>
+                <input type="number" ng-model="condition.min_purchase" placeholder="Minimum purchase (USD)">
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

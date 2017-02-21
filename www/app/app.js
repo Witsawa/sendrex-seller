@@ -4,6 +4,7 @@ import Components from './components/components';
 import Pages from './pages/pages';
 import AppComponent from './app.component';
 import Directives from './directives';
+import ngFileUpload from 'ng-file-upload';
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -18,7 +19,9 @@ angular.module('starter', [
   'ngTagsInput',
   'ionic.wizard',
   'ngCordova',
-  'leaflet-directive'
+  'leaflet-directive',
+  ngFileUpload,
+  'ionic-toast'
 ])
 
 .run(function($ionicPlatform,$rootScope,$ionicLoading,LoopBackAuth,$location,$state) {
@@ -61,6 +64,7 @@ angular.module('starter', [
       console.error("Error loading the page: %o", error);
       console.log(error)
       if(error.status == 401){
+        console.log(error)
         event.preventDefault()
         LoopBackAuth.clearUser();
         LoopBackAuth.clearStorage();
@@ -77,20 +81,23 @@ angular.module('starter', [
     });
   });
 })
-  .config(($urlRouterProvider,$ionicConfigProvider,$httpProvider) => {
+  .config(($urlRouterProvider,$ionicConfigProvider,$httpProvider,$provide,LoopBackResourceProvider) => {
     "ngInject";
+    $provide.value("apiRoot", LoopBackResourceProvider.getUrlBase());
     $ionicConfigProvider.views.maxCache(0);
-    $urlRouterProvider.otherwise('/login');
-    $httpProvider.interceptors.push(['$q','$location','LoopBackAuth','localStorageService',function($q, $location, LoopBackAuth,localStorageService) {
+    $urlRouterProvider.otherwise('/selectShop');
+    $httpProvider.interceptors.push(['$q','$location','LoopBackAuth','localStorageService','$injector',function($q, $location, LoopBackAuth,localStorageService,$injector) {
       return {
         responseError: function(rejection) {
+          console.log(rejection)
           if (rejection.status == 401) {
+            console.log("Unauthorize")
             //Now clearing the loopback values from client browser for safe logout...
             localStorageService.clearAll()
             LoopBackAuth.clearUser();
             LoopBackAuth.clearStorage();
             $location.nextAfterLogin = $location.path();
-            $location.path('/login');
+            $injector.get('$state').go('login');
           }
           return $q.reject(rejection);
         }

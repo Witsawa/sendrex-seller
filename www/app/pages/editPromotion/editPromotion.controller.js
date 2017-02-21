@@ -1,15 +1,17 @@
 class EditPromotionController {
-  constructor(getPromotions,getCurrentShopId,Shop) {
+  constructor(getPromotions,getCurrentShopId,Shop,$ionicHistory) {
     this.name = 'editPromotion';
     this.promotion = getPromotions[0]
     this.shopId = getCurrentShopId
     this._Shop = Shop
+    this._$ionicHistory = $ionicHistory
   }
   save(){
     let self = this
     let data = self.createPostData()
     self._Shop.promotions.updateById({id:self.shopId,fk:data.id},data).$promise.then((result)=>{
       console.log("Product saved",result)
+      self._$ionicHistory.goBack()
     },(error)=>{
       //TODO produt save error
       console.log("Product save error",error)
@@ -29,5 +31,5 @@ class EditPromotionController {
   }
 }
 
-EditPromotionController.$inject = ["getPromotions",'getCurrentShopId',"Shop"]
+EditPromotionController.$inject = ["getPromotions",'getCurrentShopId',"Shop",'$ionicHistory']
 export default EditPromotionController;

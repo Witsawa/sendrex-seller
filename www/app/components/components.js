@@ -19,6 +19,10 @@ import shopDetailHeader from './shopDetailHeader/shopDetailHeader'
 import MyProfileForm from './myProfileForm/myProfileForm'
 import SocialMediaForm from './socialMediaForm/socialMediaForm'
 import OrderList from './orderList/orderList'
+import ImagePicker from './imagePicker/imagePicker'
+import MultiImagePicker from './multiImagePicker/multiImagePicker'
+import ScheduleForm from './scheduleForm/scheduleForm.js'
+import DeliveryMethodForm from './deliveryMethodForm/deliveryMethodForm'
 let componentModule = angular.module('app.components', [
   ProductList,
   ItemSelectModal,
@@ -40,7 +44,11 @@ let componentModule = angular.module('app.components', [
   shopDetailHeader,
   MyProfileForm,
   SocialMediaForm,
-  OrderList
+  OrderList,
+  ImagePicker,
+  MultiImagePicker,
+  ScheduleForm,
+  DeliveryMethodForm
 ])
 
 .name;

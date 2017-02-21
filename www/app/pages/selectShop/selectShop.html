@@ -2,12 +2,15 @@
   <ion-content padding="true">
     <div class="row row-center">
       <div class="col col-center">
-        <div class="profile-image" style="background-image:url({{$ctrl.user.display_image}}),url(http://placehold.it/200x200);"></div>
+        <div class="profile-image" style="background-image:url({{$ctrl.user.image}}),url(http://placehold.it/200x200);position:relative;">
+          <button class="button button-positive button-fab" ui-sref="layout.myProfile"><i class="icon ion-edit"></i></button>
+        </div>
+        
       </div>
     </div>
     <div class="row row-center">
       <div class="col col-center">
-        Welcome {{$ctrl.user.username || $ctrl.user.email}}
+        Welcome, {{$ctrl.user.firstname&&$ctrl.user.lastname?$ctrl.user.firstname+" "+$ctrl.user.lastname:"" || $ctrl.user.email}}
       </div>
     </div>
     <div class="row row-center" ng-show="$ctrl.shops.length>0">
@@ -29,7 +32,7 @@
       </div>
     </div>
     <div class="row row-center">
-      <div class="col col-center">
+      <div class="col col-center col-50 col-offset-25">
         <button class="button button-positive button-block" ui-sref="newShop">New shop</button>
       </div>
     </div>

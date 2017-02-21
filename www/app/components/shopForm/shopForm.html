@@ -13,6 +13,7 @@
     <label class="input-label">Description</label>
     <textarea rows="3" ng-model="$ctrl.shop.description" placeholder="Description"></textarea>
   </ion-item>
+  
   <location-picker ng-model="$ctrl.shop.location" class="select-floating">
     Shop location
   </location-picker>
@@ -32,7 +33,7 @@
     <label class="input-label">Website</label>
     <input type="text" ng-model="$ctrl.shop.website" placeholder="Website">
   </ion-item>
-  <location-picker ng-model="$ctrl.shop.contact_address" class="select-floating">
+  <location-picker ng-model="$ctrl.shop.contact_location" class="select-floating">
     Contact address
   </location-picker>
   <ion-item class="item-divider">
@@ -41,7 +42,7 @@
   <schedule-select-item ng-model="$ctrl.shop.open_close">
     Open-close time
   </schedule-select-item>
-  <schedule-select-item ng-model="$ctrl.shop.delivery_time">
-    Delivery time
-  </schedule-select-item>
+  <!--<schedule-select-item ng-model="$ctrl.shop.delivery_time">
+    Delivery Setup
+  </schedule-select-item>-->
 </ion-list>

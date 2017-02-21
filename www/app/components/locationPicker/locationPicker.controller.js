@@ -5,6 +5,7 @@ class LocationPickerController {
     let self = this
     self._$http = $http
     $scope.$ctrl = self
+    console.log(self.ngModel)
     self.center = {
       zoom:15,
       lat:self.ngModel.geolocation.lat,
@@ -13,6 +14,9 @@ class LocationPickerController {
     self.defaults = {
       maxZoom: 20,
       zoomControl:false
+    }
+    self.tiles = {
+      url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     }
     self.modal = $ionicModal.fromTemplate(LocationPickerModalTempalte,{
       scope:$scope
@@ -60,7 +64,7 @@ class LocationPickerController {
   openPicker(){
     let self =this
     self.center = {
-      zoom:8,
+      zoom:15,
       lat:self.ngModel.geolocation.lat,
       lng:self.ngModel.geolocation.lng
     }

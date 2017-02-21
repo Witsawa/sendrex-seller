@@ -1,5 +1,5 @@
 class NewValuePackController {
-  constructor(ProductValuePack,Shop,getCurrentShopId) {
+  constructor(ProductValuePack,Shop,getCurrentShopId,$ionicHistory) {
     this.name = 'newValuePack';
     this.valuePack = new ProductValuePack({
       "name":"",
@@ -9,12 +9,15 @@ class NewValuePackController {
     })
     this.shopId = getCurrentShopId
     this._Shop = Shop
+    this._$ionicHistory = $ionicHistory
   }
   save(){
+    let self = this
     console.log(this.valuePack)
     let data = this.createPostData()
     this._Shop.productValuePacks.create({id:this.shopId},data).$promise.then((valuePack)=>{
       console.log('Value pack saved',valuePack)
+      self._$ionicHistory.goBack()
     },(err)=>{
       console.log("Error save value pack",err)
     })
@@ -28,6 +31,6 @@ class NewValuePackController {
   }
 }
 
-NewValuePackController.$inject = ["ProductValuePack","Shop","getCurrentShopId"]
+NewValuePackController.$inject = ["ProductValuePack","Shop","getCurrentShopId",'$ionicHistory']
 
 export default NewValuePackController;

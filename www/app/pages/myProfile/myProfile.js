@@ -19,6 +19,24 @@ let myProfileModule = angular.module('myProfile', [
         }
 
 
+      })
+      .state('layout.myProfile', {
+        url: '/myProfile',
+        views:{
+
+          layout:{
+            template:myProfilePage.template,
+            controller:myProfilePage.controller,
+            controllerAs: '$ctrl'
+          }
+        },
+        resolve:{
+          getCurrentUser:['Customer',(Customer)=>{
+              return Customer.getCurrent().$promise
+          }]
+        }
+
+
       });
   })
 

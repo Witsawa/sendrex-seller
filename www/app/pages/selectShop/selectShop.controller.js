@@ -2,6 +2,7 @@ class SelectShopController {
   constructor(getCurrentUser,localStorageService,$state) {
     this.name = 'selectShop';
     this.user = getCurrentUser
+    
     this.shops = this.user.shopStaffs.reduce((result,staff)=>{
       result = result.concat(staff.shop)
       return result

@@ -24,6 +24,7 @@ import Payment from './payment/payment'
 import Delivery from './delivery/delivery'
 import Staff from './staff/staff'
 import OrderDetail from './orderDetail/orderDetail'
+import Layout from './layout/layout'
 let pageModule = angular.module('app.pages', [
     Tabs,
     Store,
@@ -50,7 +51,8 @@ let pageModule = angular.module('app.pages', [
   Payment,
   Delivery,
   Staff,
-  OrderDetail
+  OrderDetail,
+  Layout
 ])
 
 .name;

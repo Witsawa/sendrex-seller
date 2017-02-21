@@ -5,7 +5,7 @@ import './deliveryForm.scss';
 let deliveryFormComponent = {
   restrict: 'E',
   bindings: {
-    shop:"="
+    shop:'='
   },
   template,
   controller

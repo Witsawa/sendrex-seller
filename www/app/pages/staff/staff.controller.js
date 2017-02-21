@@ -1,6 +1,6 @@
 import AddStaffModalTemplate from './addStaffModal.html'
 class StaffController {
-  constructor(Shop,getCurrentShopId,$ionicModal,$scope,Customer,ShopRole) {
+  constructor(Shop,getCurrentShopId,$ionicModal,$scope,Customer,ShopRole,$ionicHistory) {
     this.name = 'staff';
     this.shopId = getCurrentShopId
     this._Shop = Shop
@@ -9,6 +9,7 @@ class StaffController {
     this.modal = $ionicModal.fromTemplate(AddStaffModalTemplate,{
       scope:$scope
     })
+    this._$ionicHistory = $ionicHistory
     ShopRole.find().$promise.then((roles)=>{
       this.roles = roles
     },()=>{
@@ -54,12 +55,14 @@ class StaffController {
   addToShopStaff(roleId,userId){
     this._Shop.shopStaffs.create({id:this.shopId},{shopRoleId:roleId,customerId:userId}).$promise.then((shopstaff)=>{
       console.log("Add staff to role",shopstaff)
+      this.modal.hide()
+      this.fetchStaffs()
     },(error)=>{
       console.log("Add staff to role error",error)
     })
   }
 }
 
-StaffController.$inject = ['Shop','getCurrentShopId','$ionicModal','$scope','Customer','ShopRole']
+StaffController.$inject = ['Shop','getCurrentShopId','$ionicModal','$scope','Customer','ShopRole','$ionicHistory']
 
 export default StaffController;

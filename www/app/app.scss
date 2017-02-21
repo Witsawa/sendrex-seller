@@ -126,3 +126,18 @@
     height: 20px;
   }
 }
+
+.button-fab{
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+.flex-column{
+  flex-direction: column;
+  position:absolute;
+  top:0px;
+  bottom:0px;
+}
+.border-bottom{
+  border-bottom: 1px solid $border-color;
+}

@@ -1,9 +1,11 @@
+import logo from './../../../img/logo.jpg'
 class LoginController {
   constructor(Customer,$location) {
     this.name = 'login';
     this._Customer = Customer
     this.credential = {}
     this._$location = $location
+    this.logo = logo
   }
   login(){
     let self = this

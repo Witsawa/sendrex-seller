@@ -1,12 +1,12 @@
-<div class="row shop-cover row-bottom" style="background-image:url({{$ctrl.shop.cover}}),url(http://placehold.it/600x400);">
-  <div class="shop-image" style="background-image:url({{$ctrl.shop.logo}}),url(http://placehold.it/200x200);">
-
+<image-picker class="" ng-model="$ctrl.shop.cover" on-image-selected="$ctrl.updateCover(url)" style="width:100%;">
+  <div class="row row-bottom shop-cover">
+    <image-picker class="shop-image" ng-model="$ctrl.shop.image" on-image-selected="$ctrl.updateImage(url)"></image-picker>
+    <div class="col">
+      <h5>{{$ctrl.shop.name}}</h5>
+      <div>{{$ctrl.shop.location.formatted_address || "Unknown"}}</div>
+    </div>
   </div>
-  <div class="col">
-    <h5>{{$ctrl.shop.name}}</h5>
-    <div>{{$ctrl.shop.location.formatted_address || "Unknown"}}</div>
-  </div>
-</div>
+</image-picker>
 <div class="row positive-bg light text-center">
   <div class="col">
     <div>12,120</div>

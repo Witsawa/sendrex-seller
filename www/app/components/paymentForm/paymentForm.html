@@ -2,7 +2,17 @@
   <ion-item class="item-divider">
     Payment method
   </ion-item>
-  <ion-toggle ng-repeat="method in $ctrl.shop.payment_methods" ng-model="method.active">
+  <ion-toggle ng-repeat="method in $ctrl.paymentMethods" ng-model="method.active">
     {{method.name}}
   </ion-toggle>
+  <ion-item class="item item-input item-select">
+    <div class="input-label">
+      Currency
+    </div>
+    <select>
+      <option>USD</option>
+      <option selected>THB</option>
+      <option>GRB</option>
+    </select>
+  </ion-item>
 </ion-list>

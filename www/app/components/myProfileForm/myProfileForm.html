@@ -1,6 +1,6 @@
 <ion-list>
   <ion-item class="item-floating-label text-center">
-    <image-picker class="profile-image" ng-model="$ctrl.profile.image"></image-picker>
+    <image-picker class="profile-image" ng-init="$ctrl.profile.image=$ctrl.profile.image||''" ng-model="$ctrl.profile.image" disable-fallback=false></image-picker>
     <div>{{$ctrl.profile.displayname || $ctrl.profile.email}}</div>
   </ion-item>
   <ion-item class="item-input item-floating-label">
