@@ -13,7 +13,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 (function(window, angular, undefined) {
   'use strict';
 
-  var urlBase = "http://54.254.226.168:3000/api";
+  var urlBase = "http://ec2-54-169-57-28.ap-southeast-1.compute.amazonaws.com:3000/api";
   var authHeader = 'authorization';
 
   function getHost(url) {
