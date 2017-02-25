@@ -27,8 +27,16 @@
           </ion-item>
           <ion-item class="row-data">
             <div class="row">
-              <div class="col-50">{{$ctrl.order.delivery_address.formatted_address}}</div>
-              <div class="col-50"></div>
+              <div class="col-50">
+                <p>
+                  {{$ctrl.order.delivery_address.formatted_address}}
+                </p>
+              </div>
+              <div class="col-50">
+                <p ng-if="['omise'].indexOf($ctrl.order.payment_channel) != -1">
+                  Credit card ({{$ctrl.order.payment_status}})
+                </p>
+              </div>
             </div>
           </ion-item>
         </ion-list>

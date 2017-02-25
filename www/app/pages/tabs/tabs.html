@@ -3,6 +3,15 @@
 </ion-nav-bar>
 <ion-tabs class="tabs-striped tabs-color-positive {{$root.showroottab?'':'tabs-item-hide'}}">
 
+  <ion-tab title="Dashboard" href="{{$ctrl.getStateUrl('tabs.dashboard')}}">
+    <!-- Tab 1 content -->
+
+    <ion-nav-view name="tab-dashboard-content">
+
+    </ion-nav-view>
+
+  </ion-tab>
+
   <ion-tab title="Store" href="{{$ctrl.getStateUrl('tabs.store.products')}}">
     <!-- Tab 1 content -->
 

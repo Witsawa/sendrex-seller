@@ -12,7 +12,7 @@ class SelectShopController {
   }
   selectShop(shop){
     this._localStorageService.set("shopId",shop.id)
-    this._$state.go('tabs.store.products')
+    this._$state.go('tabs.dashboard')
   }
 }
 SelectShopController.$inject = ['getCurrentUser','localStorageService','$state']
