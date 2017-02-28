@@ -56,15 +56,15 @@
 	
 	var _pages2 = _interopRequireDefault(_pages);
 	
-	var _app = __webpack_require__(284);
+	var _app = __webpack_require__(289);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _directives = __webpack_require__(287);
+	var _directives = __webpack_require__(292);
 	
 	var _directives2 = _interopRequireDefault(_directives);
 	
-	var _ngFileUpload = __webpack_require__(288);
+	var _ngFileUpload = __webpack_require__(293);
 	
 	var _ngFileUpload2 = _interopRequireDefault(_ngFileUpload);
 	
@@ -3951,9 +3951,13 @@
 	
 	var _dashboard2 = _interopRequireDefault(_dashboard);
 	
+	var _balance = __webpack_require__(284);
+	
+	var _balance2 = _interopRequireDefault(_balance);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var pageModule = angular.module('app.pages', [_tabs2.default, _store2.default, _order2.default, _contact2.default, _more2.default, _products2.default, _valuepacks2.default, _promotions2.default, _newProduct2.default, _login2.default, _logout2.default, _selectShop2.default, _newShop2.default, _editProduct2.default, _newValuePack2.default, _editValuePack2.default, _newPromotion2.default, _editPromotion2.default, _register2.default, _myProfile2.default, _myShop2.default, _socialMedia2.default, _payment2.default, _delivery2.default, _staff2.default, _orderDetail2.default, _layout2.default, _dashboard2.default]).name;
+	var pageModule = angular.module('app.pages', [_tabs2.default, _store2.default, _order2.default, _contact2.default, _more2.default, _products2.default, _valuepacks2.default, _promotions2.default, _newProduct2.default, _login2.default, _logout2.default, _selectShop2.default, _newShop2.default, _editProduct2.default, _newValuePack2.default, _editValuePack2.default, _newPromotion2.default, _editPromotion2.default, _register2.default, _myProfile2.default, _myShop2.default, _socialMedia2.default, _payment2.default, _delivery2.default, _staff2.default, _orderDetail2.default, _layout2.default, _dashboard2.default, _balance2.default]).name;
 	
 	exports.default = pageModule;
 
@@ -4064,7 +4068,7 @@
 /* 144 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-nav-bar class=\"bar-dark\">\n  <ion-nav-back-button ng-click=\"$ctrl.goBack()\"></ion-nav-back-button>\n</ion-nav-bar>\n<ion-tabs class=\"tabs-striped tabs-color-positive {{$root.showroottab?'':'tabs-item-hide'}}\">\n\n  <ion-tab title=\"Dashboard\" href=\"{{$ctrl.getStateUrl('tabs.dashboard')}}\">\n    <!-- Tab 1 content -->\n\n    <ion-nav-view name=\"tab-dashboard-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Store\" href=\"{{$ctrl.getStateUrl('tabs.store.products')}}\">\n    <!-- Tab 1 content -->\n\n    <ion-nav-view name=\"tab-store-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Order\" href=\"{{$ctrl.getStateUrl('tabs.order')}}\">\n    <!-- Tab 2 content -->\n\n    <ion-nav-view name=\"tab-order-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Contact\" href=\"{{$ctrl.getStateUrl('tabs.contact')}}\">\n    <!-- Tab 3 content -->\n\n    <ion-nav-view name=\"tab-contact-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n  <ion-tab title=\"More\" href=\"{{$ctrl.getStateUrl('tabs.more')}}\">\n    <!-- Tab 4 content -->\n\n    <ion-nav-view name=\"tab-more-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n</ion-tabs>"
+	module.exports = "<ion-nav-bar class=\"bar-dark\">\n  <ion-nav-back-button ng-click=\"$ctrl.goBack()\"></ion-nav-back-button>\n</ion-nav-bar>\n<ion-tabs class=\"tabs-striped tabs-color-positive {{$root.showroottab?'':'tabs-item-hide'}}\">\n\n  <ion-tab title=\"Dashboard\" href=\"{{$ctrl.getStateUrl('tabs.dashboard')}}\">\n    <!-- Tab 1 content -->\n\n    <ion-nav-view name=\"tab-dashboard-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Store\" href=\"{{$ctrl.getStateUrl('tabs.store.products')}}\">\n    <!-- Tab 1 content -->\n\n    <ion-nav-view name=\"tab-store-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Order\" href=\"{{$ctrl.getStateUrl('tabs.order')}}\">\n    <!-- Tab 2 content -->\n\n    <ion-nav-view name=\"tab-order-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Balance\" href=\"{{$ctrl.getStateUrl('tabs.balance')}}\">\n    <!-- Tab 1 content -->\n\n    <ion-nav-view name=\"tab-balance-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n  <ion-tab title=\"Contact\" href=\"{{$ctrl.getStateUrl('tabs.contact')}}\">\n    <!-- Tab 3 content -->\n\n    <ion-nav-view name=\"tab-contact-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n  <ion-tab title=\"More\" href=\"{{$ctrl.getStateUrl('tabs.more')}}\">\n    <!-- Tab 4 content -->\n\n    <ion-nav-view name=\"tab-more-content\">\n\n    </ion-nav-view>\n\n  </ion-tab>\n\n</ion-tabs>"
 
 /***/ },
 /* 145 */
@@ -7622,7 +7626,7 @@
 /* 281 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Dashboard\" show-root-tabs>\n  <ion-content class=\"dashboard\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div class=\"card\">\n              <div class=\"item item-text-wrap\">\n                <h1>Balance</h1>\n                <h2>Pending</h2>\n                <h3>{{12000 | currency}}</h3>\n                <h2>Available</h2>\n                <h3>{{12000 | currency}}</h3>\n                <h2>Total balance</h2>\n                <h3>{{24000 | currency}}</h3>\n              </div>\n            </div>\n            \n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col\">\n             <div class=\"card\">\n              <div class=\"item item-text-wrap\">\n                <h1>Orders</h1>\n                <h2>New Orders</h2>\n                <h3>{{12}}</h3>\n                <h2>Pending Orders</h2>\n                <h3>{{12}}</h3>\n              </div>\n            </div>\n          </div>\n        </div>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Dashboard\" show-root-tabs>\n  <ion-content class=\"dashboard\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div class=\"card\" ui-sref=\"tabs.balance\">\n              <div class=\"item item-text-wrap\">\n                <h1>Balance</h1>\n                <h3>{{$ctrl.balance.total | currency}}</h3>\n                <h2>Pending</h2>\n                <h3>{{$ctrl.balance.pending | currency}}</h3>\n                <h2>Available</h2>\n                <h3>{{$ctrl.balance.paid | currency}}</h3>\n              </div>\n            </div>\n            \n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col\">\n             <div class=\"card\" ui-sref=\"tabs.order\">\n              <div class=\"item item-text-wrap\">\n                <h1>Orders</h1>\n                <h2>Pending Orders</h2>\n                <h3>{{$ctrl.pendingOrders.count}}</h3>\n              </div>\n            </div>\n          </div>\n        </div>\n  </ion-content>\n</ion-view>\n"
 
 /***/ },
 /* 282 */
@@ -7634,14 +7638,53 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var DashboardController = function DashboardController() {
-	  _classCallCheck(this, DashboardController);
+	var DashboardController = function () {
+	  function DashboardController(Shop, getCurrentShop, $q) {
+	    _classCallCheck(this, DashboardController);
 	
-	  this.name = 'dashboard';
-	};
+	    this.name = 'dashboard';
+	    this._Shop = Shop;
+	    this.shop = getCurrentShop;
+	    this._$q = $q;
+	    this.balance = {
+	      paid: 0,
+	      pending: 0,
+	      total: 0
+	    };
+	    this.pendingOrders = { count: 0 };
+	    this.fetchData();
+	  }
 	
+	  _createClass(DashboardController, [{
+	    key: 'fetchData',
+	    value: function fetchData() {
+	      var self = this;
+	      //Get shop balance 
+	      this._Shop.prototype$getBalance({ id: this.shop.id }).$promise.then(function (balance) {
+	        self.balance = balance;
+	        console.log(balance);
+	      }, function (err) {
+	        //fail to get balance
+	        console.log(err);
+	      });
+	
+	      //Count new order
+	      this._Shop.prototype$__count__orders({ id: this.shop.id, where: { status: 'pending' } }).$promise.then(function (count) {
+	
+	        self.pendingOrders = count;
+	        console.log(count);
+	      });
+	    }
+	  }]);
+	
+	  return DashboardController;
+	}();
+	
+	DashboardController.$inject = ['Shop', 'getCurrentShop', '$q'];
 	exports.default = DashboardController;
 
 /***/ },
@@ -7660,11 +7703,136 @@
 	  value: true
 	});
 	
-	var _app = __webpack_require__(285);
+	var _balance = __webpack_require__(285);
+	
+	var _balance2 = _interopRequireDefault(_balance);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var balanceModule = angular.module('balance', ['ionic']).config(function ($stateProvider) {
+	  "ngInject";
+	
+	  $stateProvider.state('tabs.balance', {
+	    url: '/balance',
+	    views: {
+	      "tab-balance-content": {
+	        template: _balance2.default.template,
+	        controller: _balance2.default.controller,
+	        controllerAs: '$ctrl'
+	      }
+	    }
+	
+	  });
+	}).name;
+	
+	exports.default = balanceModule;
+
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _balance = __webpack_require__(286);
+	
+	var _balance2 = _interopRequireDefault(_balance);
+	
+	var _balance3 = __webpack_require__(287);
+	
+	var _balance4 = _interopRequireDefault(_balance3);
+	
+	__webpack_require__(288);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var balancePage = {
+	  template: _balance2.default,
+	  controller: _balance4.default
+	};
+	
+	exports.default = balancePage;
+
+/***/ },
+/* 286 */
+/***/ function(module, exports) {
+
+	module.exports = "<ion-view view-title=\"Balance\" show-root-tabs>\n  <ion-content>\n    <div class=\"card\">\n      <div class=\"item item-text-wrap\">\n          <h1>Available</h1>\n          <h1>{{$ctrl.balance.paid | currency}}</h1>\n          <small>Pending {{$ctrl.balance.pending | currency}}</small>\n      </div>\n    </div>\n    <div class=\"card\">\n      <div class=\"item item-divider\">\n          Statement\n      </div>\n      <div class=\"item\">\n        No data\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
+
+/***/ },
+/* 287 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var BalanceController = function () {
+	  function BalanceController(Shop, getCurrentShop) {
+	    _classCallCheck(this, BalanceController);
+	
+	    this.name = 'balance';
+	    this._Shop = Shop;
+	    this.shop = getCurrentShop;
+	    this.balance = {
+	      paid: 0,
+	      pending: 0,
+	      total: 0
+	    };
+	    this.fetchData();
+	  }
+	
+	  _createClass(BalanceController, [{
+	    key: 'fetchData',
+	    value: function fetchData() {
+	      var self = this;
+	      //Get shop balance 
+	      this._Shop.prototype$getBalance({ id: this.shop.id }).$promise.then(function (balance) {
+	        self.balance = balance;
+	        console.log(balance);
+	      }, function (err) {
+	        //fail to get balance
+	        console.log(err);
+	      });
+	    }
+	  }]);
+	
+	  return BalanceController;
+	}();
+	
+	BalanceController.$inject = ['Shop', 'getCurrentShop'];
+	exports.default = BalanceController;
+
+/***/ },
+/* 288 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _app = __webpack_require__(290);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	__webpack_require__(286);
+	__webpack_require__(291);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -7676,19 +7844,19 @@
 	exports.default = appComponent;
 
 /***/ },
-/* 285 */
+/* 290 */
 /***/ function(module, exports) {
 
 	module.exports = "<ion-nav-view name=\"root\">\n\n</ion-nav-view>\n"
 
 /***/ },
-/* 286 */
+/* 291 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 287 */
+/* 292 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -7712,14 +7880,14 @@
 	exports.default = directivesModule;
 
 /***/ },
-/* 288 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(289);
+	__webpack_require__(294);
 	module.exports = 'ngFileUpload';
 
 /***/ },
-/* 289 */
+/* 294 */
 /***/ function(module, exports) {
 
 	/**!

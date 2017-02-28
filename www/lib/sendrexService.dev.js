@@ -1147,6 +1147,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop#prototype$getBalance
+             * @methodOf lbServices.Shop
+             *
+             * @description
+             *
+             * Get shop balance
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Shop` object.)
+             * </em>
+             */
+            "prototype$getBalance": {
+              url: urlBase + "/shops/:id/getBalance",
+              method: "GET",
+            },
+
             // INTERNAL. Use ShopStaff.shop() instead.
             "::get::ShopStaff::shop": {
               url: urlBase + "/shopStaffs/:id/shop",

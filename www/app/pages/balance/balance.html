@@ -1,0 +1,19 @@
+<ion-view view-title="Balance" show-root-tabs>
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+          <h1>Available</h1>
+          <h1>{{$ctrl.balance.paid | currency}}</h1>
+          <small>Pending {{$ctrl.balance.pending | currency}}</small>
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-divider">
+          Statement
+      </div>
+      <div class="item">
+        No data
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

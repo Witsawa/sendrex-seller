@@ -26,6 +26,7 @@ import Staff from './staff/staff'
 import OrderDetail from './orderDetail/orderDetail'
 import Layout from './layout/layout'
 import Dashboard from './dashboard/dashboard'
+import Balance from './balance/balance'
 let pageModule = angular.module('app.pages', [
     Tabs,
     Store,
@@ -54,7 +55,8 @@ let pageModule = angular.module('app.pages', [
   Staff,
   OrderDetail,
   Layout,
-  Dashboard
+  Dashboard,
+  Balance
 ])
 
 .name;
