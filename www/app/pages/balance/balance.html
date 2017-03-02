@@ -3,15 +3,26 @@
     <div class="card">
       <div class="item item-text-wrap">
           <h1>Available</h1>
-          <h1>{{$ctrl.balance.paid | currency}}</h1>
-          <small>Pending {{$ctrl.balance.pending | currency}}</small>
+          <h1>{{$ctrl.balance.total | currency}}</h1>
+          <buton type="button" class="button button-positive" ng-click="$ctrl.withdraw()">Withdraw</buton>
       </div>
     </div>
     <div class="card">
       <div class="item item-divider">
           Statement
       </div>
-      <div class="item">
+      <div class="item" ng-repeat="transaction in $ctrl.transactions">
+        <div class="row">
+          <div class="col">
+            <div ng-if="transaction.orderId" ui-sref="tabs.balanceOrderDetail({id:transaction.orderId})">
+              Order (id: {{transaction.orderId}})
+            </div>
+
+          </div>
+          <div class="col text-right">{{transaction.amount | currency}}</div>
+        </div>
+      </div>
+      <div class="item" ng-show="$ctrl.transactions.length == 0">
         No data
       </div>
     </div>

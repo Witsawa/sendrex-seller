@@ -1,4 +1,4 @@
-<ion-list>
+<div class="list">
   <ion-item class="item-divider">
     Payment method
   </ion-item>
@@ -9,10 +9,54 @@
     <div class="input-label">
       Currency
     </div>
-    <select>
+    <select ng-model="$ctrl.shop.currency">
       <option>USD</option>
       <option selected>THB</option>
       <option>GRB</option>
     </select>
   </ion-item>
-</ion-list>
+  <ion-item class="item-divider">
+    Bank account
+  </ion-item>
+  <ion-item class=" item-input item-floating-label">
+    <div class="input-label">
+      Account name
+    </div>
+    <input type="text" placeholder="Name" ng-model="$ctrl.shop.bank_account.bank_account.name">
+  </ion-item>
+  <div class="padding item-input item-select">
+    <div class="input-label">
+      Brand
+    </div>
+    <select ng-model="$ctrl.shop.bank_account.bank_account.brand">
+      <option value="test" selected>Test Bank</option>
+      <option value="bbl">Bangkok Bank</option>
+      <option value="kbank">Kasikornbank</option>
+      <option value="ktb">Krungthai Bank</option>
+      <option value="tmb">TMB Bank</option>
+      <option value="scb">Siam Commercial Bank</option>
+      <option value="citi">Citibank</option>
+      <option value="cimb">CIMB Thai Bank</option>
+      <option value="uob">United Overseas Bank (Thai)</option>
+      <option value="bay">Bank of Ayudhya (Krungsri)</option>
+      <option value="tbank">Thanachart Bank</option>
+      <option value="ibank">Islamic Bank of Thailand</option>
+      <option value="lhb">Land and Houses Bank</option>
+    </select>
+  </div>
+  <ion-item class="item-input item-floating-label">
+    <div class="input-label">
+      Number
+    </div>
+    <input type="text" placeholder="Bank account" ng-model="$ctrl.shop.bank_account.bank_account.number">
+  </ion-item>
+  <div class="padding item-input item-select">
+    <div class="input-label">
+      Account type
+    </div>
+    <select ng-model="$ctrl.shop.bank_account.type">
+      <option value="individual" selected>Individual</option>
+      <option value="corporation">Corporation</option>
+    </select>
+  </div>
+</div>

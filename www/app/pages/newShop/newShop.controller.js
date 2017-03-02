@@ -42,7 +42,17 @@ class NewShopController {
       ],
       "contact_number": "",
       "website": "",
-      "currency": "USD",
+      "currency": "THB",
+      "bank_account":{
+        "type":"individual",
+        "bank_account":{
+          
+          'brand':'',
+          'number':'',
+          'name':''
+          
+        }
+      },
       "location": {
         "geolocation": {
           "lat": 0,

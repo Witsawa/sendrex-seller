@@ -5,8 +5,6 @@ class DashboardController {
     this.shop = getCurrentShop
     this._$q = $q
     this.balance = {
-      paid: 0,
-      pending: 0,
       total: 0
     }
     this.pendingOrders  = {count:0}

@@ -133,6 +133,8 @@
 	}).config(function ($urlRouterProvider, $ionicConfigProvider, $httpProvider, $provide, LoopBackResourceProvider) {
 	  "ngInject";
 	
+	  //$locationProvider.html5mode(true)
+	
 	  $provide.value("apiRoot", LoopBackResourceProvider.getUrlBase());
 	  $ionicConfigProvider.views.maxCache(0);
 	  $urlRouterProvider.otherwise('/selectShop');
@@ -2194,7 +2196,7 @@
 /* 78 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-list>\n  <ion-item class=\"item-divider\">\n    Payment method\n  </ion-item>\n  <ion-toggle ng-repeat=\"method in $ctrl.paymentMethods\" ng-model=\"method.active\">\n    {{method.name}}\n  </ion-toggle>\n  <ion-item class=\"item item-input item-select\">\n    <div class=\"input-label\">\n      Currency\n    </div>\n    <select>\n      <option>USD</option>\n      <option selected>THB</option>\n      <option>GRB</option>\n    </select>\n  </ion-item>\n</ion-list>"
+	module.exports = "<div class=\"list\">\n  <ion-item class=\"item-divider\">\n    Payment method\n  </ion-item>\n  <ion-toggle ng-repeat=\"method in $ctrl.paymentMethods\" ng-model=\"method.active\">\n    {{method.name}}\n  </ion-toggle>\n  <ion-item class=\"item item-input item-select\">\n    <div class=\"input-label\">\n      Currency\n    </div>\n    <select ng-model=\"$ctrl.shop.currency\">\n      <option>USD</option>\n      <option selected>THB</option>\n      <option>GRB</option>\n    </select>\n  </ion-item>\n  <ion-item class=\"item-divider\">\n    Bank account\n  </ion-item>\n  <ion-item class=\" item-input item-floating-label\">\n    <div class=\"input-label\">\n      Account name\n    </div>\n    <input type=\"text\" placeholder=\"Name\" ng-model=\"$ctrl.shop.bank_account.bank_account.name\">\n  </ion-item>\n  <div class=\"padding item-input item-select\">\n    <div class=\"input-label\">\n      Brand\n    </div>\n    <select ng-model=\"$ctrl.shop.bank_account.bank_account.brand\">\n      <option value=\"test\" selected>Test Bank</option>\n      <option value=\"bbl\">Bangkok Bank</option>\n      <option value=\"kbank\">Kasikornbank</option>\n      <option value=\"ktb\">Krungthai Bank</option>\n      <option value=\"tmb\">TMB Bank</option>\n      <option value=\"scb\">Siam Commercial Bank</option>\n      <option value=\"citi\">Citibank</option>\n      <option value=\"cimb\">CIMB Thai Bank</option>\n      <option value=\"uob\">United Overseas Bank (Thai)</option>\n      <option value=\"bay\">Bank of Ayudhya (Krungsri)</option>\n      <option value=\"tbank\">Thanachart Bank</option>\n      <option value=\"ibank\">Islamic Bank of Thailand</option>\n      <option value=\"lhb\">Land and Houses Bank</option>\n    </select>\n  </div>\n  <ion-item class=\"item-input item-floating-label\">\n    <div class=\"input-label\">\n      Number\n    </div>\n    <input type=\"text\" placeholder=\"Bank account\" ng-model=\"$ctrl.shop.bank_account.bank_account.number\">\n  </ion-item>\n  <div class=\"padding item-input item-select\">\n    <div class=\"input-label\">\n      Account type\n    </div>\n    <select ng-model=\"$ctrl.shop.bank_account.type\">\n      <option value=\"individual\" selected>Individual</option>\n      <option value=\"corporation\">Corporation</option>\n    </select>\n  </div>\n</div>"
 
 /***/ },
 /* 79 */
@@ -5495,7 +5497,17 @@
 	      }],
 	      "contact_number": "",
 	      "website": "",
-	      "currency": "USD",
+	      "currency": "THB",
+	      "bank_account": {
+	        "type": "individual",
+	        "bank_account": {
+	
+	          'brand': '',
+	          'number': '',
+	          'name': ''
+	
+	        }
+	      },
 	      "location": {
 	        "geolocation": {
 	          "lat": 0,
@@ -7326,6 +7338,15 @@
 	      }
 	    }
 	
+	  }).state('tabs.balanceOrderDetail', {
+	    url: '/balanceOrderDetail/:id',
+	    views: {
+	      "tab-balance-content": {
+	        template: _orderDetail2.default.template,
+	        controller: _orderDetail2.default.controller,
+	        controllerAs: '$ctrl'
+	      }
+	    }
 	  });
 	}).name;
 	
@@ -7626,7 +7647,7 @@
 /* 281 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Dashboard\" show-root-tabs>\n  <ion-content class=\"dashboard\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div class=\"card\" ui-sref=\"tabs.balance\">\n              <div class=\"item item-text-wrap\">\n                <h1>Balance</h1>\n                <h3>{{$ctrl.balance.total | currency}}</h3>\n                <h2>Pending</h2>\n                <h3>{{$ctrl.balance.pending | currency}}</h3>\n                <h2>Available</h2>\n                <h3>{{$ctrl.balance.paid | currency}}</h3>\n              </div>\n            </div>\n            \n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col\">\n             <div class=\"card\" ui-sref=\"tabs.order\">\n              <div class=\"item item-text-wrap\">\n                <h1>Orders</h1>\n                <h2>Pending Orders</h2>\n                <h3>{{$ctrl.pendingOrders.count}}</h3>\n              </div>\n            </div>\n          </div>\n        </div>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Dashboard\" show-root-tabs>\n  <ion-content class=\"dashboard\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div class=\"card\" ui-sref=\"tabs.balance\">\n              <div class=\"item item-text-wrap\">\n                <h1>Balance</h1>\n                <h1>{{$ctrl.balance.total | currency}}</h1>\n              </div>\n            </div>\n            \n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col\">\n             <div class=\"card\" ui-sref=\"tabs.order\">\n              <div class=\"item item-text-wrap\">\n                <h1>Pending Orders</h1>\n                <h1>{{$ctrl.pendingOrders.count}}</h1>\n              </div>\n            </div>\n          </div>\n        </div>\n  </ion-content>\n</ion-view>\n"
 
 /***/ },
 /* 282 */
@@ -7651,8 +7672,6 @@
 	    this.shop = getCurrentShop;
 	    this._$q = $q;
 	    this.balance = {
-	      paid: 0,
-	      pending: 0,
 	      total: 0
 	    };
 	    this.pendingOrders = { count: 0 };
@@ -7760,7 +7779,7 @@
 /* 286 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Balance\" show-root-tabs>\n  <ion-content>\n    <div class=\"card\">\n      <div class=\"item item-text-wrap\">\n          <h1>Available</h1>\n          <h1>{{$ctrl.balance.paid | currency}}</h1>\n          <small>Pending {{$ctrl.balance.pending | currency}}</small>\n      </div>\n    </div>\n    <div class=\"card\">\n      <div class=\"item item-divider\">\n          Statement\n      </div>\n      <div class=\"item\">\n        No data\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Balance\" show-root-tabs>\n  <ion-content>\n    <div class=\"card\">\n      <div class=\"item item-text-wrap\">\n          <h1>Available</h1>\n          <h1>{{$ctrl.balance.total | currency}}</h1>\n          <buton type=\"button\" class=\"button button-positive\" ng-click=\"$ctrl.withdraw()\">Withdraw</buton>\n      </div>\n    </div>\n    <div class=\"card\">\n      <div class=\"item item-divider\">\n          Statement\n      </div>\n      <div class=\"item\" ng-repeat=\"transaction in $ctrl.transactions\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div ng-if=\"transaction.orderId\" ui-sref=\"tabs.balanceOrderDetail({id:transaction.orderId})\">\n              Order (id: {{transaction.orderId}})\n            </div>\n\n          </div>\n          <div class=\"col text-right\">{{transaction.amount | currency}}</div>\n        </div>\n      </div>\n      <div class=\"item\" ng-show=\"$ctrl.transactions.length == 0\">\n        No data\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
 
 /***/ },
 /* 287 */
@@ -7777,17 +7796,18 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var BalanceController = function () {
-	  function BalanceController(Shop, getCurrentShop) {
+	  function BalanceController(Shop, getCurrentShop, $ionicPopup, $scope) {
 	    _classCallCheck(this, BalanceController);
 	
 	    this.name = 'balance';
 	    this._Shop = Shop;
 	    this.shop = getCurrentShop;
+	    this._$ionicPopup = $ionicPopup;
+	    this._$scope = $scope;
 	    this.balance = {
-	      paid: 0,
-	      pending: 0,
 	      total: 0
 	    };
+	    this.transactions = [];
 	    this.fetchData();
 	  }
 	
@@ -7803,13 +7823,44 @@
 	        //fail to get balance
 	        console.log(err);
 	      });
+	      this._Shop.prototype$__get__transactions({ id: this.shop.id }, { filter: { where: { status: { inq: ['success'] } } } }).$promise.then(function (transactions) {
+	        self.transactions = transactions;
+	      });
+	    }
+	  }, {
+	    key: 'withdraw',
+	    value: function withdraw() {
+	      var self = this;
+	      self._amount = 0;
+	      var myPopup = this._$ionicPopup.show({
+	        template: '<input type="number" ng-model="$ctrl._amount">',
+	        title: 'Enter Amount',
+	        subTitle: 'Please enter amount to withdraw',
+	        scope: self._$scope,
+	        buttons: [{ text: 'Cancel' }, {
+	          text: '<b>Save</b>',
+	          type: 'button-positive',
+	          onTap: function onTap(e) {
+	            //withdraw
+	            self._Shop.prototype$withdraw({ id: self.shop.id }, { amount: self._amount }).$promise.then(function (rsp) {
+	              console.log(rsp);
+	            }, function (err) {
+	              console.log(err);
+	              e.preventDefault();
+	            });
+	          }
+	        }]
+	      });
+	      myPopup.then(function (res) {
+	        console.log('Tapped!', res);
+	      });
 	    }
 	  }]);
 	
 	  return BalanceController;
 	}();
 	
-	BalanceController.$inject = ['Shop', 'getCurrentShop'];
+	BalanceController.$inject = ['Shop', 'getCurrentShop', '$ionicPopup', '$scope'];
 	exports.default = BalanceController;
 
 /***/ },

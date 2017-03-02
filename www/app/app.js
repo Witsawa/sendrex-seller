@@ -83,6 +83,8 @@ angular.module('starter', [
 })
   .config(($urlRouterProvider,$ionicConfigProvider,$httpProvider,$provide,LoopBackResourceProvider) => {
     "ngInject";
+      
+    //$locationProvider.html5mode(true)
     $provide.value("apiRoot", LoopBackResourceProvider.getUrlBase());
     $ionicConfigProvider.views.maxCache(0);
     $urlRouterProvider.otherwise('/selectShop');

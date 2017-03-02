@@ -17,7 +17,17 @@ let orderDetailModule = angular.module('orderDetail', [
           }
         }
 
-      });
+      })
+      .state('tabs.balanceOrderDetail', {
+        url: '/balanceOrderDetail/:id',
+        views: {
+          "tab-balance-content":{
+              template:orderDetailPage.template,
+              controller:orderDetailPage.controller,
+              controllerAs: '$ctrl'
+          }
+        }
+      })
   })
 
 .name;
