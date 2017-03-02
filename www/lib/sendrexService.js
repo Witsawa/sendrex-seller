@@ -13,7 +13,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 (function(window, angular, undefined) {
   'use strict';
 
-  var urlBase = "http://api.miracat.com/api";
+  var urlBase = "http://api.miracart.com/api";
   var authHeader = 'authorization';
 
   function getHost(url) {
