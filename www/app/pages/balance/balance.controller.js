@@ -40,7 +40,7 @@ class BalanceController {
           type: 'button-positive',
           onTap: function(e) {
             //withdraw
-            self._Shop.prototype$withdraw({id:self.shop.id},{amount:self._amount}).$promise.then(function (rsp) {
+            self._Shop.prototype$withdraw({id:self.shop.id},{ amount:self._amount}).$promise.then(function (rsp) {
               console.log(rsp)
             },function (err) {
               console.log(err)
