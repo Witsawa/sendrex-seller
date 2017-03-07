@@ -15,7 +15,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
   var urlBase = "//api.miracart.com/api";
   var authHeader = 'authorization';
-
   function getHost(url) {
     var m = url.match(/^(?:https?:)?\/\/([^\/]+)/);
     return m ? m[1] : null;
