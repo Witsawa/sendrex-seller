@@ -4318,7 +4318,7 @@
 /* 154 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Order\" show-root-tabs class=\"tab-order-page\">\n\n  <div class=\"tab-order tabs-striped tabs-top tabs-background-dark tabs-color-light\" >\n    <div class=\"tabs\">\n      <a class=\"tab-item {{$ctrl.statusFilter=='pending'&&'active'}}\" ng-click=\"$ctrl.statusFilter='pending'\">\n        New order\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='processing'&&'active'}}\" ng-click=\"$ctrl.statusFilter='processing'\">\n        On process\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='delivering'&&'active'}}\" ng-click=\"$ctrl.statusFilter='delivering'\">\n        Delivering\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='delivered'&&'active'}}\" ng-click=\"$ctrl.statusFilter='delivered'\">\n        Completed\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='cancel'&&'active'}}\" ng-click=\"$ctrl.statusFilter='cancel'\">\n        Cancelled\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='issued'&&'active'}}\" ng-click=\"$ctrl.statusFilter='issued'\">\n        Issued\n      </a>\n    </div>\n  </div>\n\n  <ion-content class=\"has-tabs-top\">\n    <ion-list>\n      <ion-item ng-repeat=\"order in filteredOrders = ($ctrl.orders | filter:{status:$ctrl.statusFilter})\" ui-sref=\"^.orderDetail({id:order.id})\">\n        <p>\n          <b>Order ID : </b>{{order.id}}\n          <span style=\"float:right;\">\n            <span>{{order.status}}</span>\n          </span>\n        </p>\n        <p><b>Items</b></p>\n        <p ng-repeat=\"item in order.orderItems\">\n            <span ng-if=\"item.product\">\n              - {{item.product.name}}\n            </span>\n            <span ng-if=\"item.productValuePack\">\n              - {{item.productValuePack.name}} (Value pack)\n            </span>\n        </p>\n        <p>\n          <b>Total price : </b>\n          <span style=\"float:right;\">\n            <b>{{(order.total_price - order.total_discount) | currency:order.shop.currency}}</b>\n          </span>\n        </p>\n      </ion-item>\n      <ion-item ng-if=\"filteredOrders.length==0\">\n        You don't have any {{$ctrl.statusFilter?$ctrl.statusFilter+\" \":\"\"}}order\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Order\" show-root-tabs class=\"tab-order-page\">\n\n  <div class=\"tab-order tabs-striped tabs-top tabs-background-dark tabs-color-light\" >\n    <div class=\"tabs\">\n      <a class=\"tab-item {{$ctrl.statusFilter=='pending'&&'active'}}\" ng-click=\"$ctrl.statusFilter='pending'\">\n        New order\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='processing'&&'active'}}\" ng-click=\"$ctrl.statusFilter='processing'\">\n        On process\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='delivering'&&'active'}}\" ng-click=\"$ctrl.statusFilter='delivering'\">\n        Delivering\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='delivered'&&'active'}}\" ng-click=\"$ctrl.statusFilter='delivered'\">\n        Completed\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='cancel'&&'active'}}\" ng-click=\"$ctrl.statusFilter='cancel'\">\n        Cancelled\n      </a>\n      <a class=\"tab-item {{$ctrl.statusFilter=='issued'&&'active'}}\" ng-click=\"$ctrl.statusFilter='issued'\">\n        Issued\n      </a>\n    </div>\n  </div>\n\n  <ion-content class=\"has-tabs-top\">\n    <ion-refresher\n      pulling-text=\"Pull to refresh...\"\n      on-refresh=\"$ctrl.fetchOrders()\">\n    </ion-refresher>\n    <ion-list>\n      <ion-item ng-repeat=\"order in filteredOrders = ($ctrl.orders | filter:{status:$ctrl.statusFilter})\" ui-sref=\"^.orderDetail({id:order.id})\">\n        <p>\n          <b>Order ID : </b>{{order.id}}\n          <span style=\"float:right;\">\n            <span>{{order.status}}</span>\n          </span>\n        </p>\n        <p><b>Items</b></p>\n        <p ng-repeat=\"item in order.orderItems\">\n            <span ng-if=\"item.product\">\n              - {{item.product.name}}\n            </span>\n            <span ng-if=\"item.productValuePack\">\n              - {{item.productValuePack.name}} (Value pack)\n            </span>\n        </p>\n        <p>\n          <b>Total price : </b>\n          <span style=\"float:right;\">\n            <b>{{(order.total_price - order.total_discount) | currency:order.shop.currency}}</b>\n          </span>\n        </p>\n      </ion-item>\n      <ion-item ng-if=\"filteredOrders.length==0\">\n        You don't have any {{$ctrl.statusFilter?$ctrl.statusFilter+\" \":\"\"}}order\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-view>\n"
 
 /***/ },
 /* 155 */
@@ -4335,13 +4335,14 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var OrderController = function () {
-	  function OrderController(Shop, getCurrentShopId) {
+	  function OrderController(Shop, getCurrentShopId, $scope) {
 	    _classCallCheck(this, OrderController);
 	
 	    this.name = 'order';
 	    this.shopId = getCurrentShopId;
 	    this._Shop = Shop;
 	    this.statusFilter = 'pending';
+	    this._$scope = $scope;
 	    this.orders = [];
 	    this.fetchOrders();
 	  }
@@ -4355,6 +4356,8 @@
 	        console.log(orders);
 	      }, function (error) {
 	        console.log("cannot get orders", error);
+	      }).finally(function () {
+	        self._$scope.$broadcast('scroll.refreshComplete');
 	      });
 	    }
 	  }]);
@@ -4362,7 +4365,7 @@
 	  return OrderController;
 	}();
 	
-	OrderController.$inject = ['Shop', 'getCurrentShopId'];
+	OrderController.$inject = ['Shop', 'getCurrentShopId', '$scope'];
 	exports.default = OrderController;
 
 /***/ },
@@ -7385,7 +7388,7 @@
 /* 271 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Order Detail\">\n  <ion-content>\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='pending'\">\n      <div class=\"col\">\n        <button class=\"button button-positive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'processing')\">Accept</button>\n      </div>\n      <div class=\"col\">\n        <button class=\"button button-assertive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'cancel')\">Decline</button>\n      </div>\n    </div>\n    <div ng-if=\"$ctrl.order.status!='pending'\">\n      <label class=\"item-input item-select\">\n        <div class=\"input-label\">Status</div>\n        <select ng-model=\"$ctrl.order.status\" ng-change=\"$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)\">\n          <option value=\"{{option}}\" ng-repeat=\"option in ['processing','delivering','delivered','issued','cancel']\">{{option}}</option>\n        </select>\n      </label>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-list>\n          <ion-item class=\"item-divider row-head\">\n            <div class=\"row\">\n              <div class=\"col-50\">Delivery</div>\n              <div class=\"col-50\">Payment</div>\n            </div>\n          </ion-item>\n          <ion-item class=\"row-data\">\n            <div class=\"row\">\n              <div class=\"col-50\">\n                <p>\n                  {{$ctrl.order.delivery_address.formatted_address}}\n                </p>\n              </div>\n              <div class=\"col-50\">\n                <p ng-if=\"['omise'].indexOf($ctrl.order.payment_channel) != -1\">\n                  Credit card ({{$ctrl.order.payment_status}})\n                </p>\n              </div>\n            </div>\n          </ion-item>\n        </ion-list>\n      </ion-item>\n      <ion-item ng-repeat=\"item in $ctrl.order.orderItems\">\n\n        <!--orderitem (product)-->\n        <div ng-if=\"item.product\">\n          <p>\n            {{item.product.name}} ({{item.productVariant.name}})\n            <span class=\"pull-right\"> {{item.productVariant.price | currency:$ctrl.currency}}</span>\n          </p>\n          <div>\n            <p ng-if=\"item.productOptionValues.length\"><b>Options</b></p>\n            <p ng-repeat=\"option in item.productOptionValues\">\n              - {{option.productOption.name}} ({{option.value}})\n              <span class=\"pull-right\">+ {{option.price | currency:$ctrl.currency}}</span>\n            </p>\n          </div>\n          <div>\n            <p><b>Promotions</b></p>\n            <p ng-repeat=\"promotion in item.product.promotions\">\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </p>\n          </div>\n        </div>\n        <!--orderitem (value pack)-->\n        <div ng-if=\"item.productValuePack\">\n          <p>\n            {{item.productValuePack.name}} (Value pack)\n            <span class=\"pull-right\"> {{item.productValuePack.price | currency:$ctrl.currency}}</span>\n          </p>\n          <div>\n            <p><b>Items</b></p>\n            <div ng-repeat=\"subitem in item.orderItems\">\n              <p>\n                - {{subitem.product.name}} ({{subitem.productVariant.name}})\n                <span class=\"pull-right\">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.currency}}</span>\n              </p>\n              <div class=\"padding-left\">\n                <p ng-if=\"subitem.productOptionValues.length\"><b>Options</b></p>\n                <p ng-repeat=\"option in subitem.productOptionValues\">\n                  -- {{option.productOption.name}} ({{option.value}})\n                  <span class=\"pull-right\">+ {{option.price | currency:$ctrl.currency}}</span>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div>\n            <p><b>Promotions</b></p>\n            <p ng-repeat=\"promotion in item.productValuePack.promotions\">\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </p>\n          </div>\n        </div>\n\n          <p class=\"padding-top\">\n            Unit price\n            <span style=\"float:right\">\n              {{item.unitPrice | currency:$ctrl.currency}}\n            </span>\n          </p>\n\n          <p>\n            Unit discount\n            <span class=\"pull-right\">\n              - {{item.unitDiscount | currency:$ctrl.currency}}\n            </span>\n          </p>\n          <p>\n            Quantity\n            <span class=\"pull-right\">\n              {{item.quantity}}\n            </span>\n          </p>\n          <p>\n            Total\n            <span class=\"pull-right\">\n              <b>{{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.currency}}</b>\n            </span>\n          </p>\n\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Total price</span>\n            <span class=\"pull-right\">\n              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.currency}}\n            </span>\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Order status</span>\n            <span class=\"pull-right\">\n              {{$ctrl.order.status }}\n            </span>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Order Detail\">\n  <ion-content>\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='pending'\">\n      <div class=\"col\">\n        <button class=\"button button-positive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'processing')\">Accept</button>\n      </div>\n      <div class=\"col\">\n        <button class=\"button button-assertive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'cancel')\">Decline</button>\n      </div>\n    </div>\n    <div ng-if=\"$ctrl.order.status!='pending'\">\n      <div class=\"item item-input item-select\">\n        <div class=\"input-label\">Status</div>\n        <select ng-model=\"$ctrl.order.status\" ng-change=\"$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)\">\n          <option value=\"{{option}}\" ng-repeat=\"option in ['processing','delivering','delivered','issued','cancel']\">{{option}}</option>\n        </select>\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-list>\n          <ion-item class=\"item-divider row-head\">\n            <div class=\"row\">\n              <div class=\"col-50\">Delivery</div>\n              <div class=\"col-50\">Payment</div>\n            </div>\n          </ion-item>\n          <ion-item class=\"row-data\">\n            <div class=\"row\">\n              <div class=\"col-50\">\n                <p>\n                  {{$ctrl.order.delivery_address.formatted_address}}\n                </p>\n              </div>\n              <div class=\"col-50\">\n                <p ng-if=\"['omise'].indexOf($ctrl.order.payment_channel) != -1\">\n                  Credit card ({{$ctrl.order.payment_status}})\n                </p>\n              </div>\n            </div>\n          </ion-item>\n        </ion-list>\n      </ion-item>\n      <ion-item ng-repeat=\"item in $ctrl.order.orderItems\">\n\n        <!--orderitem (product)-->\n        <div ng-if=\"item.product\">\n          <p>\n            {{item.product.name}} ({{item.productVariant.name}})\n            <span class=\"pull-right\"> {{item.productVariant.price | currency:$ctrl.order.shop.currency}}</span>\n          </p>\n          <div>\n            <p ng-if=\"item.productOptionValues.length\"><b>Options</b></p>\n            <p ng-repeat=\"option in item.productOptionValues\">\n              - {{option.productOption.name}} ({{option.value}})\n              <span class=\"pull-right\">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>\n            </p>\n          </div>\n          <div>\n            <p><b>Promotions</b></p>\n            <p ng-repeat=\"promotion in item.product.promotions\">\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </p>\n          </div>\n        </div>\n        <!--orderitem (value pack)-->\n        <div ng-if=\"item.productValuePack\">\n          <p>\n            {{item.productValuePack.name}} (Value pack)\n            <span class=\"pull-right\"> {{item.productValuePack.price | currency:$ctrl.order.shop.currency}}</span>\n          </p>\n          <div>\n            <p><b>Items</b></p>\n            <div ng-repeat=\"subitem in item.orderItems\">\n              <p>\n                - {{subitem.product.name}} ({{subitem.productVariant.name}})\n                <span class=\"pull-right\">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.order.shop.currency}}</span>\n              </p>\n              <div class=\"padding-left\">\n                <p ng-if=\"subitem.productOptionValues.length\"><b>Options</b></p>\n                <p ng-repeat=\"option in subitem.productOptionValues\">\n                  -- {{option.productOption.name}} ({{option.value}})\n                  <span class=\"pull-right\">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div>\n            <p><b>Promotions</b></p>\n            <p ng-repeat=\"promotion in item.productValuePack.promotions\">\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </p>\n          </div>\n        </div>\n\n          <p class=\"padding-top\">\n            Unit price\n            <span style=\"float:right\">\n              {{item.unitPrice | currency:$ctrl.order.shop.currency}}\n            </span>\n          </p>\n\n          <p>\n            Unit discount\n            <span class=\"pull-right\">\n              - {{item.unitDiscount | currency:$ctrl.order.shop.currency}}\n            </span>\n          </p>\n          <p>\n            Quantity\n            <span class=\"pull-right\">\n              {{item.quantity}}\n            </span>\n          </p>\n          <p>\n            Total\n            <span class=\"pull-right\">\n              <b>{{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.order.shop.currency}}</b>\n            </span>\n          </p>\n\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Total price</span>\n            <span class=\"pull-right\">\n              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.order.shop.currency}}\n            </span>\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Order status</span>\n            <span class=\"pull-right\">\n              {{$ctrl.order.status }}\n            </span>\n      </ion-item>\n    </ion-list>\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='processing'\">\n      <div class=\"col\">\n        <div ng-if=\"!$ctrl.order.deliveryJobs\">\n          <button class=\"button button-positive button-block\" ng-click=\"$ctrl.findDeliver()\">Get Sendrex Deliver</button>\n        </div>\n        <div ng-if=\"$ctrl.order.deliveryJobs\">\n          <div class=\"list list-inset\">\n            <div class=\"item item-divider\">Delivery status</div>\n            <div class=\"item\">\n              <div ng-if=\"$ctrl.order.deliveryJobs.status == 'pending'\">\n                Searching for deliver\n              </div>\n              <div ng-if=\"$ctrl.order.deliveryJobs.status == 'picking'\">\n                Waiting for deliver\n              </div>\n              <div ng-if=\"$ctrl.order.deliveryJobs.status == 'delivering'\">\n                Delivering\n              </div>\n              <div ng-if=\"$ctrl.order.deliveryJobs.status == 'delivering'\">\n                Delivered\n              </div>\n            </div>\n            </div>\n          </div>\n          \n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
 
 /***/ },
 /* 272 */
@@ -7402,13 +7405,14 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var OrderDetailController = function () {
-	  function OrderDetailController(Shop, getCurrentShopId, $stateParams) {
+	  function OrderDetailController(Shop, getCurrentShopId, $stateParams, DeliveryJob) {
 	    _classCallCheck(this, OrderDetailController);
 	
 	    this.name = 'orderDetail';
 	    this.shopId = getCurrentShopId;
 	    this._Shop = Shop;
 	    this._$stateParams = $stateParams;
+	    this._DeliveryJob = DeliveryJob;
 	    this.fetchOrder();
 	  }
 	
@@ -7418,7 +7422,7 @@
 	      var self = this;
 	      this._Shop.orders({ id: this.shopId, filter: {
 	          where: { id: this._$stateParams.id },
-	          include: ['shop', {
+	          include: ['deliveryJobs', 'shop', {
 	            orderItems: [{
 	              product: ['promotions']
 	            }, 'productVariant', {
@@ -7438,6 +7442,7 @@
 	        }
 	      }).$promise.then(function (orders) {
 	        self.order = orders[0];
+	        console.log(self.order);
 	      }, function (error) {
 	        console.log("Error getting order", error);
 	      });
@@ -7453,12 +7458,22 @@
 	        //TODO error cancel order
 	      });
 	    }
+	  }, {
+	    key: 'findDeliver',
+	    value: function findDeliver() {
+	      console.log(this._DeliveryJob);
+	      this._DeliveryJob.createJob({ orderId: this.order.id }).$promise.then(function (rsp) {
+	        console.log(rsp);
+	      }, function (err) {
+	        console.log(err);
+	      });
+	    }
 	  }]);
 	
 	  return OrderDetailController;
 	}();
 	
-	OrderDetailController.$inject = ['Shop', 'getCurrentShopId', '$stateParams'];
+	OrderDetailController.$inject = ['Shop', 'getCurrentShopId', '$stateParams', 'DeliveryJob'];
 	exports.default = OrderDetailController;
 
 /***/ },
@@ -7779,7 +7794,7 @@
 /* 286 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Balance\" show-root-tabs>\n  <ion-content>\n    <div class=\"card\">\n      <div class=\"item item-text-wrap\">\n          <h1>Available</h1>\n          <h1>{{$ctrl.balance.total | currency}}</h1>\n          <buton type=\"button\" class=\"button button-positive\" ng-click=\"$ctrl.withdraw()\">Withdraw</buton>\n      </div>\n    </div>\n    <div class=\"card\">\n      <div class=\"item item-divider\">\n          Statement\n      </div>\n      <div class=\"item\" ng-repeat=\"transaction in $ctrl.transactions\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div ng-if=\"transaction.orderId\" ui-sref=\"tabs.balanceOrderDetail({id:transaction.orderId})\">\n              Order (id: {{transaction.orderId}})\n            </div>\n\n          </div>\n          <div class=\"col text-right\">{{transaction.amount | currency}}</div>\n        </div>\n      </div>\n      <div class=\"item\" ng-show=\"$ctrl.transactions.length == 0\">\n        No data\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Balance\" show-root-tabs>\n  <ion-content>\n    <div class=\"card\">\n      <div class=\"item item-text-wrap\">\n          <h1>Available</h1>\n          <h1>{{$ctrl.balance.total | currency: $ctrl.shop.currency}}</h1>\n          <buton type=\"button\" class=\"button button-positive\" ng-click=\"$ctrl.withdraw()\">Withdraw</buton>\n      </div>\n    </div>\n    <div class=\"card\">\n      <div class=\"item item-divider\">\n          Statement\n      </div>\n      <div class=\"item\" ng-repeat=\"transaction in $ctrl.transactions\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div ng-if=\"transaction.type=='charge'\" ui-sref=\"tabs.balanceOrderDetail({id:transaction.orderId})\">\n              Order (id: {{transaction.orderId}})\n            </div>\n            <div ng-if=\"transaction.type=='withdraw'\">\n              Withdraw\n            </div>\n             <div ng-if=\"transaction.type=='deliveryFee'\">\n              Delivery fee\n            </div>\n          </div>\n          <div class=\"col text-right\">{{transaction.amount | currency: $ctrl.shop.currency}}</div>\n        </div>\n      </div>\n      <div class=\"item\" ng-show=\"$ctrl.transactions.length == 0\">\n        No data\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
 
 /***/ },
 /* 287 */
@@ -7823,7 +7838,8 @@
 	        //fail to get balance
 	        console.log(err);
 	      });
-	      this._Shop.prototype$__get__transactions({ id: this.shop.id }, { filter: { where: { status: { inq: ['success'] } } } }).$promise.then(function (transactions) {
+	      this._Shop.prototype$getTransactions({ id: this.shop.id }).$promise.then(function (transactions) {
+	        console.log(transactions);
 	        self.transactions = transactions;
 	      });
 	    }
@@ -7844,6 +7860,7 @@
 	            //withdraw
 	            self._Shop.prototype$withdraw({ id: self.shop.id }, { amount: self._amount }).$promise.then(function (rsp) {
 	              console.log(rsp);
+	              self.fetchData();
 	            }, function (err) {
 	              console.log(err);
 	              e.preventDefault();

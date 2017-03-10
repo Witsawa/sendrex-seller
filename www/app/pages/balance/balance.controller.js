@@ -21,7 +21,8 @@ class BalanceController {
       //fail to get balance
       console.log(err)
     })
-    this._Shop.prototype$__get__transactions({id:this.shop.id},{filter:{where:{status:{inq:['success']}}}}).$promise.then(function (transactions) {
+    this._Shop.prototype$getTransactions({id:this.shop.id}).$promise.then(function (transactions) {
+      console.log(transactions)
       self.transactions = transactions
     })
   }
@@ -42,6 +43,7 @@ class BalanceController {
             //withdraw
             self._Shop.prototype$withdraw({id:self.shop.id},{ amount:self._amount}).$promise.then(function (rsp) {
               console.log(rsp)
+              self.fetchData()
             },function (err) {
               console.log(err)
               e.preventDefault();

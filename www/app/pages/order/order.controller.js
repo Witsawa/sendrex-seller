@@ -1,9 +1,10 @@
 class OrderController {
-  constructor(Shop,getCurrentShopId) {
+  constructor(Shop,getCurrentShopId,$scope) {
     this.name = 'order';
     this.shopId = getCurrentShopId
     this._Shop = Shop
     this.statusFilter = 'pending'
+    this._$scope = $scope
     this.orders = []
     this.fetchOrders()
   }
@@ -18,8 +19,10 @@ class OrderController {
       console.log(orders)
     },(error)=>{
       console.log("cannot get orders",error)
+    }).finally(function () {
+      self._$scope.$broadcast('scroll.refreshComplete');
     })
   }
 }
-OrderController.$inject = ['Shop','getCurrentShopId']
+OrderController.$inject = ['Shop','getCurrentShopId','$scope']
 export default OrderController;

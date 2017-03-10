@@ -1,9 +1,10 @@
 class OrderDetailController {
-  constructor(Shop,getCurrentShopId,$stateParams) {
+  constructor(Shop,getCurrentShopId,$stateParams,DeliveryJob) {
     this.name = 'orderDetail';
     this.shopId = getCurrentShopId
     this._Shop = Shop
     this._$stateParams = $stateParams
+    this._DeliveryJob = DeliveryJob
     this.fetchOrder()
   }
   fetchOrder(){
@@ -11,6 +12,7 @@ class OrderDetailController {
     this._Shop.orders({id:this.shopId,filter: {
       where: {id: this._$stateParams.id},
       include: [
+        'deliveryJobs',
         'shop',
         {
           orderItems: [
@@ -45,6 +47,7 @@ class OrderDetailController {
     }
     }).$promise.then((orders)=>{
       self.order = orders[0]
+      console.log(self.order)
     },(error)=>{
       console.log("Error getting order",error)
     })
@@ -59,6 +62,14 @@ class OrderDetailController {
     })
 
   }
+  findDeliver(){
+    console.log(this._DeliveryJob)
+    this._DeliveryJob.createJob({orderId:this.order.id}).$promise.then(function (rsp) {
+      console.log(rsp)
+    }, function (err) {
+      console.log(err)
+    })
+  }
 }
-OrderDetailController.$inject= ['Shop','getCurrentShopId','$stateParams']
+OrderDetailController.$inject= ['Shop','getCurrentShopId','$stateParams','DeliveryJob']
 export default OrderDetailController;

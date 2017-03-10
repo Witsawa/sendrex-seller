@@ -9,12 +9,12 @@
       </div>
     </div>
     <div ng-if="$ctrl.order.status!='pending'">
-      <label class="item-input item-select">
+      <div class="item-input item-select">
         <div class="input-label">Status</div>
         <select ng-model="$ctrl.order.status" ng-change="$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)">
           <option value="{{option}}" ng-repeat="option in ['processing','delivering','delivered','issued','cancel']">{{option}}</option>
         </select>
-      </label>
+      </div>
     </div>
     <ion-list>
       <ion-item>
@@ -47,13 +47,13 @@
         <div ng-if="item.product">
           <p>
             {{item.product.name}} ({{item.productVariant.name}})
-            <span class="pull-right"> {{item.productVariant.price | currency:$ctrl.currency}}</span>
+            <span class="pull-right"> {{item.productVariant.price | currency:$ctrl.order.shop.currency}}</span>
           </p>
           <div>
             <p ng-if="item.productOptionValues.length"><b>Options</b></p>
             <p ng-repeat="option in item.productOptionValues">
               - {{option.productOption.name}} ({{option.value}})
-              <span class="pull-right">+ {{option.price | currency:$ctrl.currency}}</span>
+              <span class="pull-right">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>
             </p>
           </div>
           <div>
@@ -67,20 +67,20 @@
         <div ng-if="item.productValuePack">
           <p>
             {{item.productValuePack.name}} (Value pack)
-            <span class="pull-right"> {{item.productValuePack.price | currency:$ctrl.currency}}</span>
+            <span class="pull-right"> {{item.productValuePack.price | currency:$ctrl.order.shop.currency}}</span>
           </p>
           <div>
             <p><b>Items</b></p>
             <div ng-repeat="subitem in item.orderItems">
               <p>
                 - {{subitem.product.name}} ({{subitem.productVariant.name}})
-                <span class="pull-right">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.currency}}</span>
+                <span class="pull-right">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.order.shop.currency}}</span>
               </p>
               <div class="padding-left">
                 <p ng-if="subitem.productOptionValues.length"><b>Options</b></p>
                 <p ng-repeat="option in subitem.productOptionValues">
                   -- {{option.productOption.name}} ({{option.value}})
-                  <span class="pull-right">+ {{option.price | currency:$ctrl.currency}}</span>
+                  <span class="pull-right">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>
                 </div>
               </div>
             </div>
@@ -96,14 +96,14 @@
           <p class="padding-top">
             Unit price
             <span style="float:right">
-              {{item.unitPrice | currency:$ctrl.currency}}
+              {{item.unitPrice | currency:$ctrl.order.shop.currency}}
             </span>
           </p>
 
           <p>
             Unit discount
             <span class="pull-right">
-              - {{item.unitDiscount | currency:$ctrl.currency}}
+              - {{item.unitDiscount | currency:$ctrl.order.shop.currency}}
             </span>
           </p>
           <p>
@@ -115,7 +115,7 @@
           <p>
             Total
             <span class="pull-right">
-              <b>{{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.currency}}</b>
+              <b>{{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.order.shop.currency}}</b>
             </span>
           </p>
 
@@ -123,7 +123,7 @@
       <ion-item>
         <span class="h5">Total price</span>
             <span class="pull-right">
-              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.currency}}
+              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.order.shop.currency}}
             </span>
       </ion-item>
       <ion-item>
@@ -133,5 +133,32 @@
             </span>
       </ion-item>
     </ion-list>
+    <div class="row" ng-if="$ctrl.order.status=='processing'">
+      <div class="col">
+        <div ng-if="!$ctrl.order.deliveryJobs">
+          <button class="button button-positive button-block" ng-click="$ctrl.findDeliver()">Get Sendrex Deliver</button>
+        </div>
+        <div ng-if="$ctrl.order.deliveryJobs">
+          <div class="list list-inset">
+            <div class="item item-divider">Delivery status</div>
+            <div class="item">
+              <div ng-if="$ctrl.order.deliveryJobs.status == 'pending'">
+                Searching for deliver
+              </div>
+              <div ng-if="$ctrl.order.deliveryJobs.status == 'picking'">
+                Waiting for deliver
+              </div>
+              <div ng-if="$ctrl.order.deliveryJobs.status == 'delivering'">
+                Delivering
+              </div>
+              <div ng-if="$ctrl.order.deliveryJobs.status == 'delivering'">
+                Delivered
+              </div>
+            </div>
+            </div>
+          </div>
+          
+      </div>
+    </div>
   </ion-content>
 </ion-view>
