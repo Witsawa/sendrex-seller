@@ -1,10 +1,15 @@
+import CodeModal from './codeModal.html'
 class OrderDetailController {
-  constructor(Shop,getCurrentShopId,$stateParams,DeliveryJob) {
+  constructor(Shop,getCurrentShopId,$stateParams,DeliveryJob,$ionicModal,$scope,Order) {
     this.name = 'orderDetail';
     this.shopId = getCurrentShopId
     this._Shop = Shop
     this._$stateParams = $stateParams
     this._DeliveryJob = DeliveryJob
+    this.codeModal = $ionicModal.fromTemplate(CodeModal,{
+      scope:$scope
+    })
+    this._Order =Order
     this.fetchOrder()
   }
   fetchOrder(){
@@ -70,6 +75,16 @@ class OrderDetailController {
       console.log(err)
     })
   }
+  showCode(){
+    let self = this
+    self._Order.prototype$deliveryCode({id:self.order.id}).$promise.then(function (code) {
+      self.codeModal.scope.code = code.code
+      self.codeModal.show()
+    },function (err) {
+      console.log("Cannot get code")
+    })
+   
+  }
 }
-OrderDetailController.$inject= ['Shop','getCurrentShopId','$stateParams','DeliveryJob']
+OrderDetailController.$inject= ['Shop','getCurrentShopId','$stateParams','DeliveryJob','$ionicModal','$scope','Order']
 export default OrderDetailController;

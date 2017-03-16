@@ -146,7 +146,8 @@
                 Searching for deliver
               </div>
               <div ng-if="$ctrl.order.deliveryJobs.status == 'picking'">
-                Waiting for deliver
+                <span>Waiting for deliver</span>
+                <button type="button" class="button button-positive" ng-click="$ctrl.showCode()">Get delivery code</button>
               </div>
               <div ng-if="$ctrl.order.deliveryJobs.status == 'delivering'">
                 Delivering
