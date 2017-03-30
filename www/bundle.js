@@ -68,13 +68,16 @@
 	
 	var _ngFileUpload2 = _interopRequireDefault(_ngFileUpload);
 	
+	var _index = __webpack_require__(296);
+	
+	var _index2 = _interopRequireDefault(_index);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// angular.module is a global place for creating, registering and retrieving Angular modules
 	// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 	// the 2nd parameter is an array of 'requires'
-	// Ionic Starter App
-	angular.module('starter', ['ionic', 'lbServices', 'LocalStorageModule', _components2.default, _pages2.default, _directives2.default, 'ngTagsInput', 'ionic.wizard', 'ngCordova', 'leaflet-directive', _ngFileUpload2.default, 'ionic-toast']).run(function ($ionicPlatform, $rootScope, $ionicLoading, LoopBackAuth, $location, $state) {
+	angular.module('starter', ['ionic', 'lbServices', 'LocalStorageModule', _components2.default, _pages2.default, _directives2.default, 'ngTagsInput', 'ionic.wizard', 'ngCordova', 'leaflet-directive', _ngFileUpload2.default, 'ionic-toast', _index2.default]).run(function ($ionicPlatform, $rootScope, $ionicLoading, LoopBackAuth, $location, $state) {
 	  $ionicPlatform.ready(function () {
 	    if (window.cordova && window.cordova.plugins.Keyboard) {
 	      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -155,7 +158,7 @@
 	      }
 	    };
 	  }]);
-	}).component('app', _app2.default);
+	}).component('app', _app2.default); // Ionic Starter App
 
 /***/ },
 /* 1 */
@@ -2196,7 +2199,7 @@
 /* 78 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"list\">\n  <ion-item class=\"item-divider\">\n    Payment method\n  </ion-item>\n  <ion-toggle ng-repeat=\"method in $ctrl.paymentMethods\" ng-model=\"method.active\">\n    {{method.name}}\n  </ion-toggle>\n  <ion-item class=\"item item-input item-select\">\n    <div class=\"input-label\">\n      Currency\n    </div>\n    <select ng-model=\"$ctrl.shop.currency\">\n      <option>USD</option>\n      <option selected>THB</option>\n      <option>GRB</option>\n    </select>\n  </ion-item>\n  <ion-item class=\"item-divider\">\n    Bank account\n  </ion-item>\n  <ion-item class=\" item-input item-floating-label\">\n    <div class=\"input-label\">\n      Account name\n    </div>\n    <input type=\"text\" placeholder=\"Name\" ng-model=\"$ctrl.shop.bank_account.bank_account.name\">\n  </ion-item>\n  <div class=\"padding item-input item-select\">\n    <div class=\"input-label\">\n      Brand\n    </div>\n    <select ng-model=\"$ctrl.shop.bank_account.bank_account.brand\">\n      <option value=\"test\" selected>Test Bank</option>\n      <option value=\"bbl\">Bangkok Bank</option>\n      <option value=\"kbank\">Kasikornbank</option>\n      <option value=\"ktb\">Krungthai Bank</option>\n      <option value=\"tmb\">TMB Bank</option>\n      <option value=\"scb\">Siam Commercial Bank</option>\n      <option value=\"citi\">Citibank</option>\n      <option value=\"cimb\">CIMB Thai Bank</option>\n      <option value=\"uob\">United Overseas Bank (Thai)</option>\n      <option value=\"bay\">Bank of Ayudhya (Krungsri)</option>\n      <option value=\"tbank\">Thanachart Bank</option>\n      <option value=\"ibank\">Islamic Bank of Thailand</option>\n      <option value=\"lhb\">Land and Houses Bank</option>\n    </select>\n  </div>\n  <ion-item class=\"item-input item-floating-label\">\n    <div class=\"input-label\">\n      Number\n    </div>\n    <input type=\"text\" placeholder=\"Bank account\" ng-model=\"$ctrl.shop.bank_account.bank_account.number\">\n  </ion-item>\n  <div class=\"padding item-input item-select\">\n    <div class=\"input-label\">\n      Account type\n    </div>\n    <select ng-model=\"$ctrl.shop.bank_account.type\">\n      <option value=\"individual\" selected>Individual</option>\n      <option value=\"corporation\">Corporation</option>\n    </select>\n  </div>\n</div>"
+	module.exports = "<div class=\"list\">\n  <ion-item class=\"item-divider\">\n    Payment method\n  </ion-item>\n  <ion-toggle ng-repeat=\"method in $ctrl.paymentMethods\" ng-model=\"method.active\">\n    {{method.name}}\n  </ion-toggle>\n  <ion-item class=\"item item-input item-select\">\n    <div class=\"input-label\">\n      Currency\n    </div>\n    <select ng-model=\"$ctrl.shop.currency\">\n      <option selected>THB</option>\n    </select>\n  </ion-item>\n  <ion-item class=\"item-divider\">\n    Bank account\n  </ion-item>\n  <ion-item class=\" item-input item-floating-label\">\n    <div class=\"input-label\">\n      Account name\n    </div>\n    <input type=\"text\" placeholder=\"Name\" ng-model=\"$ctrl.shop.bank_account.bank_account.name\">\n  </ion-item>\n  <div class=\"padding item-input item-select\">\n    <div class=\"input-label\">\n      Brand\n    </div>\n    <select ng-model=\"$ctrl.shop.bank_account.bank_account.brand\">\n      <option value=\"test\" selected>Test Bank</option>\n      <option value=\"bbl\">Bangkok Bank</option>\n      <option value=\"kbank\">Kasikornbank</option>\n      <option value=\"ktb\">Krungthai Bank</option>\n      <option value=\"tmb\">TMB Bank</option>\n      <option value=\"scb\">Siam Commercial Bank</option>\n      <option value=\"citi\">Citibank</option>\n      <option value=\"cimb\">CIMB Thai Bank</option>\n      <option value=\"uob\">United Overseas Bank (Thai)</option>\n      <option value=\"bay\">Bank of Ayudhya (Krungsri)</option>\n      <option value=\"tbank\">Thanachart Bank</option>\n      <option value=\"ibank\">Islamic Bank of Thailand</option>\n      <option value=\"lhb\">Land and Houses Bank</option>\n    </select>\n  </div>\n  <ion-item class=\"item-input item-floating-label\">\n    <div class=\"input-label\">\n      Number\n    </div>\n    <input type=\"text\" placeholder=\"Bank account\" ng-model=\"$ctrl.shop.bank_account.bank_account.number\">\n  </ion-item>\n  <div class=\"padding item-input item-select\">\n    <div class=\"input-label\">\n      Account type\n    </div>\n    <select ng-model=\"$ctrl.shop.bank_account.type\">\n      <option value=\"individual\" selected>Individual</option>\n      <option value=\"corporation\">Corporation</option>\n    </select>\n  </div>\n</div>"
 
 /***/ },
 /* 79 */
@@ -2348,6 +2351,13 @@
 	      maxZoom: 20,
 	      zoomControl: false
 	    };
+	    self.markers = {
+	      center: {
+	        lat: self.ngModel.geolocation.lat,
+	        lng: self.ngModel.geolocation.lng,
+	        draggable: true
+	      }
+	    };
 	    self.tiles = {
 	      url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 	    };
@@ -2357,7 +2367,6 @@
 	    self.suggestions = [];
 	    self.showSuggestion = false;
 	    self._$scope = $scope;
-	
 	    self.ngModel = self.ngModel || { geolocation: { lat: 0, lng: 0 }, formatted_address: "" };
 	
 	    //TODO UNCOMMENT THIS TO USE DEVICE LOCATION
@@ -2381,13 +2390,20 @@
 	      self.center.lat = newVal.lat;
 	      self.center.lng = newVal.lng;
 	
-	      var geocoder = new google.maps.Geocoder();
-	      geocoder.geocode({ 'location': newVal }, function (results, status) {
-	        if (status === 'OK') {
-	          console.log(results);
-	        }
-	      });
+	      // var geocoder = new google.maps.Geocoder()
+	      // geocoder.geocode({'location':newVal},function(results,status){
+	      //   if (status === 'OK') {
+	      //     console.log(results)
+	      //   }
+	      // })
 	    }, true);
+	
+	    $scope.$on('leafletDirectiveMarker.dragend', function (event, args) {
+	      console.log(args);
+	      var marker = args.model;
+	      self.ngModel.geolocation.lat = marker.lat;
+	      self.ngModel.geolocation.lng = marker.lng;
+	    });
 	  }
 	
 	  _createClass(LocationPickerController, [{
@@ -2462,7 +2478,7 @@
 /* 85 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-modal-view>\n  <ion-header-bar class=\"bar-dark\">\n    <h1 class=\"title\">{{$ctrl.title}}</h1>\n    <button type=\"button\" class=\"button button-clear\" ng-click=\"$ctrl.done()\">Done</button>\n  </ion-header-bar>\n  <ion-content scroll=\"false\">\n    <div data-tap-disabled=\"true\" style=\"height:100%;\">\n      <leaflet center=\"$ctrl.center\" defaults=\"$ctrl.defaults\" tiles=\"$ctrl.tiles\" width=\"100%\" height=\"100%\"></leaflet>\n    </div>\n    <div style=\"position:absolute;width:100%;top:0px;\" class=\"light-bg\">\n      <ion-list>\n        <ion-item class=\"item-input item-stacked-label\">\n          <label class=\"input-label\">Address</label>\n          <textarea rows=\"3\" ng-focus=\"$ctrl.showSuggestion=true\" ng-blur=\"$ctrl.showSuggestion= false\" name=\"placesearch\" ng-model=\"$ctrl.ngModel.formatted_address\" ng-change=\"$ctrl.querySuggestions($ctrl.ngModel.formatted_address)\"></textarea>\n        </ion-item>\n        <div ng-show=\"$ctrl.showSuggestion\">\n          <ion-item ng-repeat=\"suggest in $ctrl.suggestions\" ng-click=\"$ctrl.selectSuggestion(suggest)\">\n            {{suggest.description}}\n          </ion-item>\n        </div>\n\n\n      </ion-list>\n    </div>\n\n\n\n  </ion-content>\n</ion-modal-view>\n\n"
+	module.exports = "<ion-modal-view>\n  <ion-header-bar class=\"bar-dark\">\n    <h1 class=\"title\">{{$ctrl.title}}</h1>\n    <button type=\"button\" class=\"button button-clear\" ng-click=\"$ctrl.done()\">Done</button>\n  </ion-header-bar>\n  <ion-content scroll=\"false\">\n    <div data-tap-disabled=\"true\" style=\"height:100%;\">\n      <leaflet markers=\"$ctrl.markers\" center=\"$ctrl.center\" defaults=\"$ctrl.defaults\" tiles=\"$ctrl.tiles\" width=\"100%\" height=\"100%\"></leaflet>\n    </div>\n    <div style=\"position:absolute;width:100%;top:0px;\" class=\"light-bg\">\n      <ion-list>\n        <ion-item class=\"item-input item-stacked-label\">\n          <label class=\"input-label\">Address</label>\n          <textarea rows=\"3\" ng-focus=\"$ctrl.showSuggestion=true\" ng-blur=\"$ctrl.showSuggestion= false\" name=\"placesearch\" ng-model=\"$ctrl.ngModel.formatted_address\" ng-change=\"$ctrl.querySuggestions($ctrl.ngModel.formatted_address)\"></textarea>\n        </ion-item>\n        <div ng-show=\"$ctrl.showSuggestion\">\n          <ion-item ng-repeat=\"suggest in $ctrl.suggestions\" ng-click=\"$ctrl.selectSuggestion(suggest)\">\n            {{suggest.description}}\n          </ion-item>\n        </div>\n\n\n      </ion-list>\n    </div>\n\n\n\n  </ion-content>\n</ion-modal-view>\n\n"
 
 /***/ },
 /* 86 */
@@ -7388,7 +7404,7 @@
 /* 271 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Order Detail\">\n  <ion-content>\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='pending'\">\n      <div class=\"col\">\n        <button class=\"button button-positive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'processing')\">Accept</button>\n      </div>\n      <div class=\"col\">\n        <button class=\"button button-assertive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'cancel')\">Decline</button>\n      </div>\n    </div>\n    <div ng-if=\"$ctrl.order.status!='pending'\">\n      <div class=\"item-input item-select\">\n        <div class=\"input-label\">Status</div>\n        <select ng-model=\"$ctrl.order.status\" ng-change=\"$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)\">\n          <option value=\"{{option}}\" ng-repeat=\"option in ['processing','delivering','delivered','issued','cancel']\">{{option}}</option>\n        </select>\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-list>\n          <ion-item class=\"item-divider row-head\">\n            <div class=\"row\">\n              <div class=\"col-50\">Delivery</div>\n              <div class=\"col-50\">Payment</div>\n            </div>\n          </ion-item>\n          <ion-item class=\"row-data\">\n            <div class=\"row\">\n              <div class=\"col-50\">\n                <p>\n                  {{$ctrl.order.delivery_address.formatted_address}}\n                </p>\n              </div>\n              <div class=\"col-50\">\n                <p ng-if=\"['omise'].indexOf($ctrl.order.payment_channel) != -1\">\n                  Credit card ({{$ctrl.order.payment_status}})\n                </p>\n              </div>\n            </div>\n          </ion-item>\n        </ion-list>\n      </ion-item>\n      <ion-item ng-repeat=\"item in $ctrl.order.orderItems\">\n\n        <!--orderitem (product)-->\n        <div ng-if=\"item.product\">\n          <p>\n            {{item.product.name}} ({{item.productVariant.name}})\n            <span class=\"pull-right\"> {{item.productVariant.price | currency:$ctrl.order.shop.currency}}</span>\n          </p>\n          <div>\n            <p ng-if=\"item.productOptionValues.length\"><b>Options</b></p>\n            <p ng-repeat=\"option in item.productOptionValues\">\n              - {{option.productOption.name}} ({{option.value}})\n              <span class=\"pull-right\">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>\n            </p>\n          </div>\n          <div>\n            <p><b>Promotions</b></p>\n            <p ng-repeat=\"promotion in item.product.promotions\">\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </p>\n          </div>\n        </div>\n        <!--orderitem (value pack)-->\n        <div ng-if=\"item.productValuePack\">\n          <p>\n            {{item.productValuePack.name}} (Value pack)\n            <span class=\"pull-right\"> {{item.productValuePack.price | currency:$ctrl.order.shop.currency}}</span>\n          </p>\n          <div>\n            <p><b>Items</b></p>\n            <div ng-repeat=\"subitem in item.orderItems\">\n              <p>\n                - {{subitem.product.name}} ({{subitem.productVariant.name}})\n                <span class=\"pull-right\">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.order.shop.currency}}</span>\n              </p>\n              <div class=\"padding-left\">\n                <p ng-if=\"subitem.productOptionValues.length\"><b>Options</b></p>\n                <p ng-repeat=\"option in subitem.productOptionValues\">\n                  -- {{option.productOption.name}} ({{option.value}})\n                  <span class=\"pull-right\">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div>\n            <p><b>Promotions</b></p>\n            <p ng-repeat=\"promotion in item.productValuePack.promotions\">\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </p>\n          </div>\n        </div>\n\n          <p class=\"padding-top\">\n            Unit price\n            <span style=\"float:right\">\n              {{item.unitPrice | currency:$ctrl.order.shop.currency}}\n            </span>\n          </p>\n\n          <p>\n            Unit discount\n            <span class=\"pull-right\">\n              - {{item.unitDiscount | currency:$ctrl.order.shop.currency}}\n            </span>\n          </p>\n          <p>\n            Quantity\n            <span class=\"pull-right\">\n              {{item.quantity}}\n            </span>\n          </p>\n          <p>\n            Total\n            <span class=\"pull-right\">\n              <b>{{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.order.shop.currency}}</b>\n            </span>\n          </p>\n\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Total price</span>\n            <span class=\"pull-right\">\n              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.order.shop.currency}}\n            </span>\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Order status</span>\n            <span class=\"pull-right\">\n              {{$ctrl.order.status }}\n            </span>\n      </ion-item>\n    </ion-list>\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='processing'\">\n      <div class=\"col\">\n        <div ng-if=\"!$ctrl.order.deliveryJobs\">\n          <button class=\"button button-positive button-block\" ng-click=\"$ctrl.findDeliver()\">Get Sendrex Deliver</button>\n        </div>\n        <div ng-if=\"$ctrl.order.deliveryJobs\">\n          <div class=\"list list-inset\">\n            <div class=\"item item-divider\">Delivery status</div>\n            <div class=\"item\">\n              <div ng-if=\"$ctrl.order.deliveryJobs.status == 'pending'\">\n                Searching for deliver\n              </div>\n              <div ng-if=\"$ctrl.order.deliveryJobs.status == 'picking'\">\n                <span>Waiting for deliver</span>\n                <button type=\"button\" class=\"button button-positive\" ng-click=\"$ctrl.showCode()\">Get delivery code</button>\n              </div>\n              <div ng-if=\"$ctrl.order.deliveryJobs.status == 'delivering'\">\n                Delivering\n              </div>\n              <div ng-if=\"$ctrl.order.deliveryJobs.status == 'delivering'\">\n                Delivered\n              </div>\n            </div>\n            </div>\n          </div>\n          \n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Order Detail\">\n  <ion-content>\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='pending'\">\n      <div class=\"col\">\n        <button class=\"button button-positive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'processing')\">Accept</button>\n      </div>\n      <div class=\"col\">\n        <button class=\"button button-assertive button-block\" style=\"margin: 0\" ng-click=\"$ctrl.updateOrderStatus($ctrl.order,'cancel')\">Decline</button>\n      </div>\n    </div>\n    <div ng-if=\"$ctrl.order.status!='pending'\">\n      <div class=\"item-input item-select\">\n        <div class=\"input-label\">Status</div>\n        <select ng-model=\"$ctrl.order.status\" ng-change=\"$ctrl.updateOrderStatus($ctrl.order,$ctrl.order.status)\">\n          <option value=\"{{option}}\" ng-repeat=\"option in ['processing','delivering','delivered','issued','cancel']\">{{option}}</option>\n        </select>\n      </div>\n    </div>\n    <ion-list>\n      <ion-item>\n        <ion-list>\n          <ion-item class=\"item-divider row-head\">\n            <div class=\"row\">\n              <div class=\"col-50\">Delivery</div>\n              <div class=\"col-50\">Payment</div>\n            </div>\n          </ion-item>\n          <ion-item class=\"row-data\">\n            <div class=\"row\">\n              <div class=\"col-50\">\n                <p>\n                  {{$ctrl.order.delivery_address.formatted_address}}\n                </p>\n              </div>\n              <div class=\"col-50\">\n                <p ng-if=\"['omise'].indexOf($ctrl.order.transaction.source) != -1\">\n                  Credit card ({{$ctrl.order.transaction.status}})\n                </p>\n              </div>\n            </div>\n          </ion-item>\n        </ion-list>\n      </ion-item>\n      <ion-item ng-repeat=\"item in $ctrl.order.orderItems\">\n\n        <!--orderitem (product)-->\n        <div ng-if=\"item.product\">\n          <p>\n            {{item.product.name}} ({{item.productVariant.name}})\n            <span class=\"pull-right\"> {{item.productVariant.price | currency:$ctrl.order.shop.currency}}</span>\n          </p>\n          <div>\n            <p ng-if=\"item.productOptionValues.length\"><b>Options</b></p>\n            <p ng-repeat=\"option in item.productOptionValues\">\n              - {{option.productOption.name}} ({{option.value}})\n              <span class=\"pull-right\">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>\n            </p>\n          </div>\n          <div>\n            <p><b>Promotions</b></p>\n            <p ng-repeat=\"promotion in item.product.promotions\">\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </p>\n          </div>\n        </div>\n        <!--orderitem (value pack)-->\n        <div ng-if=\"item.productValuePack\">\n          <p>\n            {{item.productValuePack.name}} (Value pack)\n            <span class=\"pull-right\"> {{item.productValuePack.price | currency:$ctrl.order.shop.currency}}</span>\n          </p>\n          <div>\n            <p><b>Items</b></p>\n            <div ng-repeat=\"subitem in item.orderItems\">\n              <p>\n                - {{subitem.product.name}} ({{subitem.productVariant.name}})\n                <span class=\"pull-right\">+ {{subitem.productVariant.price - subitem.unitDiscount | currency:$ctrl.order.shop.currency}}</span>\n              </p>\n              <div class=\"padding-left\">\n                <p ng-if=\"subitem.productOptionValues.length\"><b>Options</b></p>\n                <p ng-repeat=\"option in subitem.productOptionValues\">\n                  -- {{option.productOption.name}} ({{option.value}})\n                  <span class=\"pull-right\">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div>\n            <p><b>Promotions</b></p>\n            <p ng-repeat=\"promotion in item.productValuePack.promotions\">\n              - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?\"%\":\"\"}} Off)\n            </p>\n          </div>\n        </div>\n\n          <p class=\"padding-top\">\n            Unit price\n            <span style=\"float:right\">\n              {{item.unitPrice | currency:$ctrl.order.shop.currency}}\n            </span>\n          </p>\n\n          <p>\n            Unit discount\n            <span class=\"pull-right\">\n              - {{item.unitDiscount | currency:$ctrl.order.shop.currency}}\n            </span>\n          </p>\n          <p>\n            Quantity\n            <span class=\"pull-right\">\n              {{item.quantity}}\n            </span>\n          </p>\n          <p>\n            Total\n            <span class=\"pull-right\">\n              <b>{{(item.unitPrice - item.unitDiscount) * item.quantity | currency:$ctrl.order.shop.currency}}</b>\n            </span>\n          </p>\n\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Total price</span>\n            <span class=\"pull-right\">\n              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.order.shop.currency}}\n            </span>\n      </ion-item>\n      <ion-item>\n        <span class=\"h5\">Order status</span>\n            <span class=\"pull-right\">\n              {{$ctrl.order.status }}\n            </span>\n      </ion-item>\n    </ion-list>\n    <div ng-if=\"$ctrl.order.deliveryJobs\">\n      <div class=\"list list-inset\">\n        <div class=\"item item-divider\">Delivery status</div>\n        <div class=\"item\">\n          <div ng-if=\"$ctrl.order.deliveryJobs.status == 'pending'\">\n            Searching for deliver\n          </div>\n          <div ng-if=\"$ctrl.order.deliveryJobs.status == 'picking'\">\n            <span>Waiting for deliver</span>\n            <button type=\"button\" class=\"button button-positive\" ng-click=\"$ctrl.showCode()\">Get delivery code</button>\n          </div>\n          <div ng-if=\"$ctrl.order.deliveryJobs.status == 'delivering'\">\n            Delivering\n          </div>\n          <div ng-if=\"$ctrl.order.deliveryJobs.status == 'delivered'\">\n            Delivered\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"row\" ng-if=\"$ctrl.order.status=='processing'\">\n      <div class=\"col\">\n        <div ng-if=\"!$ctrl.order.deliveryJobs\">\n          <button class=\"button button-positive button-block\" ng-click=\"$ctrl.findDeliver()\">Get Sendrex Deliver</button>\n        </div> \n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
 
 /***/ },
 /* 272 */
@@ -7411,7 +7427,7 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var OrderDetailController = function () {
-	  function OrderDetailController(Shop, getCurrentShopId, $stateParams, DeliveryJob, $ionicModal, $scope, Order) {
+	  function OrderDetailController(Shop, getCurrentShopId, $stateParams, DeliveryJob, $ionicModal, $scope, Order, PubSub, $ionicPopup) {
 	    _classCallCheck(this, OrderDetailController);
 	
 	    this.name = 'orderDetail';
@@ -7423,6 +7439,13 @@
 	      scope: $scope
 	    });
 	    this._Order = Order;
+	    this._$ionicPopup = $ionicPopup;
+	    PubSub.subscribe({
+	      collectionName: 'Order',
+	      method: 'PUT',
+	      modelId: this._$stateParams.id
+	    }, this.onOrderUpdate.bind(this));
+	    this._PubSub = PubSub;
 	    this.fetchOrder();
 	  }
 	
@@ -7432,7 +7455,7 @@
 	      var self = this;
 	      this._Shop.orders({ id: this.shopId, filter: {
 	          where: { id: this._$stateParams.id },
-	          include: ['deliveryJobs', 'shop', {
+	          include: ['transaction', 'deliveryJobs', 'shop', {
 	            orderItems: [{
 	              product: ['promotions']
 	            }, 'productVariant', {
@@ -7453,6 +7476,13 @@
 	      }).$promise.then(function (orders) {
 	        self.order = orders[0];
 	        console.log(self.order);
+	        if (self.order.deliveryJobs) {
+	          self._PubSub.subscribe({
+	            collectionName: 'DeliveryJob',
+	            method: 'PUT',
+	            modelId: self.order.deliveryJobs.id
+	          }, self.onOrderUpdate.bind(self), true);
+	        }
 	      }, function (error) {
 	        console.log("Error getting order", error);
 	      });
@@ -7471,9 +7501,24 @@
 	  }, {
 	    key: 'findDeliver',
 	    value: function findDeliver() {
-	      console.log(this._DeliveryJob);
-	      this._DeliveryJob.createJob({ orderId: this.order.id }).$promise.then(function (rsp) {
-	        console.log(rsp);
+	      var self = this;
+	      this._DeliveryJob.calculatePrice({}, { pickup_address: this.order.shop.location, delivery_address: this.order.delivery_address }).$promise.then(function (_ref) {
+	        var distance = _ref.distance,
+	            fee = _ref.fee;
+	
+	        self._$ionicPopup.confirm({
+	          title: 'Get sendrex deliver',
+	          template: 'Delivery fee is THB' + fee + '. Do you want to continue?'
+	        }).then(function (res) {
+	          if (res) {
+	            self._DeliveryJob.createJob({ orderId: self.order.id }).$promise.then(function (rsp) {
+	              console.log(rsp);
+	              self.fetchOrder();
+	            }, function (err) {
+	              console.log(err);
+	            });
+	          }
+	        });
 	      }, function (err) {
 	        console.log(err);
 	      });
@@ -7489,12 +7534,18 @@
 	        console.log("Cannot get code");
 	      });
 	    }
+	  }, {
+	    key: 'onOrderUpdate',
+	    value: function onOrderUpdate() {
+	      this.codeModal.hide();
+	      this.fetchOrder();
+	    }
 	  }]);
 	
 	  return OrderDetailController;
 	}();
 	
-	OrderDetailController.$inject = ['Shop', 'getCurrentShopId', '$stateParams', 'DeliveryJob', '$ionicModal', '$scope', 'Order'];
+	OrderDetailController.$inject = ['Shop', 'getCurrentShopId', '$stateParams', 'DeliveryJob', '$ionicModal', '$scope', 'Order', 'PubSub', '$ionicPopup'];
 	exports.default = OrderDetailController;
 
 /***/ },
@@ -7821,7 +7872,7 @@
 /* 287 */
 /***/ function(module, exports) {
 
-	module.exports = "<ion-view view-title=\"Balance\" show-root-tabs>\n  <ion-content>\n    <div class=\"card\">\n      <div class=\"item item-text-wrap\">\n          <h1>Available</h1>\n          <h1>{{$ctrl.balance.total | currency: $ctrl.shop.currency}}</h1>\n          <buton type=\"button\" class=\"button button-positive\" ng-click=\"$ctrl.withdraw()\">Withdraw</buton>\n      </div>\n    </div>\n    <div class=\"card\">\n      <div class=\"item item-divider\">\n          Statement\n      </div>\n      <div class=\"item\" ng-repeat=\"transaction in $ctrl.transactions\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div ng-if=\"transaction.type=='charge'\" ui-sref=\"tabs.balanceOrderDetail({id:transaction.orderId})\">\n              Order (id: {{transaction.orderId}})\n            </div>\n            <div ng-if=\"transaction.type=='withdraw'\">\n              Withdraw\n            </div>\n             <div ng-if=\"transaction.type=='deliveryFee'\">\n              Delivery fee\n            </div>\n          </div>\n          <div class=\"col text-right\">{{transaction.amount | currency: $ctrl.shop.currency}}</div>\n        </div>\n      </div>\n      <div class=\"item\" ng-show=\"$ctrl.transactions.length == 0\">\n        No data\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
+	module.exports = "<ion-view view-title=\"Balance\" show-root-tabs>\n  <ion-content>\n    <div class=\"card\">\n      <div class=\"item item-text-wrap\">\n          <h1>Available</h1>\n          <h1>{{$ctrl.balance.total | currency: $ctrl.shop.currency}}</h1>\n          <buton type=\"button\" class=\"button button-positive\" ng-click=\"$ctrl.withdraw()\">Withdraw</buton>\n      </div>\n    </div>\n    <div class=\"card\">\n      <div class=\"item item-divider\">\n          Statement\n      </div>\n      <div class=\"item\" ng-repeat=\"transaction in $ctrl.transactions\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <div ng-if=\"transaction.type=='charge'\" ui-sref=\"tabs.balanceOrderDetail({id:transaction.orderId})\">\n              Order (id: {{transaction.orderId}})\n            </div>\n            <div ng-if=\"transaction.type=='withdraw'\">\n              Withdraw\n            </div>\n             <div ng-if=\"transaction.type=='deliveryFee'\" ui-sref=\"tabs.balanceOrderDetail({id:transaction.orderId})\">\n              Delivery fee (Order ID: {{transaction.orderId}})\n            </div>\n          </div>\n          <div class=\"col text-right\">{{transaction.amount | currency: $ctrl.shop.currency}}</div>\n        </div>\n      </div>\n      <div class=\"item\" ng-show=\"$ctrl.transactions.length == 0\">\n        No data\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n"
 
 /***/ },
 /* 288 */
@@ -10884,6 +10935,115 @@
 	}]);
 	
 
+
+/***/ },
+/* 296 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _socket = __webpack_require__(297);
+	
+	var _socket2 = _interopRequireDefault(_socket);
+	
+	var _pubsub = __webpack_require__(298);
+	
+	var _pubsub2 = _interopRequireDefault(_pubsub);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var servicesModule = angular.module('MyServices', ['lbServices']).factory('socket', _socket2.default).factory('PubSub', _pubsub2.default).name;
+	
+	exports.default = servicesModule;
+
+/***/ },
+/* 297 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var SocketService = function SocketService(LoopBackResource, LoopBackAuth) {
+	  var url = LoopBackResource.getUrlBase();
+	  var socket = io(url.substring(0, url.lastIndexOf('/')), { transports: ['websocket'] });
+	  var id = LoopBackAuth.accessTokenId;
+	  var userId = LoopBackAuth.currentUserId;
+	  console.log('connecging');
+	  socket.on('connect', function () {
+	    console.log('User connected');
+	    socket.emit('authentication', { id: id, userId: userId });
+	    socket.on('authenticated', function () {
+	      // use the socket as usual
+	      console.log('User is authenticated');
+	    });
+	  });
+	  return socket;
+	};
+	SocketService.$inject = ['LoopBackResource', 'LoopBackAuth'];
+	exports.default = SocketService;
+
+/***/ },
+/* 298 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var PubSubService = function PubSubService(socket) {
+	    var container = [];
+	    return {
+	        subscribe: function subscribe(options, callback, preventDuplicate) {
+	
+	            if (options) {
+	                var collectionName = options.collectionName;
+	                var modelId = options.modelId;
+	                var method = options.method;
+	                var name = "";
+	                if (method === 'POST') {
+	                    name = '/' + collectionName + '/' + method;
+	                } else {
+	                    name = '/' + collectionName + '/' + modelId + '/' + method;
+	                }
+	                if (preventDuplicate) {
+	                    if (container.indexOf(name) != -1) {
+	                        return;
+	                    }
+	                }
+	                socket.on(name, callback);
+	                //Push the container..
+	                this.pushContainer(name);
+	            } else {
+	                throw 'Error: Option must be an object';
+	            }
+	        }, //end subscribe
+	
+	        pushContainer: function pushContainer(subscriptionName) {
+	            container.push(subscriptionName);
+	        },
+	
+	        //Unsubscribe all containers..
+	        unSubscribeAll: function unSubscribeAll() {
+	            for (var i = 0; i < container.length; i++) {
+	                socket.removeAllListeners(container[i]);
+	            }
+	            //Now reset the container..
+	            container = [];
+	        }
+	
+	    };
+	};
+	PubSubService.$inject = ['socket'];
+	exports.default = PubSubService;
 
 /***/ }
 /******/ ]);

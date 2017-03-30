@@ -20,8 +20,8 @@
             <div ng-if="transaction.type=='withdraw'">
               Withdraw
             </div>
-             <div ng-if="transaction.type=='deliveryFee'">
-              Delivery fee
+             <div ng-if="transaction.type=='deliveryFee'" ui-sref="tabs.balanceOrderDetail({id:transaction.orderId})">
+              Delivery fee (Order ID: {{transaction.orderId}})
             </div>
           </div>
           <div class="col text-right">{{transaction.amount | currency: $ctrl.shop.currency}}</div>

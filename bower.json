@@ -12,6 +12,7 @@
     "ionic-wizard": "^2.0.1",
     "ngCordova": "^0.1.27-alpha",
     "angular-leaflet-directive": "angular-leaflet#^0.10.0",
-    "ionic-toast": "^0.4.1"
+    "ionic-toast": "^0.4.1",
+    "socket.io-client": "^1.7.2"
   }
 }

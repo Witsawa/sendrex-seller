@@ -5,6 +5,7 @@ import Pages from './pages/pages';
 import AppComponent from './app.component';
 import Directives from './directives';
 import ngFileUpload from 'ng-file-upload';
+import Service from './service/index'
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -21,7 +22,8 @@ angular.module('starter', [
   'ngCordova',
   'leaflet-directive',
   ngFileUpload,
-  'ionic-toast'
+  'ionic-toast',
+  Service
 ])
 
 .run(function($ionicPlatform,$rootScope,$ionicLoading,LoopBackAuth,$location,$state) {

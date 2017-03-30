@@ -15,6 +15,13 @@ class LocationPickerController {
       maxZoom: 20,
       zoomControl:false
     }
+    self.markers = {
+        center: {
+            lat: self.ngModel.geolocation.lat,
+            lng: self.ngModel.geolocation.lng,
+            draggable: true
+        }
+    }
     self.tiles = {
       url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     }
@@ -24,9 +31,6 @@ class LocationPickerController {
     self.suggestions = []
     self.showSuggestion = false
     self._$scope = $scope
-
-
-
     self.ngModel = self.ngModel || {geolocation:{lat:0,lng:0},formatted_address:""}
 
 
@@ -51,14 +55,22 @@ class LocationPickerController {
       self.center.lat=newVal.lat
       self.center.lng = newVal.lng
 
-      var geocoder = new google.maps.Geocoder()
-      geocoder.geocode({'location':newVal},function(results,status){
-        if (status === 'OK') {
-          console.log(results)
-        }
-      })
+      // var geocoder = new google.maps.Geocoder()
+      // geocoder.geocode({'location':newVal},function(results,status){
+      //   if (status === 'OK') {
+      //     console.log(results)
+      //   }
+      // })
 
     },true)
+
+
+    $scope.$on('leafletDirectiveMarker.dragend',function (event,args) {
+      console.log(args)
+      var marker = args.model
+      self.ngModel.geolocation.lat=marker.lat
+      self.ngModel.geolocation.lng = marker.lng
+    })
 
   }
   openPicker(){

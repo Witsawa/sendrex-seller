@@ -33,8 +33,8 @@
                 </p>
               </div>
               <div class="col-50">
-                <p ng-if="['omise'].indexOf($ctrl.order.payment_channel) != -1">
-                  Credit card ({{$ctrl.order.payment_status}})
+                <p ng-if="['omise'].indexOf($ctrl.order.transaction.source) != -1">
+                  Credit card ({{$ctrl.order.transaction.status}})
                 </p>
               </div>
             </div>
@@ -133,32 +133,31 @@
             </span>
       </ion-item>
     </ion-list>
+    <div ng-if="$ctrl.order.deliveryJobs">
+      <div class="list list-inset">
+        <div class="item item-divider">Delivery status</div>
+        <div class="item">
+          <div ng-if="$ctrl.order.deliveryJobs.status == 'pending'">
+            Searching for deliver
+          </div>
+          <div ng-if="$ctrl.order.deliveryJobs.status == 'picking'">
+            <span>Waiting for deliver</span>
+            <button type="button" class="button button-positive" ng-click="$ctrl.showCode()">Get delivery code</button>
+          </div>
+          <div ng-if="$ctrl.order.deliveryJobs.status == 'delivering'">
+            Delivering
+          </div>
+          <div ng-if="$ctrl.order.deliveryJobs.status == 'delivered'">
+            Delivered
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row" ng-if="$ctrl.order.status=='processing'">
       <div class="col">
         <div ng-if="!$ctrl.order.deliveryJobs">
           <button class="button button-positive button-block" ng-click="$ctrl.findDeliver()">Get Sendrex Deliver</button>
-        </div>
-        <div ng-if="$ctrl.order.deliveryJobs">
-          <div class="list list-inset">
-            <div class="item item-divider">Delivery status</div>
-            <div class="item">
-              <div ng-if="$ctrl.order.deliveryJobs.status == 'pending'">
-                Searching for deliver
-              </div>
-              <div ng-if="$ctrl.order.deliveryJobs.status == 'picking'">
-                <span>Waiting for deliver</span>
-                <button type="button" class="button button-positive" ng-click="$ctrl.showCode()">Get delivery code</button>
-              </div>
-              <div ng-if="$ctrl.order.deliveryJobs.status == 'delivering'">
-                Delivering
-              </div>
-              <div ng-if="$ctrl.order.deliveryJobs.status == 'delivering'">
-                Delivered
-              </div>
-            </div>
-            </div>
-          </div>
-          
+        </div> 
       </div>
     </div>
   </ion-content>
