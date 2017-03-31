@@ -46,8 +46,7 @@ class NewShopController {
       "bank_account":{
         "type":"individual",
         "bank_account":{
-          
-          'brand':'',
+          'brand':'test',
           'number':'',
           'name':''
           
