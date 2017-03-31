@@ -7986,7 +7986,6 @@
 	  template: _app2.default,
 	  restrict: 'E'
 	};
-	
 	exports.default = appComponent;
 
 /***/ },
