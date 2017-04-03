@@ -1,25 +1,16 @@
 <ion-view view-title="Dashboard" show-root-tabs>
   <ion-content class="dashboard">
-        <div class="row">
-          <div class="col">
-            <div class="card" ui-sref="tabs.balance">
-              <div class="item item-text-wrap">
-                <h1>Balance</h1>
-                <h1>{{$ctrl.balance.total | currency}}</h1>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-             <div class="card" ui-sref="tabs.order">
-              <div class="item item-text-wrap">
-                <h1>Pending Orders</h1>
-                <h1>{{$ctrl.pendingOrders.count}}</h1>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="card" ui-sref="tabs.balance">
+      <div class="item item-text-wrap">
+        <h2><b>Balance</b></h2>
+        <p>{{$ctrl.balance.total | currency}}</p>
+      </div>
+    </div>
+    <div class="card" ui-sref="tabs.order">
+      <div class="item item-text-wrap">
+        <h2><b>Pending Orders</b></h2>
+        <p>{{$ctrl.pendingOrders.count}}</p>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

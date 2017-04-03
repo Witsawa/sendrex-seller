@@ -2,8 +2,8 @@
   <ion-content>
     <div class="card">
       <div class="item item-text-wrap">
-          <h1>Available</h1>
-          <h1>{{$ctrl.balance.total | currency: $ctrl.shop.currency}}</h1>
+          <h2><b>Available</b></h2>
+          <p>{{$ctrl.balance.total | currency: $ctrl.shop.currency}}</p>
           <buton type="button" class="button button-positive" ng-click="$ctrl.withdraw()">Withdraw</buton>
       </div>
     </div>

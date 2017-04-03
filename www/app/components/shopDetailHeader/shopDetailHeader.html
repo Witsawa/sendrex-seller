@@ -1,12 +1,15 @@
 <image-picker class="" ng-model="$ctrl.shop.cover" on-image-selected="$ctrl.updateCover(url)" style="width:100%;">
-  <div class="row row-bottom shop-cover">
-    <image-picker class="shop-image" ng-model="$ctrl.shop.image" on-image-selected="$ctrl.updateImage(url)"></image-picker>
-    <div class="col">
-      <h5>{{$ctrl.shop.name}}</h5>
-      <div>{{$ctrl.shop.location.formatted_address || "Unknown"}}</div>
-    </div>
+  <div class="shop-cover">
   </div>
 </image-picker>
+<div class="row">
+  <image-picker class="shop-image" ng-model="$ctrl.shop.image" on-image-selected="$ctrl.updateImage(url)"></image-picker>
+  <div class="col">
+    <h4 style="margin-top:0">{{$ctrl.shop.name}}</h4>
+    <div style="font-size: 12px">{{$ctrl.shop.location.formatted_address || "Unknown"}}</div>
+  </div>
+</div>
+<div class="clearfix"></div>
 <div class="row positive-bg light text-center">
   <div class="col">
     <div>12,120</div>
