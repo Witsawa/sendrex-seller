@@ -9839,6 +9839,11 @@ shop-detail-header .shop-image {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; }
+  shop-detail-header .shop-image .preview-image {
+    border-radius: 50%; }
+
+shop-detail-header image-picker .preview-image {
+  border-radius: 0; }
 my-profile-form .profile-image {
   width: 150px;
   border-radius: 50%;
@@ -9854,9 +9859,15 @@ image-picker {
     height: 100%;
     background-position: center center;
     background-size: cover;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 1px solid #ddd; }
   image-picker.circle .preview-image {
     border-radius: 50%; }
+multi-image-picker .button.button-add {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; }
 .schedule .schedule-caption {
   padding: 10px 0px; }
 

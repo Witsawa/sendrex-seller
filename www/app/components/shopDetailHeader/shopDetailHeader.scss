@@ -13,5 +13,13 @@ shop-detail-header{
     background-repeat: no-repeat;
     background-position: center center;
     background-size:cover;
+
+    .preview-image {
+      border-radius: 50%;
+    }
+  }
+
+  image-picker .preview-image {
+    border-radius: 0;
   }
 }
