@@ -23,7 +23,8 @@ angular.module('starter', [
   'leaflet-directive',
   ngFileUpload,
   'ionic-toast',
-  Service
+  Service,
+  'monospaced.elastic'
 ])
 
 .run(function($ionicPlatform,$rootScope,$ionicLoading,LoopBackAuth,$location,$state) {

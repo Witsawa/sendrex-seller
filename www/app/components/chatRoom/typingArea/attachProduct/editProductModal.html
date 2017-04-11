@@ -1,0 +1,12 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">Select products</h1>
+    <button type="button" class="button button-clear" ng-click="$ctrl.done()">Done</button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-checkbox ng-model="product.checked" ng-repeat="product in $ctrl.products">{{product.name}}</ion-checkbox>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>
+

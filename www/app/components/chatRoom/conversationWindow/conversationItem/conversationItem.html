@@ -1,0 +1,39 @@
+<div class="conversation-item" ng-class="{'me':$ctrl.item.customerId}">
+  <div class="row">
+    <div class="avatar" ng-if="$ctrl.item.shopId">
+      <img src="http://placehold.it/40x40">
+    </div>
+    <div class="col" style="min-width:0px;">
+      <div class="message-container">
+        <div>
+          <div class="message">{{$ctrl.item.message}}</div>
+        </div>
+        <div>
+          <div class="products-container">
+            <div class="list card product" ng-repeat="product in $ctrl.item.products">
+                <div class="item item-image" ng-if="product.images.length>=0">
+                  <img class="" ng-src="{{product.images[0]}}">
+                </div>
+                <div class="item item-text-wrap">
+                  {{product.name}}
+                </div>
+              </div>
+          </div>
+        </div>
+        <div>
+          <div class="products-container">
+            <div class="list card product" ng-repeat="image in $ctrl.item.images">
+                <div class="item item-image">
+                  <img class="" ng-src="{{image}}">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="avatar" ng-if="$ctrl.item.customerId">
+        <img src="http://placehold.it/40x40">
+    </div>
+  </div>
+</div>

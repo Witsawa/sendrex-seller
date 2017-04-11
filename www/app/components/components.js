@@ -23,6 +23,8 @@ import ImagePicker from './imagePicker/imagePicker'
 import MultiImagePicker from './multiImagePicker/multiImagePicker'
 import ScheduleForm from './scheduleForm/scheduleForm.js'
 import DeliveryMethodForm from './deliveryMethodForm/deliveryMethodForm'
+import ChatList from './chatList/chatList'
+import ChatRoom from './chatRoom/chatRoom'
 let componentModule = angular.module('app.components', [
   ProductList,
   ItemSelectModal,
@@ -48,7 +50,9 @@ let componentModule = angular.module('app.components', [
   ImagePicker,
   MultiImagePicker,
   ScheduleForm,
-  DeliveryMethodForm
+  DeliveryMethodForm,
+  ChatList,
+  ChatRoom
 ])
 
 .name;

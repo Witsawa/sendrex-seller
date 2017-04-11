@@ -16,6 +16,10 @@ class MultiImagePickerController {
     this.ngModel[otherIndex] = otherObj;
 
   }
+  chooseImage(){
+    let el = angular.element(document.getElementById(this.guid))
+    console.log(el)
+  }
 }
 
 MultiImagePickerController.$inject = ['$scope']

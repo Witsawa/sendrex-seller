@@ -27,6 +27,8 @@ import OrderDetail from './orderDetail/orderDetail'
 import Layout from './layout/layout'
 import Dashboard from './dashboard/dashboard'
 import Balance from './balance/balance'
+import ChatList from './chatList/chatList'
+import Chat from './chat/chat'
 let pageModule = angular.module('app.pages', [
     Tabs,
     Store,
@@ -56,7 +58,9 @@ let pageModule = angular.module('app.pages', [
   OrderDetail,
   Layout,
   Dashboard,
-  Balance
+  Balance,
+  ChatList,
+  Chat
 ])
 
 .name;
