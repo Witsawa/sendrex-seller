@@ -3,7 +3,7 @@
     <ion-nav-back-button ng-click="$ctrl.goBack()"></ion-nav-back-button>
   </ion-nav-bar>
   <ion-content scroll="false">
-    <ion-slides ion-wizard slider="swiper" options="swiperOptions">
+    <ion-slides ion-wizard slider="swiper" options="$ctrl.swiperOptions">
       <ion-slide-page ion-wizard-step >
         <ion-content>
           <shop-form shop="$ctrl.shop"></shop-form>

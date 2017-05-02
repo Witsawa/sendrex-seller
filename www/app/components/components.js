@@ -25,6 +25,7 @@ import ScheduleForm from './scheduleForm/scheduleForm.js'
 import DeliveryMethodForm from './deliveryMethodForm/deliveryMethodForm'
 import ChatList from './chatList/chatList'
 import ChatRoom from './chatRoom/chatRoom'
+import MapLocationPicker from './mapLocationPicker/mapLocationPicker'
 let componentModule = angular.module('app.components', [
   ProductList,
   ItemSelectModal,
@@ -52,7 +53,8 @@ let componentModule = angular.module('app.components', [
   ScheduleForm,
   DeliveryMethodForm,
   ChatList,
-  ChatRoom
+  ChatRoom,
+  MapLocationPicker
 ])
 
 .name;

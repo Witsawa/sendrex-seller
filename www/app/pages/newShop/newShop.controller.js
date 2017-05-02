@@ -1,11 +1,18 @@
 class NewShopController {
-  constructor($ionicHistory,Shop,$state,localStorageService,getCurrentUser) {
+  constructor($ionicHistory,Shop,$state,localStorageService,getCurrentUser,$timeout) {
     this.name = 'newShop';
+    let self = this
     this._$ionicHistory = $ionicHistory
     this._Shop  = Shop
     this._$state = $state
     this.user = getCurrentUser
     this._localStorageService = localStorageService
+    this.swiperOptions = {
+      paginationType: 'custom',
+      paginationBulletRender: function (index, className) {
+          return '';
+      }
+    }
     this.shop = new Shop({
       "name": "",
       "description": "",
@@ -14,7 +21,12 @@ class NewShopController {
           "lat": 0,
           "lng": 0
         },
-        "formatted_address": ""
+        "formatted_address": "",
+        "adddress": "",
+        "city": "",
+        "state": "",
+        "country":"TH",
+        "postal":""
       },
       "open_close": [
         {
@@ -63,7 +75,16 @@ class NewShopController {
       "email": this.user.email,
       "businessCategoryId":0
     })
-
+    navigator.geolocation.getCurrentPosition((position)=>{
+      let geolocation = {
+        lat:position.coords.latitude,
+        lng:position.coords.longitude
+      }
+      $timeout(()=>{
+        self.shop.contact_location.geolocation = geolocation
+        self.shop.location.geolocation = geolocation
+      })
+    })
   }
   goBack() {
     console.log('go back')
@@ -84,6 +105,6 @@ class NewShopController {
   }
 }
 
-NewShopController.$inject = ["$ionicHistory",'Shop','$state','localStorageService','getCurrentUser']
+NewShopController.$inject = ["$ionicHistory",'Shop','$state','localStorageService','getCurrentUser','$timeout']
 
 export default NewShopController;

@@ -2,40 +2,53 @@
   <ion-item class="item-divider">
     Information
   </ion-item>
-  <ion-item class="item-input item-floating-label">
+  <ion-item class="item-input item-stacked-label">
     <label class="input-label">Shop name</label>
-    <input type="text" ng-model="$ctrl.shop.name" placeholder="Shop name">
+    <input type="text" ng-model="$ctrl.shop.name" placeholder="">
   </ion-item>
   <item-select-modal class="select-floating" ng-model="$ctrl.shop.businessCategoryId" options="$ctrl.categories" text-key="name" value-key="id" title="Select category" default-text="">
-    Business category
+    Restaurant category
   </item-select-modal>
-  <ion-item class="item-input item-floating-label">
+  <ion-item class="item-input item-stacked-label">
     <label class="input-label">Description</label>
-    <textarea rows="3" ng-model="$ctrl.shop.description" placeholder="Description"></textarea>
+    <textarea rows="3" ng-model="$ctrl.shop.description" placeholder=""></textarea>
   </ion-item>
-  
-  <location-picker ng-model="$ctrl.shop.location" class="select-floating">
-    Shop location
-  </location-picker>
   <ion-item class="item-divider">
     Contact
   </ion-item>
 
-  <ion-item class="item-input item-floating-label">
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">Address</label>
+    <input type="text" ng-model="$ctrl.shop.contact_location.address" placeholder="">
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">District</label>
+    <input type="text" ng-model="$ctrl.shop.contact_location.city" placeholder="">
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">Province</label>
+    <input type="text" ng-model="$ctrl.shop.contact_location.state" placeholder="">
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">Postcode</label>
+    <input type="text" ng-model="$ctrl.shop.contact_location.postal" placeholder="">
+  </ion-item>
+  <ion-item class="item-borderless item-stacked-label" style="overflow:visible;">
+    <label class="input-label">Shop location</label>
+    <map-location-picker ng-model="$ctrl.shop.location"></map-location-picker>
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
     <label class="input-label">Contact number</label>
     <input type="text" ng-model="$ctrl.shop.contact_number" placeholder="Contact number">
   </ion-item>
-  <ion-item class="item-input item-floating-label">
+  <ion-item class="item-input item-stacked-label">
     <label class="input-label">Email</label>
     <input type="text" ng-model="$ctrl.shop.email" placeholder="Email">
   </ion-item>
-  <ion-item class="item-input item-floating-label">
+  <ion-item class="item-input item-stacked-label">
     <label class="input-label">Website</label>
     <input type="text" ng-model="$ctrl.shop.website" placeholder="Website">
   </ion-item>
-  <location-picker ng-model="$ctrl.shop.contact_location" class="select-floating">
-    Contact address
-  </location-picker>
   <ion-item class="item-divider">
     Service time
   </ion-item>

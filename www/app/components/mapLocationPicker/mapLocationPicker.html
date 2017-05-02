@@ -1,0 +1,16 @@
+<ion-list style="position:relative;">
+  <ion-item class="item-input item-stacked-label">
+    <textarea rows="3" ng-focus="$ctrl.showSuggestion=true" ng-blur="$ctrl.showSuggestion= false" name="placesearch" ng-model="$ctrl.ngModel.formatted_address" ng-change="$ctrl.querySuggestions($ctrl.ngModel.formatted_address)" placeholder="Type something to search"></textarea>
+  </ion-item>
+  <div ng-show="$ctrl.showSuggestion" style="position:absolute;width:100%;z-index:1001;">
+    <ion-item ng-repeat="suggest in $ctrl.suggestions" ng-click="$ctrl.selectSuggestion(suggest)" style="background-color:white;">
+      {{suggest.description}}
+    </ion-item>
+  </div>
+</ion-list>
+<div data-tap-disabled="true" style="width:100%;padding-top:56.65%;position:relative;">
+  <div style="width:100%;height:100%;top:0px;left:0px;position:absolute;">
+    <leaflet width="100%" height="100%" markers="$ctrl.markers" center="$ctrl.center" defaults="$ctrl.defaults" tiles="$ctrl.tiles"></leaflet>
+  </div>
+</div>
+

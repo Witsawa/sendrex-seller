@@ -9939,6 +9939,9 @@ typing-area .item-input-wrapper {
   width: 100%; }
   typing-area .item-input-wrapper textarea {
     width: 100%; }
+.leaflet-container img {
+  max-width: none !important;
+  max-height: none !important; }
 .tab-store.tabs-top.tabs-color-light .tab-item {
   color: rgba(255, 255, 255, 0.4);
   opacity: 1; }
@@ -10063,16 +10066,16 @@ typing-area .item-input-wrapper {
 .bar .button.button-icon.icon:before {
   font-size: 20px; }
 
-.item-floating-label {
+.item-floating-label, .item-stacked-label {
   border-width: 0;
   padding-right: 16px; }
-  .item-floating-label .input-label {
+  .item-floating-label .input-label, .item-stacked-label .input-label {
     font-size: 12px;
     font-weight: bold;
     padding: 0; }
-  .item-floating-label input[type="text"], .item-floating-label input[type="password"], .item-floating-label input[type="email"], .item-floating-label input[type="number"] {
+  .item-floating-label input[type="text"], .item-floating-label input[type="password"], .item-floating-label input[type="email"], .item-floating-label input[type="number"], .item-stacked-label input[type="text"], .item-stacked-label input[type="password"], .item-stacked-label input[type="email"], .item-stacked-label input[type="number"] {
     border-bottom: 1px solid #ddd; }
-  .item-floating-label textarea {
+  .item-floating-label textarea, .item-stacked-label textarea {
     line-height: 24px;
     border-bottom: 1px solid #ddd; }
 
