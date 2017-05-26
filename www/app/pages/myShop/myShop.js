@@ -16,6 +16,11 @@ let myShopModule = angular.module('myShop', [
             controller: myShopPage.controller,
             controllerAs: '$ctrl'
           }
+        },
+        resolve: {
+          getCurrentShop:['Shop','getCurrentShopId','$q',(Shop,getCurrentShopId,$q)=>{
+            return Shop.findById({id:getCurrentShopId}).$promise
+          }]
         }
 
       });

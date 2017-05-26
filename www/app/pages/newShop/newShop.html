@@ -2,18 +2,37 @@
   <ion-nav-bar class="bar-dark">
     <ion-nav-back-button ng-click="$ctrl.goBack()"></ion-nav-back-button>
   </ion-nav-bar>
-  <ion-content scroll="false">
+  <ion-content scroll="false" class="has-footer "> 
     <ion-slides ion-wizard slider="swiper" options="$ctrl.swiperOptions">
       <ion-slide-page ion-wizard-step >
         <ion-content>
           <shop-form shop="$ctrl.shop"></shop-form>
         </ion-content>
       </ion-slide-page>
+      <!--<ion-slide-page ion-wizard-step>
+        <ion-content>
+          <payment-form shop="$ctrl.shop"></payment-form>
+        </ion-content>
+      </ion-slide-page>-->
       <ion-slide-page ion-wizard-step>
-        <payment-form shop="$ctrl.shop"></payment-form>
+        <ion-content scroll="false">
+          <schedule-form class="border-bottom" ng-model="$ctrl.shop.open_close">
+            Operating time
+          </schedule-form>
+        </ion-content>
       </ion-slide-page>
       <ion-slide-page ion-wizard-step>
-        <delivery-form shop="$ctrl.shop"></delivery-form>
+        <ion-content scroll="false">
+          <schedule-form class="border-bottom" ng-model="$ctrl.shop.delivery_time" >
+            Delivery time
+          </schedule-form>
+        </ion-content>
+      </ion-slide-page>
+      <ion-slide-page ion-wizard-step>
+        <ion-content scroll="false">
+          <delivery-method-form ng-model="$ctrl.shop.delivery_conditions" >
+          </delivery-method-form>
+        </ion-content>
       </ion-slide-page>
       <ion-slide-page ion-wizard-step>
         <h1 class="text-center padding" style="margin-top: 40px;font-size: 50px"><i class="icon ion-happy-outline positive"></i></h1>

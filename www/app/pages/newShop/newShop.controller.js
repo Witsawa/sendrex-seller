@@ -95,6 +95,8 @@ class NewShopController {
   createShop(s){
     let self = this
     let data = angular.copy(s)
+    data._open_close = data.open_close
+    data._delivery_time = data.delivery_time
     this._Shop.create(data).$promise.then((shop)=>{
       console.log("Shop created",shop)
       self._localStorageService.set('shopId',shop.id)

@@ -35,7 +35,7 @@ let tabsModule = angular.module('tabs', [
               }],
             getCurrentShop:['Shop','getCurrentShopId','$q',(Shop,getCurrentShopId,$q)=>{
 
-              return Shop.findById({id:getCurrentShopId}).$promise
+              return Shop.findById({id:getCurrentShopId,filter:{ where: {includeNonPublic:true}}}).$promise
             }]
           }
 

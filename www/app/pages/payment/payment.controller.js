@@ -1,5 +1,5 @@
 class PaymentController {
-  constructor(getCurrentShop,Shop,$ionicHistory) {
+  constructor(getCurrentShop,$ionicHistory,Shop) {
     this.name = 'payment';
     this.shop = getCurrentShop
     this._Shop = Shop
@@ -16,7 +16,6 @@ class PaymentController {
     })
   }
 }
-
-PaymentController.$inject = ['getCurrentShop','Shop','$ionicHistory']
+PaymentController.$inject = ['getCurrentShop','$ionicHistory','Shop']
 
 export default PaymentController;

@@ -2,6 +2,18 @@ class ShopDetailHeaderController {
   constructor(Shop,$scope) {
     this.name = 'shopDetailHeader';
     this._Shop = Shop
+    this.followers = 0
+    this.getFollower();
+  }
+  getFollower(){
+    let self = this
+    this._Shop.followers.count({id:this.shop.id}).$promise.then(function (followersCount) {
+      self.followers = followersCount
+      
+    }, function (err) {
+      console.log(err)
+    })
+    console.log(this._Shop)
   }
   save(){
     let self = this

@@ -7,6 +7,7 @@ let scheduleFormComponent = {
   bindings: {
     ngModel:"="
   },
+  transclude:true,
   template,
   controller
 };

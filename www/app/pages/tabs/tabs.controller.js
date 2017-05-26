@@ -1,8 +1,10 @@
 class TabsController {
-  constructor($state,$ionicHistory) {
+  constructor($state,$ionicHistory,getCurrentShop) {
     this.name = 'tabs';
     this._$state =$state
     this._$ionicHistory = $ionicHistory
+    this.shop = getCurrentShop
+    this.showAlert = true
   }
   getStateUrl(stateName,params){
     return this._$state.href(stateName, params || {});
@@ -16,5 +18,5 @@ class TabsController {
   }
 }
 
-TabsController.$inject = ['$state','$ionicHistory']
+TabsController.$inject = ['$state','$ionicHistory','getCurrentShop']
 export default TabsController;

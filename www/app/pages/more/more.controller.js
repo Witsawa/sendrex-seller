@@ -5,6 +5,6 @@ class MoreController {
   }
 }
 
-MoreController.$inject = ["getCurrentShop"]
+MoreController.$inject = ["getCurrentShop","Shop"]
 
 export default MoreController;

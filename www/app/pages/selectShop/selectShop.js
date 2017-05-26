@@ -20,7 +20,14 @@ let selectShopModule = angular.module('selectShop', [
             getCurrentUser:['Customer',(Customer)=>{
               return Customer.findById({id:Customer.getCurrentId(),filter:{
                 include:[
-                  {shopStaffs:['shop']}
+                  {shopStaffs:[{
+                    relation: 'shop', 
+                    scope: {
+                      where: {
+                        includeNonPublic: true
+                      }
+                    }
+                  }]}
                 ]
               }}).$promise
             }]

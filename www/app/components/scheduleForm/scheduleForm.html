@@ -1,5 +1,5 @@
 <div class="row flex-column schedule">
-  <span class="schedule-caption">Delivery time</span>
+  <span class="schedule-caption" ng-transclude></span>
   <div class="schedule-container">
     <div>
       <ion-item ng-repeat="schedule in $ctrl.schedules track by $index" ng-click="$ctrl.edit(schedule)" on-hold="$ctrl.showActions(schedule)">

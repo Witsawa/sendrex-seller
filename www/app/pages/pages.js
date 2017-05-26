@@ -29,6 +29,10 @@ import Dashboard from './dashboard/dashboard'
 import Balance from './balance/balance'
 import ChatList from './chatList/chatList'
 import Chat from './chat/chat'
+import SelectShopMore from './selectShopMore/selectShopMore'
+import OperationTime from './operationTime/operationTime'
+import Publish from './publish/publish'
+import Billing from './billing/billing'
 let pageModule = angular.module('app.pages', [
     Tabs,
     Store,
@@ -60,7 +64,11 @@ let pageModule = angular.module('app.pages', [
   Dashboard,
   Balance,
   ChatList,
-  Chat
+  Chat,
+  SelectShopMore,
+  OperationTime,
+  Publish,
+  Billing
 ])
 
 .name;

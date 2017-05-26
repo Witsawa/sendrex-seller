@@ -1,0 +1,87 @@
+<div class="list">
+  <ion-item class="item-divider">
+    Bank account
+  </ion-item>
+  <div class="select-floating">
+    <ion-item class="item-select item-input">
+      <label>
+        Bank
+      </label>
+      <select ng-model="$ctrl.shop.bank_account.bank_account.brand">
+        <option value="test" selected>Test Bank</option>
+        <option value="bbl">Bangkok Bank</option>
+        <option value="kbank">Kasikornbank</option>
+        <option value="ktb">Krungthai Bank</option>
+        <option value="tmb">TMB Bank</option>
+        <option value="scb">Siam Commercial Bank</option>
+        <option value="citi">Citibank</option>
+        <option value="cimb">CIMB Thai Bank</option>
+        <option value="uob">United Overseas Bank (Thai)</option>
+        <option value="bay">Bank of Ayudhya (Krungsri)</option>
+        <option value="tbank">Thanachart Bank</option>
+        <option value="ibank">Islamic Bank of Thailand</option>
+        <option value="lhb">Land and Houses Bank</option>
+      </select>
+    </ion-item>
+  </div>
+  <div class="select-floating">
+    <ion-item class="item-input item-select">
+    <label class="input-label">
+      Account type
+    </label>
+    <select ng-model="$ctrl.shop.bank_account.type">
+      <option value="individual" selected>Individual</option>
+      <option value="corporation">Corporation</option>
+    </select>
+  </ion-item>
+  </div>
+  <ion-item class=" item-input item-stacked-label">
+    <label class="input-label">
+      Account name
+    </label>
+    <input type="text" placeholder="" ng-model="$ctrl.shop.bank_account.bank_account.name">
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">
+      Account number
+    </label>
+    <input type="text" placeholder="" ng-model="$ctrl.shop.bank_account.bank_account.number">
+  </ion-item>
+  <ion-item class="item-divider">
+    Credit card info
+  </ion-item>
+  <ion-item class="item-input item-stacked-label">
+    <label class="input-label">
+      Name
+    </label>
+    <input type="text" placeholder="" ng-model="$ctrl.shop.bank_account.bank_account.number">
+  </ion-item>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Cardholder Name</span>
+    <input type="text" placeholder="Cardholder name" ng-model="card.name">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Card number</span>
+    <input type="text" placeholder="Card number" ng-model="card.number">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Expiration month</span>
+    <input type="number" placeholder="Expiration month" ng-model="card.expiration_month">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Expiration year</span>
+    <input type="number" placeholder="Expiration year" ng-model="card.expiration_year">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Security code</span>
+    <input type="text" placeholder="Security code" ng-model="card.security_code">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">City</span>
+    <input type="text" placeholder="City" ng-model="card.city">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Postal code</span>
+    <input type="text" placeholder="Postal code" ng-model="card.postal_code">
+  </label>
+</div>

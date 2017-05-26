@@ -1,0 +1,56 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-clear" ng-click="$ctrl.cancelBankAccount()">Cancel</button>
+        <h1 class="title">Bank account</h1>
+        <button class="button button-clear" ng-click="$ctrl.saveBankAccount()">Done</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+          <div class="select-floating">
+            <div class="item item-select item-input">
+              <label>
+                Bank
+              </label>
+              <select ng-model="bank.bank_account.brand">
+                <option value="test" selected>Test Bank</option>
+                <option value="bbl">Bangkok Bank</option>
+                <option value="kbank">Kasikornbank</option>
+                <option value="ktb">Krungthai Bank</option>
+                <option value="tmb">TMB Bank</option>
+                <option value="scb">Siam Commercial Bank</option>
+                <option value="citi">Citibank</option>
+                <option value="cimb">CIMB Thai Bank</option>
+                <option value="uob">United Overseas Bank (Thai)</option>
+                <option value="bay">Bank of Ayudhya (Krungsri)</option>
+                <option value="tbank">Thanachart Bank</option>
+                <option value="ibank">Islamic Bank of Thailand</option>
+                <option value="lhb">Land and Houses Bank</option>
+              </select>
+            </div>
+          </div>
+          <div class="select-floating">
+            <ion-item class="item-input item-select">
+              <label class="input-label">
+                Account type
+              </label>
+              <select ng-model="bank.type">
+                <option value="individual" selected>Individual</option>
+                <option value="corporation">Corporation</option>
+              </select>
+            </ion-item>
+          </div>
+          <ion-item class=" item-input item-stacked-label">
+            <label class="input-label">
+              Account name
+            </label>
+            <input type="text" placeholder="" ng-model="bank.bank_account.name">
+          </ion-item>
+          <ion-item class="item-input item-stacked-label">
+            <label class="input-label">
+              Account number
+            </label>
+            <input type="text" placeholder="" ng-model="bank.bank_account.number">
+          </ion-item>
+        </div>
+    </ion-content>
+</ion-modal-view>

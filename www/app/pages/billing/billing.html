@@ -1,0 +1,17 @@
+<ion-view view-title="Billing">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-click="$ctrl.editCreditCard()">
+        Credit card
+        <span class="item-note" ng-if="$ctrl.cards.length > 0" > **** **** **** {{$ctrl.cards[$ctrl.cards.length -1].last_digits}}</span>
+        <span class="item-note" ng-if="$ctrl.cards.length == 0" > No credit card</span>
+      </ion-item>
+      <ion-item ng-click="$ctrl.editBankAccount()">
+        Bank account
+        <span class="item-note" ng-if="$ctrl.bankaccount.last_digits" > **** **** **** {{$ctrl.bankaccount.last_digits}}</span>
+        <span class="item-note" ng-if="!$ctrl.bankaccount.last_digits" > No bank account</span>
+      </ion-item>
+      <ion-toggle ng-model="$ctrl.shop.public" ng-click="$ctrl.togglePublish()">Publish shop</ion-toggle>
+    </ion-list>
+  </ion-content>
+</ion-view>

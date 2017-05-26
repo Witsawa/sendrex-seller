@@ -1,8 +1,10 @@
+
 class MyShopController {
-  constructor(getCurrentShop,Shop) {
+  constructor(getCurrentShop,Shop,$ionicModal,$scope,Omise) {
     this.name = 'myShop';
     this.shop = getCurrentShop
     this._Shop = Shop
+    this._Omise = Omise
   }
   save(){
     let self = this
@@ -16,6 +18,6 @@ class MyShopController {
   }
 }
 
-MyShopController.$inject = ['getCurrentShop','Shop']
+MyShopController.$inject = ['getCurrentShop','Shop','$ionicModal','$scope','Omise']
 
 export default MyShopController;

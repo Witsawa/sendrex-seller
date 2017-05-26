@@ -1,0 +1,58 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-clear" ng-click="$ctrl.cancelCreditCard()">Cancel</button>
+        <h1 class="title">Credit card</h1>
+        <button class="button button-clear" ng-click="$ctrl.saveCreditCard()">Done</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+          <ion-item class="item-input item-stacked-label">
+            <label class="input-label">
+              Credit card name
+            </label>
+            <input type="text" placeholder="" ng-model="card.name">
+          </ion-item>
+          <ion-item class="item-input item-stacked-label">
+            <label class="input-label">
+              Credit card number
+            </label>
+            <input type="text" placeholder="" ng-model="card.number">
+          </ion-item>
+          <ion-item class="item-input item-stacked-label">
+            <label class="input-label">Expire</label>
+            <div class="row no-gutter">
+              <div class="col">
+                <label class="input-label">
+                   Month
+                </label>
+                <input type="text" placeholder="e.g. 2" ng-model="card.expiration_month">
+              </div>
+              <div class="col">
+                <label class="input-label">
+                   Year
+                </label>
+                <input type="text" placeholder="e.g. 2020" ng-model="card.expiration_year">
+              </div>
+            </div>
+          </ion-item>
+          <ion-item class="item-input item-stacked-label">
+            <label class="input-label">
+              Security code
+            </label>
+            <input type="text" placeholder="e.g. 132" ng-model="card.security_code">
+          </ion-item>
+          <ion-item class="item-input item-stacked-label">
+            <label class="input-label">
+              City
+            </label>
+            <input type="text" placeholder="" ng-model="card.city">
+          </ion-item>
+          <ion-item class="item-input item-stacked-label">
+            <label class="input-label">
+              Postal code
+            </label>
+            <input type="text" placeholder="" ng-model="card.postal_code">
+          </ion-item>
+        </div>
+    </ion-content>
+</ion-modal-view>

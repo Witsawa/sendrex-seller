@@ -1,6 +1,13 @@
 <ion-nav-bar class="bar-dark">
   <ion-nav-back-button ng-click="$ctrl.goBack()"></ion-nav-back-button>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-energized" ng-if="!$ctrl.shop.public" ng-click="$ctrl.showAlert = !$ctrl.showAlert"><i class="icon ion-alert-circled"></i></button>
+  </ion-nav-buttons>
 </ion-nav-bar>
+<ion-header-bar class="bar bar-subheader bar-energized" ng-if="!$ctrl.shop.public && $ctrl.showAlert" ui-sref="tabs.more">
+  <p class="title small">Your shop is not publish</p>
+  <button class="button button-clear" ng-click="$ctrl.showAlert = false"><i class="icon ion-ios-close"></i></button>
+</ion-header-bar>
 <ion-tabs class="tabs-striped tabs-color-positive {{$root.showroottab?'':'tabs-item-hide'}}">
 
   <ion-tab title="Dashboard" href="{{$ctrl.getStateUrl('tabs.dashboard')}}">

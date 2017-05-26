@@ -365,6 +365,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use Shop.paymentMethods.findById() instead.
+            "prototype$__findById__paymentMethods": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/shops/:id/paymentMethods/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.destroyById() instead.
+            "prototype$__destroyById__paymentMethods": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/shops/:id/paymentMethods/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.updateById() instead.
+            "prototype$__updateById__paymentMethods": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/shops/:id/paymentMethods/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use Shop.transactions.findById() instead.
             "prototype$__findById__transactions": {
               params: {
@@ -749,6 +776,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use Shop.shopProductCategories.count() instead.
             "prototype$__count__shopProductCategories": {
               url: urlBase + "/shops/:id/shopProductCategories/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods() instead.
+            "prototype$__get__paymentMethods": {
+              isArray: true,
+              url: urlBase + "/shops/:id/paymentMethods",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.create() instead.
+            "prototype$__create__paymentMethods": {
+              url: urlBase + "/shops/:id/paymentMethods",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.destroyAll() instead.
+            "prototype$__delete__paymentMethods": {
+              url: urlBase + "/shops/:id/paymentMethods",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.count() instead.
+            "prototype$__count__paymentMethods": {
+              url: urlBase + "/shops/:id/paymentMethods/count",
               method: "GET",
             },
 
@@ -1576,6 +1628,156 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "report": {
               url: urlBase + "/shops/report",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop#prototype$updateBankAccount
+             * @methodOf lbServices.Shop
+             *
+             * @description
+             *
+             * get report
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `bank` – `{object}` -
+             *
+             *  - `isReplace` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Shop` object.)
+             * </em>
+             */
+            "prototype$updateBankAccount": {
+              url: urlBase + "/shops/:id/updateBankAccount",
+              method: "PUT",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop#prototype$addCreditCard
+             * @methodOf lbServices.Shop
+             *
+             * @description
+             *
+             * add shop credit card
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `token` – `{string}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Shop` object.)
+             * </em>
+             */
+            "prototype$addCreditCard": {
+              url: urlBase + "/shops/:id/addCreditCard",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop#prototype$getCard
+             * @methodOf lbServices.Shop
+             *
+             * @description
+             *
+             * get shop credit card
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Shop` object.)
+             * </em>
+             */
+            "prototype$getCard": {
+              isArray: true,
+              url: urlBase + "/shops/:id/getCard",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop#prototype$getBankAccount
+             * @methodOf lbServices.Shop
+             *
+             * @description
+             *
+             * get shop bank account
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Shop` object.)
+             * </em>
+             */
+            "prototype$getBankAccount": {
+              url: urlBase + "/shops/:id/getBankAccount",
               method: "GET",
             },
 
@@ -5464,6 +5666,341 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.shopProductCategories.updateById = function() {
           var TargetResource = $injector.get("ShopProductCategory");
           var action = TargetResource["::updateById::Shop::shopProductCategories"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Shop.paymentMethods
+     * @header lbServices.Shop.paymentMethods
+     * @object
+     * @description
+     *
+     * The object `Shop.paymentMethods` groups methods
+     * manipulating `PaymentMethod` instances related to `Shop`.
+     *
+     * Call {@link lbServices.Shop#paymentMethods Shop.paymentMethods()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop#paymentMethods
+             * @methodOf lbServices.Shop
+             *
+             * @description
+             *
+             * Queries paymentMethods of shop.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `filter` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `PaymentMethod` object.)
+             * </em>
+             */
+        R.paymentMethods = function() {
+          var TargetResource = $injector.get("PaymentMethod");
+          var action = TargetResource["::get::Shop::paymentMethods"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop.paymentMethods#count
+             * @methodOf lbServices.Shop.paymentMethods
+             *
+             * @description
+             *
+             * Counts paymentMethods of shop.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.paymentMethods.count = function() {
+          var TargetResource = $injector.get("PaymentMethod");
+          var action = TargetResource["::count::Shop::paymentMethods"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop.paymentMethods#create
+             * @methodOf lbServices.Shop.paymentMethods
+             *
+             * @description
+             *
+             * Creates a new instance in paymentMethods of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `PaymentMethod` object.)
+             * </em>
+             */
+        R.paymentMethods.create = function() {
+          var TargetResource = $injector.get("PaymentMethod");
+          var action = TargetResource["::create::Shop::paymentMethods"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop.paymentMethods#createMany
+             * @methodOf lbServices.Shop.paymentMethods
+             *
+             * @description
+             *
+             * Creates a new instance in paymentMethods of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `PaymentMethod` object.)
+             * </em>
+             */
+        R.paymentMethods.createMany = function() {
+          var TargetResource = $injector.get("PaymentMethod");
+          var action = TargetResource["::createMany::Shop::paymentMethods"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop.paymentMethods#destroyAll
+             * @methodOf lbServices.Shop.paymentMethods
+             *
+             * @description
+             *
+             * Deletes all paymentMethods of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `where` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.paymentMethods.destroyAll = function() {
+          var TargetResource = $injector.get("PaymentMethod");
+          var action = TargetResource["::delete::Shop::paymentMethods"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop.paymentMethods#destroyById
+             * @methodOf lbServices.Shop.paymentMethods
+             *
+             * @description
+             *
+             * Delete a related item by id for paymentMethods.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for paymentMethods
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.paymentMethods.destroyById = function() {
+          var TargetResource = $injector.get("PaymentMethod");
+          var action = TargetResource["::destroyById::Shop::paymentMethods"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop.paymentMethods#findById
+             * @methodOf lbServices.Shop.paymentMethods
+             *
+             * @description
+             *
+             * Find a related item by id for paymentMethods.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `fk` – `{*}` - Foreign key for paymentMethods
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `PaymentMethod` object.)
+             * </em>
+             */
+        R.paymentMethods.findById = function() {
+          var TargetResource = $injector.get("PaymentMethod");
+          var action = TargetResource["::findById::Shop::paymentMethods"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Shop.paymentMethods#updateById
+             * @methodOf lbServices.Shop.paymentMethods
+             *
+             * @description
+             *
+             * Update a related item by id for paymentMethods.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - shop id
+             *
+             *  - `fk` – `{*}` - Foreign key for paymentMethods
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `data` – `{object=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `PaymentMethod` object.)
+             * </em>
+             */
+        R.paymentMethods.updateById = function() {
+          var TargetResource = $injector.get("PaymentMethod");
+          var action = TargetResource["::updateById::Shop::paymentMethods"];
           return action.apply(R, arguments);
         };
     /**
@@ -31674,6 +32211,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "createChangeStream": {
               url: urlBase + "/paymentMethods/change-stream",
               method: "POST",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.findById() instead.
+            "::findById::Shop::paymentMethods": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/shops/:id/paymentMethods/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.destroyById() instead.
+            "::destroyById::Shop::paymentMethods": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/shops/:id/paymentMethods/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.updateById() instead.
+            "::updateById::Shop::paymentMethods": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/shops/:id/paymentMethods/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods() instead.
+            "::get::Shop::paymentMethods": {
+              isArray: true,
+              url: urlBase + "/shops/:id/paymentMethods",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.create() instead.
+            "::create::Shop::paymentMethods": {
+              url: urlBase + "/shops/:id/paymentMethods",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.createMany() instead.
+            "::createMany::Shop::paymentMethods": {
+              isArray: true,
+              url: urlBase + "/shops/:id/paymentMethods",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.destroyAll() instead.
+            "::delete::Shop::paymentMethods": {
+              url: urlBase + "/shops/:id/paymentMethods",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Shop.paymentMethods.count() instead.
+            "::count::Shop::paymentMethods": {
+              url: urlBase + "/shops/:id/paymentMethods/count",
+              method: "GET",
             },
           }
         );

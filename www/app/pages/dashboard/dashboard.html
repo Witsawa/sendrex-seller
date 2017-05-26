@@ -12,5 +12,11 @@
         <p>{{$ctrl.pendingOrders.count}}</p>
       </div>
     </div>
+    <div class="card" ui-sref="tabs.more" ng-if="!$ctrl.shop.public">
+      <div class="item item-text-wrap assertive-bg light">
+        <h2><b class="danger">Your shop is not publish</b></h2>
+        <p>Click here to publish</p>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

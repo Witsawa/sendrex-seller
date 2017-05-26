@@ -24,7 +24,7 @@
           <ion-item ng-repeat="shop in $ctrl.shops | limitTo:3" ng-click="$ctrl.selectShop(shop)">
             {{shop.name}}
           </ion-item>
-          <ion-item ng-if="$ctrl.shops.length>3">
+          <ion-item ng-if="$ctrl.shops.length>3" ui-sref="layout.selectShopMore">
             More shops
           </ion-item>
         </ion-list>
