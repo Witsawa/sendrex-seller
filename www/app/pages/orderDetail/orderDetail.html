@@ -33,9 +33,7 @@
                 </p>
               </div>
               <div class="col-50">
-                <p ng-if="['omise'].indexOf($ctrl.order.transaction.source) != -1">
-                  Credit card ({{$ctrl.order.transaction.status}})
-                </p>
+                {{$ctrl.order.payment_channel}}
               </div>
             </div>
           </ion-item>
@@ -56,7 +54,7 @@
               <span class="pull-right">+ {{option.price | currency:$ctrl.order.shop.currency}}</span>
             </p>
           </div>
-          <div>
+          <div ng-if="item.promotionId">
             <p><b>Promotions</b></p>
             <p ng-repeat="promotion in item.product.promotions">
               - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?"%":""}} Off)
@@ -85,7 +83,7 @@
               </div>
             </div>
           </div>
-          <div>
+          <div ng-if="item.promotionId">
             <p><b>Promotions</b></p>
             <p ng-repeat="promotion in item.productValuePack.promotions">
               - {{promotion.name}} ({{promotion.discount_amount}}{{promotion.discount_percent?"%":""}} Off)
@@ -122,9 +120,21 @@
       </ion-item>
       <ion-item>
         <span class="h5">Total price</span>
-            <span class="pull-right">
-              {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.order.shop.currency}}
-            </span>
+        <span class="pull-right">
+          {{($ctrl.order.total_price- $ctrl.order.total_discount) | currency:$ctrl.order.shop.currency}}
+        </span>
+      </ion-item>
+      <ion-item>
+        <span class="h5">Delivery fee</span>
+        <span class="pull-right">
+          {{($ctrl.order.deliveryFee) | currency:$ctrl.order.shop.currency}}
+        </span>
+      </ion-item>
+      <ion-item>
+        <span class="h5">Grand total</span>
+        <span class="pull-right">
+          {{($ctrl.order.total_price- $ctrl.order.total_discount + $ctrl.order.deliveryFee) | currency:$ctrl.order.shop.currency}}
+        </span>
       </ion-item>
       <ion-item>
         <span class="h5">Order status</span>

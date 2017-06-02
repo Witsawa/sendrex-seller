@@ -46,9 +46,21 @@
             </span>
         </p>
         <p>
+          <b>Delivery method : </b>
+          <span style="float:right;">
+            <b>{{order.delivery_method}}</b>
+          </span>
+        </p>
+        <p>
+          <b>Payment method : </b>
+          <span style="float:right;">
+            <b>{{order.payment_channel}}</b>
+          </span>
+        </p>
+        <p>
           <b>Total price : </b>
           <span style="float:right;">
-            <b>{{(order.total_price - order.total_discount) | currency:order.shop.currency}}</b>
+            <b>{{(order.total_price - order.total_discount + order.deliveryFee) | currency:order.shop.currency}}</b>
           </span>
         </p>
       </ion-item>
