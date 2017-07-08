@@ -1,3 +1,47 @@
-tabs{
+#footer-tabs{
+  .tab-item {
+  	position: relative;
+
+  	.tab-title {
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    bottom: -15px;
+	    font-size: 11px;
+
+	    &:before {
+	    	font-family: fontAwesome;
+		    position: absolute;
+		    top: -20px;
+		    left: 0;
+		    right: 0;
+		    font-size: 16px;
+	    }
+  	}
+
+	  &.dashboard .tab-title {
+	  	font-size: 9px;
+	  	&:before {
+	  		content: "\f0e4";
+	  	}
+	  }
+	  &.store .tab-title:before {
+	  	content: "\f1b2 ";
+	  }
+	  &.order .tab-title:before {
+	  	content: "\f07a ";
+	  }
+	  &.balance .tab-title:before {
+	  	content: "\f155 ";
+	  }
+	  &.contact .tab-title:before {
+	  	content: "\f2bc ";
+	  }
+	  &.more .tab-title:before {
+	  	content: "\f141 ";
+	  }
+  }
+
 
 }
+

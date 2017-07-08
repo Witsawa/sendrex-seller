@@ -1,3 +1,13 @@
 
-$primary-color: #387ef5;
+$primary-color: #3CABFA;
 $border-color: #ddd;
+$gradient-color-from: #3CABFA;
+$gradient-color-to: #3BD0FB;
+
+@mixin bg-gradient() {
+  background: $gradient-color-from !important;
+  background: -webkit-linear-gradient(left, $gradient-color-from, $gradient-color-to) !important;
+  background: -o-linear-gradient(right, $gradient-color-from, $gradient-color-to) !important;
+  background: -moz-linear-gradient(right, $gradient-color-from, $gradient-color-to) !important;
+  background: linear-gradient(to right, $gradient-color-from , $gradient-color-to) !important;
+}

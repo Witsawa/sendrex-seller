@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content id="product-list-component">
   <ion-refresher
           pulling-text="Pull to refresh..."
           on-refresh="$ctrl.refresh()">
@@ -6,15 +6,13 @@
 <ion-list>
 
   <form>
-    <ion-item class="item-input-inset">
-      <label class="item-input-wrapper">
-        <input type="search" placeholder="Search product" ng-model="query">
-      </label>
-      <button type="submit" class="button button-clear button-stable" ng-click="$ctrl.search(query)"><i class="icon ion-search"></i></button>
+    <ion-item class="item-input-inset search-section">
+      <input type="search" placeholder="Search product" ng-model="query">
+      <button type="submit" class="button button-clear button-stable search-btn" ng-click="$ctrl.search(query)"><i class="icon ion-ios-search-strong"></i></button>
     </ion-item>
   </form>
   <item-select-modal item-class="item-divider" ng-model="$ctrl.category" on-select="$ctrl.filterChange(value)" options="$ctrl.categories" text-key="name" value-key="id" title="Select category" default-text="All category">
-    <label class="h4">Filter: </label>
+    <label><b>Filter: </b></label>
   </item-select-modal>
   <ion-list>
     <ion-item ng-repeat="product in $ctrl.products" ng-click="$ctrl.onItemClick({product:product})">

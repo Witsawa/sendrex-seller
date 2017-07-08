@@ -1,14 +1,16 @@
-<div class="row flex-column schedule">
-  <span class="schedule-caption">Delivery fee</span>
+<div class="schedule">
+  <h6 class="schedule-caption">Delivery fee</h6>
   <div class="schedule-container">
-    <div>
-      <ion-item ng-repeat="condition in $ctrl.conditions track by $index" ng-click="$ctrl.editCondition(condition)" on-hold="$ctrl.showActions(condition)">
+    <div class="card card-border-left" ng-repeat="condition in $ctrl.conditions track by $index" ng-click="$ctrl.editCondition(condition)" on-hold="$ctrl.showActions(condition)">
+      <div class="item item-text-wrap">
+        <h4 class="margin-bottom-10">
           {{condition.from}} km - {{condition.to}} km
-          <span class="item-note dark">
-              {{condition.service_fee==0?"Free":(condition.service_fee | currency:"USD")}}
+          <span style="float:right;">
+            {{condition.service_fee==0?"Free":(condition.service_fee | currency:"USD")}}
           </span>
-      </ion-item>
+        </h4>
+      </div>
     </div>
   </div>
-  <button class="button button-clear button-positive text-left" ng-click="$ctrl.editCondition()">Add more range</button>
+  <button class="button button-clear add-more-btn" ng-click="$ctrl.editCondition()"><i class="icon ion-ios-plus-outline"></i> Add more range</button>
 </div>

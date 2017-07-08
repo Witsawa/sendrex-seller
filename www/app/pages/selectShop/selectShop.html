@@ -1,16 +1,18 @@
 <ion-view view-title="SelectShop" class="select-shop">
+  <div class="bg-profile"></div>
   <ion-content padding="true">
     <div class="row row-center">
       <div class="col col-center">
         <div class="profile-image" style="background-image:url({{$ctrl.user.image}}),url(http://placehold.it/200x200);position:relative;">
-          <button class="button button-positive button-fab" ui-sref="layout.myProfile"><i class="icon ion-edit"></i></button>
+          <button class="button button-positive button-fab pencil-btn" ui-sref="layout.myProfile"><i class="icon ion-edit"></i></button>
         </div>
         
       </div>
     </div>
     <div class="row row-center">
       <div class="col col-center">
-        Welcome, {{$ctrl.user.firstname&&$ctrl.user.lastname?$ctrl.user.firstname+" "+$ctrl.user.lastname:"" || $ctrl.user.email}}
+        <p class="primary-text">Welcome</p>
+        <p class="primary-text">{{$ctrl.user.firstname&&$ctrl.user.lastname?$ctrl.user.firstname+" "+$ctrl.user.lastname:"" || $ctrl.user.email}}</p>
       </div>
     </div>
     <div class="row row-center" ng-show="$ctrl.shops.length>0">
@@ -20,19 +22,20 @@
     </div>
     <div class="row row-center" ng-show="$ctrl.shops.length>0">
       <div class="col col-center">
-        <ion-list class="shop-list">
-          <ion-item ng-repeat="shop in $ctrl.shops | limitTo:3" ng-click="$ctrl.selectShop(shop)">
-            {{shop.name}}
-          </ion-item>
-          <ion-item ng-if="$ctrl.shops.length>3" ui-sref="layout.selectShopMore">
-            More shops
-          </ion-item>
-        </ion-list>
-
+        <div class="card card-border-left" ng-repeat="shop in $ctrl.shops | limitTo:3" ng-click="$ctrl.selectShop(shop)">
+          <div class="item item-text-wrap">
+            <p>{{shop.name}}</p>
+          </div>
+        </div>
+        <div class="card card-border-left" ng-if="$ctrl.shops.length>3" ui-sref="layout.selectShopMore">
+          <div class="item item-text-wrap">
+            <p>More shops</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row row-center">
-      <div class="col col-center col-50 col-offset-25">
+      <div class="col col-center col-80 col-offset-10">
         <button class="button button-positive button-block" ui-sref="newShop">New shop</button>
       </div>
     </div>

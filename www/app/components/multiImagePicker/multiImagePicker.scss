@@ -1,7 +1,10 @@
 multi-image-picker{
   .button.button-add {
-    width:100%;
-    height:100%;
+		width: 100%;
+    height: 100%;
     border-radius: 50%;
+    border: 1px dashed;
+    color: #999;
+    background: transparent;
   }
 }

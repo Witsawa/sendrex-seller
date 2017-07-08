@@ -1,3 +1,25 @@
-productList{
+@import '../../styleVariable';
 
+#product-list-component {
+	.search-section {
+		padding-bottom: 20px;
+		@include bg-gradient();
+
+		input {
+			width: 100%;
+	    border-radius: 20px;
+	    padding: 10px 20px;
+	    background: rgb(36, 138, 200);
+	    height: auto;
+	    color: rgb(255, 255, 255);
+		}
+
+		.search-btn {
+			position: absolute;
+	    right: 30px;
+	    top: 1px;
+	    min-width: auto;
+	    color: #fff;
+		}
+	}
 }

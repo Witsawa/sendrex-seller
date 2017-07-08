@@ -2,33 +2,23 @@
   <ion-content>
     <div class="card">
       <div class="item item-text-wrap">
-          <h2><b>Available</b></h2>
-          <p>{{$ctrl.balance.total | currency: $ctrl.shop.currency}}</p>
-          <buton type="button" class="button button-positive" ng-click="$ctrl.withdraw()">Withdraw</buton>
+        <h4 class="margin-bottom-10"><b>Available</b></h4>
+        <p class="margin-bottom-10">{{$ctrl.balance.total | currency: $ctrl.shop.currency}}</p>
+        <buton type="button" class="button button-positive" ng-click="$ctrl.withdraw()">Withdraw</buton>
       </div>
     </div>
     <div class="card">
-      <div class="item item-divider">
-          Statement
-      </div>
-      <div class="item" ng-repeat="transaction in $ctrl.transactions">
-        <div class="row">
-          <div class="col">
-            <div ng-if="transaction.type=='charge'" ui-sref="tabs.balanceOrderDetail({id:transaction.orderId})">
-              Order (id: {{transaction.orderId}})
-            </div>
-            <div ng-if="transaction.type=='withdraw'">
-              Withdraw
-            </div>
-             <div ng-if="transaction.type=='deliveryFee'" ui-sref="tabs.balanceOrderDetail({id:transaction.orderId})">
-              Delivery fee (Order ID: {{transaction.orderId}})
-            </div>
-          </div>
-          <div class="col text-right">{{transaction.amount | currency: $ctrl.shop.currency}}</div>
+      <div class="item item-text-wrap">
+        <h4 class="margin-bottom-10"><b>Statement</b></h4>
+        <div ng-repeat="transaction in $ctrl.transactions">
+          <p class="margin-bottom-10" ng-if="transaction.type=='charge'" ui-sref="tabs.balanceOrderDetail({id:transaction.orderId})">Order (id: {{transaction.orderId}}) <span class="margin-bottom-10 pull-right">{{transaction.amount | currency: $ctrl.shop.currency}}</span></p>
+          <p class="margin-bottom-10" ng-if="transaction.type=='withdraw'">Withdraw <span class="margin-bottom-10 pull-right">{{transaction.amount | currency: $ctrl.shop.currency}}</span></p>
+          <p class="margin-bottom-10" ng-if="transaction.type=='deliveryFee'" ui-sref="tabs.balanceOrderDetail({id:transaction.orderId})">Delivery fee (Order ID: {{transaction.orderId}})
+
+          <span class="margin-bottom-10 pull-right">{{transaction.amount | currency: $ctrl.shop.currency}}</span>
+          </p>
         </div>
-      </div>
-      <div class="item" ng-show="$ctrl.transactions.length == 0">
-        No data
+        <p class="margin-bottom-10" ng-show="$ctrl.transactions.length == 0">No data</p>
       </div>
     </div>
   </ion-content>
