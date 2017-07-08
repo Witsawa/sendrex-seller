@@ -1,9 +1,12 @@
 <div class="list">
   <div class="item item-avatar" ng-repeat="conversation in $ctrl.conversations" ui-sref="^.chat({id:conversation.id})">
     <img ng-src="conversation.customer.image">
-    <h2 ng-if="conversation.customer.displayname">{{conversation.customer.displayname}}</h2>
-    <h2 ng-if="!conversation.customer.displayname && conversation.customer.firstname && conversation.customer.lastname">{{conversation.customer.firstname}} {{conversation.customer.lastname}}</h2>
-    <h2 ng-if="!conversation.customer.displayname && !conversation.customer.firstname && !conversation.customer.lastname">{{conversation.customer.email}}</h2>
-    <p>{{conversation.conversationItems[0].message}}</p>
+    <div class="chat-intro">
+    	<h2 ng-if="conversation.customer.displayname">{{conversation.customer.displayname}}</h2>
+    	<h2 class="chat-name" ng-if="!conversation.customer.displayname && conversation.customer.firstname && conversation.customer.lastname">{{conversation.customer.firstname}} {{conversation.customer.lastname}}</h2>
+    	<h2 ng-if="!conversation.customer.displayname && !conversation.customer.firstname && !conversation.customer.lastname">{{conversation.customer.email}}</h2>
+    	<p>{{conversation.conversationItems[0].message}}</p>
+    </div>
+
   </div>
 </div>

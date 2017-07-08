@@ -1,4 +1,4 @@
-<ion-nav-bar class="bar-dark">
+<ion-nav-bar class="background-gradient">
   <ion-nav-back-button ng-click="$ctrl.goBack()"></ion-nav-back-button>
   <ion-nav-buttons side="right">
     <button class="button button-clear button-energized" ng-if="!$ctrl.shop.public" ng-click="$ctrl.showAlert = !$ctrl.showAlert"><i class="icon ion-alert-circled"></i></button>
@@ -8,9 +8,9 @@
   <p class="title small">Your shop is not publish</p>
   <button class="button button-clear" ng-click="$ctrl.showAlert = false"><i class="icon ion-ios-close"></i></button>
 </ion-header-bar>
-<ion-tabs class="tabs-striped tabs-color-positive {{$root.showroottab?'':'tabs-item-hide'}}">
+<ion-tabs id="footer-tabs" class="tabs-striped tabs-color-positive {{$root.showroottab?'':'tabs-item-hide'}}">
 
-  <ion-tab title="Dashboard" href="{{$ctrl.getStateUrl('tabs.dashboard')}}">
+  <ion-tab title="Dashboard" class="dashboard" href="{{$ctrl.getStateUrl('tabs.dashboard')}}">
     <!-- Tab 1 content -->
 
     <ion-nav-view name="tab-dashboard-content">
@@ -19,7 +19,7 @@
 
   </ion-tab>
 
-  <ion-tab title="Store" href="{{$ctrl.getStateUrl('tabs.store.products')}}">
+  <ion-tab title="Store" class="store" href="{{$ctrl.getStateUrl('tabs.store.products')}}">
     <!-- Tab 1 content -->
 
     <ion-nav-view name="tab-store-content">
@@ -28,7 +28,7 @@
 
   </ion-tab>
 
-  <ion-tab title="Order" href="{{$ctrl.getStateUrl('tabs.order')}}">
+  <ion-tab title="Order" class="order" href="{{$ctrl.getStateUrl('tabs.order')}}">
     <!-- Tab 2 content -->
 
     <ion-nav-view name="tab-order-content">
@@ -37,7 +37,7 @@
 
   </ion-tab>
 
-  <ion-tab title="Balance" href="{{$ctrl.getStateUrl('tabs.balance')}}">
+  <ion-tab title="Balance" class="balance" href="{{$ctrl.getStateUrl('tabs.balance')}}">
     <!-- Tab 1 content -->
 
     <ion-nav-view name="tab-balance-content">
@@ -46,7 +46,7 @@
 
   </ion-tab>
 
-  <ion-tab title="Contact" href="{{$ctrl.getStateUrl('tabs.contact.chatList')}}">
+  <ion-tab title="Contact" class="contact" href="{{$ctrl.getStateUrl('tabs.contact.chatList')}}">
     <!-- Tab 3 content -->
 
     <ion-nav-view name="tab-contact-content">
@@ -54,7 +54,7 @@
     </ion-nav-view>
 
   </ion-tab>
-  <ion-tab title="More" href="{{$ctrl.getStateUrl('tabs.more')}}">
+  <ion-tab title="More" class="more" href="{{$ctrl.getStateUrl('tabs.more')}}" >
     <!-- Tab 4 content -->
 
     <ion-nav-view name="tab-more-content">

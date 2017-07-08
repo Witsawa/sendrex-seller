@@ -1,8 +1,8 @@
 <ion-modal-view>
-    <ion-header-bar class="bar-dark">
-        <button class="button button-clear" ng-click="$ctrl.save()">Done</button>
+    <ion-header-bar class="background-gradient">
+        <button class="button button-clear" ng-click="$ctrl.save()"><i class="icon ion-ios-checkmark-outline"></i></button>
         <h1 class="title">Schedule</h1>
-        <button class="button button-clear" ng-click="$ctrl.edit()"><i class="icon ion-android-add"></i></button>
+        <button class="button button-clear" ng-click="$ctrl.edit()"><i class="icon ion-ios-plus-outline"></i></button>
     </ion-header-bar>
     <ion-content>
         <ion-item ng-repeat="schedule in $ctrl.schedules track by $index" ng-click="$ctrl.edit(schedule)" on-hold="$ctrl.showActions(schedule)">

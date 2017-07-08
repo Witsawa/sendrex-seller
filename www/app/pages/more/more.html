@@ -1,37 +1,55 @@
 <ion-view view-title="More" show-root-tabs>
   <ion-content>
     <shop-detail-header shop="$ctrl.shop" style="width:100%;"> </shop-detail-header>
-    <ion-list>
-      <ion-item ui-sref="^.myProfile">
-        <i class="icon ion-android-person padding-right"></i> My profile
-      </ion-item>
-      <ion-item ui-sref="^.myShop">
-        <i class="icon ion-home padding-right"></i> My shop
-      </ion-item>
-      <!--<ion-item ui-sref="^.socialMedia">
-        Social media
-      </ion-item>-->
-      <!--<ion-item ui-sref="^.payment">
-        <i class="icon ion-card padding-right"></i> Payment Method
-      </ion-item>-->
-      <ion-item ui-sref="^.operationTime">
-        <i class="icon ion-clock padding-right"></i> Operation time
-      </ion-item>
-      <ion-item ui-sref="^.delivery">
-        <i class="icon ion-android-car padding-right"></i> Delivery
-      </ion-item>
-      <!--<ion-item ui-sref="^.staff">
-        <i class="icon ion-android-people padding-right"></i> Staff
-      </ion-item>-->
-      <ion-item ui-sref="^.billing">
-        <i class="icon ion-card padding-right"></i> Billing
-      </ion-item>
-      <ion-item ui-sref="selectShop">
-        <i class="icon ion-arrow-swap padding-right"></i> Change shop
-      </ion-item>
-      <ion-item ui-sref="logout">
-        <i class="icon ion-log-out padding-right"></i> Logout
-      </ion-item>
-    </ion-list>
+          
+    <div class="card">
+      <div class="item item-text-wrap">
+        <p ui-sref="^.myProfile">
+          <i class="icon ion-ios-contact padding-right"></i> My profile
+          <span style="float:right;">
+            {{$ctrl.shop.email}}
+          </span>
+        </p>
+        <p ui-sref="^.myShop">
+          <i class="icon ion-home padding-right"></i> My shop
+          <span style="float:right;">
+            {{$ctrl.shop.name}}
+          </span>
+        </p>
+        <p ui-sref="^.operationTime">
+          <i class="icon ion-clock padding-right"></i> Operation time
+          <span style="float:right;">
+            
+          </span>
+        </p>
+        <p ui-sref="^.delivery">
+          <i class="fa fa-truck padding-right"></i> Delivery
+          <span style="float:right;">
+            
+          </span>
+        </p>
+        <p ui-sref="^.billing">
+          <i class="icon ion-card padding-right"></i> Billing
+          <span style="float:right;">
+            
+          </span>
+        </p>
+        <p ui-sref="selectShop">
+          <i class="icon ion-arrow-swap padding-right"></i> Change shop
+        </p>
+        <p ui-sref="logout">
+          <i class="icon ion-log-out padding-right"></i> Logout
+        </p>
+        <!-- <p ui-sref="^.socialMedia">
+          Social media
+        </p>
+        <p ui-sref="^.payment">
+          <i class="icon ion-card padding-right"></i> Payment Method
+        </p>
+        <p ui-sref="^.staff">
+          <i class="icon ion-android-people padding-right"></i> Staff
+        </p> -->
+      </div>
+    </div>
   </ion-content>
 </ion-view>

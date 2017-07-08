@@ -1,3 +1,4 @@
+
 shop-detail-header{
   .shop-cover{
     background-repeat: no-repeat;
@@ -7,16 +8,37 @@ shop-detail-header{
     padding-bottom:20px;
   }
   .shop-image{
-    margin:5px;
-    width:90px;
-    height:90px;
+    width:100px;
+    height:100px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size:cover;
-
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%, 0);
     .preview-image {
       border-radius: 50%;
     }
+  }
+
+  .shop-address {
+    padding: 60px 10px 10px;
+    text-align: center;
+    font-size: 10px;
+    color: #666;
+    margin: 0;
+  }
+
+  .shop-number {
+    text-align: center;
+    font-size: 10px;
+    color: #666;
+  }
+
+  .sep-border {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
   }
 
   image-picker .preview-image {

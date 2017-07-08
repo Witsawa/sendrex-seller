@@ -1,21 +1,21 @@
 <ion-view view-title="Dashboard" show-root-tabs>
   <ion-content class="dashboard">
-    <div class="card" ui-sref="tabs.balance">
+    <div class="card card-border-left" ui-sref="tabs.balance">
       <div class="item item-text-wrap">
-        <h2><b>Balance</b></h2>
-        <p>{{$ctrl.balance.total | currency}}</p>
+        <h4 class="margin-bottom-10"><b>Balance</b></h4>
+        <p class="margin-bottom-10">{{$ctrl.balance.total | currency}}</p>
       </div>
     </div>
-    <div class="card" ui-sref="tabs.order">
+    <div class="card card-border-left" ui-sref="tabs.order">
       <div class="item item-text-wrap">
-        <h2><b>Pending Orders</b></h2>
-        <p>{{$ctrl.pendingOrders.count}}</p>
+        <h4 class="margin-bottom-10"><b>Pending Orders</b></h4>
+        <p class="margin-bottom-10">{{$ctrl.pendingOrders.count}}</p>
       </div>
     </div>
-    <div class="card" ui-sref="tabs.more" ng-if="!$ctrl.shop.public">
-      <div class="item item-text-wrap assertive-bg light">
-        <h2><b class="danger">Your shop is not publish</b></h2>
-        <p>Click here to publish</p>
+    <div class="card card-border-left" ui-sref="tabs.order" ng-if="!$ctrl.shop.public">
+      <div class="item item-text-wrap">
+        <h4 class="margin-bottom-10"><b>Your shop is not publish</b></h4>
+        <p class="margin-bottom-10">Click here to publish</p>
       </div>
     </div>
   </ion-content>

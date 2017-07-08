@@ -1,11 +1,16 @@
-@import './../../styleVariable.scss';
 .schedule{
-    .schedule-caption{
-        padding:10px 0px;
-    }
-    .schedule-container{
-        flex:auto;
-        overflow-y:auto;
-        border:1px solid $border-color;
-    }
+  .schedule-caption{
+    padding: 6px 10px 0px;
+  }
+  .add-more-btn {
+  	margin-top: -10px;
+  	margin-left: 10px;
+  	color: #666;
+
+  	.icon:before {
+			font-size: 20px;
+			line-height: 14px;
+			margin-right: 5px;
+  	}
+  }
 }

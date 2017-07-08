@@ -1,3 +1,8 @@
-shopForm{
+@import '../../styleVariable';
 
+.shop-form{
+  .title {
+    margin: 10px 16px 0;
+    color: darken($primary-color, 30%);
+  }
 }
